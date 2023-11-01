@@ -8,22 +8,30 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var userTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    
 
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        passwordTextField.clipsToBounds = true
+        passwordTextField.layer.cornerRadius = 10.0
+        passwordTextField.layer.borderWidth = 1.0  
+        passwordTextField.layer.borderColor = UIColor.red.cgColor
     }
 
-
-    
-    @IBAction func loginButton(_ sender: Any) {
-        let opcionesView = OpcionesViewController()
-        self.navigationController?.pushViewController(opcionesView, animated: true)
+    @IBAction func logInButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToOpcionesStoryboard", sender: self)
     }
     
-    @IBAction func anotherLogin(_ sender: Any) {
-        let opcionesView = OpcionesViewController()
-        self.navigationController?.pushViewController(opcionesView, animated: true)
-    }
+    
 }
 
