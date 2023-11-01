@@ -13,6 +13,8 @@
 		83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */; };
 		83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */; };
 		83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */; };
+		83E8DABB2AF1D8FD00106AA6 /* OpcionesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DABA2AF1D8FD00106AA6 /* OpcionesViewController.xib */; };
+		83E8DABD2AF1D91100106AA6 /* OpcionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DABC2AF1D91100106AA6 /* OpcionesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83E8DAAC2AF1B3AF00106AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83E8DAAE2AF1B3AF00106AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E8DABA2AF1D8FD00106AA6 /* OpcionesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpcionesViewController.xib; sourceTree = "<group>"; };
+		83E8DABC2AF1D91100106AA6 /* OpcionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,11 @@
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
 				83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */,
 				83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */,
-				83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */,
 				83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */,
+				83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */,
 				83E8DAAE2AF1B3AF00106AA6 /* Info.plist */,
+				83E8DABA2AF1D8FD00106AA6 /* OpcionesViewController.xib */,
+				83E8DABC2AF1D91100106AA6 /* OpcionesViewController.swift */,
 			);
 			path = RecolectoresIOSApp;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
+				83E8DABB2AF1D8FD00106AA6 /* OpcionesViewController.xib in Resources */,
 				83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				83E8DAA52AF1B3AE00106AA6 /* ViewController.swift in Sources */,
 				83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */,
+				83E8DABD2AF1D91100106AA6 /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

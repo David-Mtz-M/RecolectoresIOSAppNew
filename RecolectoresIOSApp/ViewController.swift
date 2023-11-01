@@ -15,5 +15,15 @@ class ViewController: UIViewController {
     }
 
 
+    
+    @IBAction func loginButton(_ sender: Any) {
+        let opcionesView = OpcionesViewController()
+        self.navigationController?.pushViewController(opcionesView, animated: true)
+    }
+    
+    @IBAction func anotherLogin(_ sender: Any) {
+        let opcionesView = OpcionesViewController()
+        self.navigationController?.pushViewController(opcionesView, animated: true)
+    }
 }
 
