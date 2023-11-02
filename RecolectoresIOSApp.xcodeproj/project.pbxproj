@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83BD9D6C2AF2C94100C1EA4C /* Opciones.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BD9D6B2AF2C94100C1EA4C /* Opciones.storyboard */; };
+		83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2DBFD2AF300EE00E86BBA /* OpcionesViewController.swift */; };
 		83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */; };
 		83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */; };
 		83E8DAA52AF1B3AE00106AA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		83BD9D6B2AF2C94100C1EA4C /* Opciones.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Opciones.storyboard; sourceTree = "<group>"; };
+		83C2DBFD2AF300EE00E86BBA /* OpcionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesViewController.swift; sourceTree = "<group>"; };
 		83E8DA9D2AF1B3AE00106AA6 /* RecolectoresIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecolectoresIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */,
 				83E8DAAE2AF1B3AF00106AA6 /* Info.plist */,
 				83BD9D6B2AF2C94100C1EA4C /* Opciones.storyboard */,
+				83C2DBFD2AF300EE00E86BBA /* OpcionesViewController.swift */,
 			);
 			path = RecolectoresIOSApp;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			files = (
 				83E8DAA52AF1B3AE00106AA6 /* ViewController.swift in Sources */,
 				83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */,
+				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

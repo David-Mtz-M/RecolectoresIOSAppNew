@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 10.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor.red.cgColor
+
     }
 
     @IBAction func logInButton(_ sender: Any) {
