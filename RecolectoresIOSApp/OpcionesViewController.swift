@@ -10,16 +10,29 @@ import UIKit
 
 class OpcionesViewController: UIViewController {
     
-    @IBOutlet weak var optionsImgView: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //options
-        optionsImgView.layer.shadowColor = UIColor.black.cgColor
-        optionsImgView.layer.shadowOpacity = 0.4
-        optionsImgView.layer.shadowOffset = CGSize(width: 1, height: 1)
-        optionsImgView.layer.shadowRadius = 2
-        optionsImgView.layer.masksToBounds = false
+        configureItems()
+
+    }
+    @objc private func moveBackToBeginning() {
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "logInStoryboard") as! ViewController
+        self.navigationController?.pushViewController(mainViewController, animated: true)
+    }
+
+    
+    private func configureItems(){
+        
+        var profileImg = UIImage(named: "profile")
+        profileImg = profileImg?.withRenderingMode(.alwaysOriginal)
+        
+        var logoutImg = UIImage(named: "logoutButton")
+        logoutImg = logoutImg?.withRenderingMode(.alwaysOriginal)
+    
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoutImg, style: .done, target: self, action: #selector(moveBackToBeginning))
     }
     
 }

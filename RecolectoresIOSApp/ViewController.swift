@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureItems()
+        addBorderToNavigationBar()
         // Do any additional setup after loading the view.
         userTextField.clipsToBounds = true
         userTextField.layer.cornerRadius = 10.0
@@ -24,13 +26,44 @@ class ViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 10.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor.red.cgColor
+        
+
 
     }
+
 
     @IBAction func logInButton(_ sender: Any) {
-        performSegue(withIdentifier: "goToOpcionesStoryboard", sender: self)
     }
     
+    
+    // hide navivatgion controller in the first storyboard
+    
+
+
+
+    private func configureItems(){
+        
+        var profileImg = UIImage(named: "profile")
+        profileImg = profileImg?.withRenderingMode(.alwaysOriginal)
+        
+        var logoutImg = UIImage(named: "logoutButton")
+        logoutImg = logoutImg?.withRenderingMode(.alwaysOriginal)
+    
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoutImg, style: .done, target: self, action: nil)
+    }
+    
+    private func addBorderToNavigationBar() {
+        if let navigationBar = self.navigationController?.navigationBar {
+            let borderLayer = CALayer()
+            borderLayer.frame = CGRect(x: 0, y: navigationBar.frame.size.height - 1, width: navigationBar.frame.size.width, height: 1)
+            borderLayer.backgroundColor = UIColor.black.cgColor // Set the border color here
+            navigationBar.layer.addSublayer(borderLayer)
+        }
+    }
+
+
+
     
 }
 
