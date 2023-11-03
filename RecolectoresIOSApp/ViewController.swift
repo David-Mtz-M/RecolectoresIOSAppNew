@@ -36,8 +36,11 @@ class ViewController: UIViewController {
     }
     
     
-    // hide navivatgion controller in the first storyboard
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
 
 
 
@@ -57,7 +60,7 @@ class ViewController: UIViewController {
         if let navigationBar = self.navigationController?.navigationBar {
             let borderLayer = CALayer()
             borderLayer.frame = CGRect(x: 0, y: navigationBar.frame.size.height - 1, width: navigationBar.frame.size.width, height: 1)
-            borderLayer.backgroundColor = UIColor.black.cgColor // Set the border color here
+            borderLayer.backgroundColor = UIColor.red.cgColor // Set the border color here
             navigationBar.layer.addSublayer(borderLayer)
         }
     }

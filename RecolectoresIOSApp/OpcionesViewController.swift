@@ -17,6 +17,12 @@ class OpcionesViewController: UIViewController {
         configureItems()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     @objc private func moveBackToBeginning() {
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "logInStoryboard") as! ViewController
         self.navigationController?.pushViewController(mainViewController, animated: true)
