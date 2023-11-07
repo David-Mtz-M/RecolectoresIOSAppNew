@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1531" y="-688"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="VAe-eL-lUg">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="6Jr-Pc-Q8g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="6Jr-Pc-Q8g" customClass="ProfileViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cbL-Ac-og2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="3819" y="41"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="rvC-2z-2Bc">
             <objects>
-                <viewController id="YSb-ty-2cb" sceneMemberID="viewController">
+                <viewController id="YSb-ty-2cb" customClass="DetailsViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFU-1W-uZw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,15 +291,27 @@
             </objects>
             <point key="canvasLocation" x="2726" y="815"/>
         </scene>
-        <!--View Controller-->
+        <!--Favourites View Controller-->
         <scene sceneID="ZdN-Pu-Mxi">
             <objects>
-                <viewController id="emG-4p-0xe" sceneMemberID="viewController">
+                <viewController id="emG-4p-0xe" customClass="FavouritesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H2i-oY-OjA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver Favoritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7s-6X-LBB">
+                                <rect key="frame" x="147" y="415.66666666666669" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ztN-eO-x80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M7s-6X-LBB" firstAttribute="centerY" secondItem="H2i-oY-OjA" secondAttribute="centerY" id="UVa-TX-lNG"/>
+                            <constraint firstItem="M7s-6X-LBB" firstAttribute="centerX" secondItem="H2i-oY-OjA" secondAttribute="centerX" id="Z7F-eU-fBr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fen-Zu-A6r"/>
                 </viewController>
@@ -307,10 +319,10 @@
             </objects>
             <point key="canvasLocation" x="2726" y="-688"/>
         </scene>
-        <!--View Controller-->
+        <!--Rides View Controller-->
         <scene sceneID="7qt-nB-BBP">
             <objects>
-                <viewController storyboardIdentifier="RidesVC" id="I2r-HM-QWF" sceneMemberID="viewController">
+                <viewController id="I2r-HM-QWF" customClass="RidesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gii-BR-Vti">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
