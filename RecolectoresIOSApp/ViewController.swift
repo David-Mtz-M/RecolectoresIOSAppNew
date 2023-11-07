@@ -27,8 +27,6 @@ class ViewController: UIViewController {
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor.red.cgColor
         
-
-
     }
 
 
@@ -40,6 +38,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+     
 
 
 

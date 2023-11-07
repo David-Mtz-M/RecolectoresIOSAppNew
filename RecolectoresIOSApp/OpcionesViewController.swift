@@ -11,11 +11,23 @@ import UIKit
 class OpcionesViewController: UIViewController {
     
 
+    @IBOutlet weak var requestsOption: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        
+        // Configurar imagen para que al hacer tap mande a otro storyboard
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(moveToRequestsSB))
+        requestsOption.isUserInteractionEnabled = true
+        requestsOption.addGestureRecognizer(tapGesture)
+
+    }
+    
+    @objc func moveToRequestsSB() {
+        performSegue(withIdentifier: "moveToRequestsSB", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +39,8 @@ class OpcionesViewController: UIViewController {
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "logInStoryboard") as! ViewController
         self.navigationController?.pushViewController(mainViewController, animated: true)
     }
+    
+
 
     
     private func configureItems(){
@@ -40,6 +54,9 @@ class OpcionesViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: nil)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: logoutImg, style: .done, target: self, action: #selector(moveBackToBeginning))
     }
+    
+
+
     
 }
 
