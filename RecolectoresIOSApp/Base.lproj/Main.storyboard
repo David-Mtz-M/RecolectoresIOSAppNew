@@ -108,7 +108,7 @@
         <!--Opciones View Controller-->
         <scene sceneID="mw7-l9-hxc">
             <objects>
-                <viewController storyboardIdentifier="OpcionesVC" id="rA8-2l-xrX" customClass="OpcionesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OptionsStoryboard" id="rA8-2l-xrX" customClass="OpcionesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mu6-Fh-qyb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +238,7 @@
         <!--Requests View Controller-->
         <scene sceneID="cd6-WP-3JN">
             <objects>
-                <viewController storyboardIdentifier="RequestsVC" id="i0S-vm-fjJ" customClass="RequestsViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RequestsStoryboard" id="i0S-vm-fjJ" customClass="RequestsViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w51-l5-Nx3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
