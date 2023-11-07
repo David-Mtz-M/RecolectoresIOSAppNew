@@ -13,6 +13,14 @@ class OpcionesViewController: UIViewController {
 
     @IBOutlet weak var requestsOption: UIImageView!
     
+    @IBOutlet weak var ridesOption: UIImageView!
+    
+    @IBOutlet weak var favouriteOption: UIImageView!
+    
+    @IBOutlet weak var profileOption: UIImageView!
+    
+    
+    @IBOutlet weak var detailsOption: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +28,50 @@ class OpcionesViewController: UIViewController {
         
         // Configurar imagen para que al hacer tap mande a otro storyboard
 
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(moveToRequestsSB))
+        let tapGestureRequests = UITapGestureRecognizer(target: self, action: #selector(moveToRequestsSB))
         requestsOption.isUserInteractionEnabled = true
-        requestsOption.addGestureRecognizer(tapGesture)
+        requestsOption.addGestureRecognizer(tapGestureRequests)
+        
+        let tapGestureRides = UITapGestureRecognizer(target: self, action: #selector(moveToRidesSB))
+        ridesOption.isUserInteractionEnabled = true
+        ridesOption.addGestureRecognizer(tapGestureRides)
+        
+        let tapGestureProfile = UITapGestureRecognizer(target: self, action: #selector(moveToProfileSB))
+        profileOption.isUserInteractionEnabled = true
+        profileOption.addGestureRecognizer(tapGestureProfile)
+        
+        let tapGestureDetails = UITapGestureRecognizer(target: self, action: #selector(moveToDetailsSB))
+        detailsOption.isUserInteractionEnabled = true
+        detailsOption.addGestureRecognizer(tapGestureDetails)
+        
+        let tapGestureFavourites = UITapGestureRecognizer(target: self, action: #selector(moveToFavouritesSB))
+        favouriteOption.isUserInteractionEnabled = true
+        favouriteOption.addGestureRecognizer(tapGestureFavourites)
+        
+        
 
     }
     
     @objc func moveToRequestsSB() {
         performSegue(withIdentifier: "moveToRequestsSB", sender: self)
     }
+    
+    @objc func moveToRidesSB() {
+        performSegue(withIdentifier: "moveToRidesSB", sender: self)
+    }
+    
+    @objc func moveToProfileSB() {
+        performSegue(withIdentifier: "moveToProfileSB", sender: self)
+    }
+    
+    @objc func moveToDetailsSB() {
+        performSegue(withIdentifier: "moveToDetailsSB", sender: self)
+    }
+    
+    @objc func moveToFavouritesSB() {
+        performSegue(withIdentifier: "moveToFavouritesSB", sender: self)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
