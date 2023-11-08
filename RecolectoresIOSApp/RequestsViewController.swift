@@ -16,12 +16,52 @@ import UIKit
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class RequestsViewController: UIViewController {
+class RequestsViewController: UIViewController, MKMapViewDelegate {
+    
+    
+    let map = MKMapView()
+    let coordinate = CLLocation(latitude: 19.01978414393505, longitude: -98.24497640379656)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        view.addSubview(map)
+        map.frame = view.bounds
+        
+        map.setRegion(MKCoordinateRegion(
+            center: coordinate.coordinate,
+            span: MKCoordinateSpan(
+                latitudeDelta: 0.1,
+                longitudeDelta: 0.1
+                )
+            ),
+            animated: true)
+        
+        map.delegate = self
+        
+        addCustomPin()
+    }
+
+    
+    private func addCustomPin(){
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate.coordinate
+        pin.title = "Pokemon here"
+        pin.subtitle = "Go and catch them all"
+        map.addAnnotation(pin)
+       
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        var annotationView: MKAnnotationView?
+        
+        return annotationView
     }
     
     private func configureItems(){
