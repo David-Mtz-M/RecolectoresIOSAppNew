@@ -32,12 +32,17 @@ class RequestsViewController: UIViewController {
         var returnImg = UIImage(named: "returnIcon")
         returnImg = returnImg?.withRenderingMode(.alwaysOriginal)
     
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: #selector(moveToProfile))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: returnImg, style: .done, target: self, action: #selector(moveBackToOptions))
     }
     
     @objc private func moveBackToOptions() {
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "OptionsStoryboard") as! OpcionesViewController
+        self.navigationController?.pushViewController(mainViewController, animated: true)
+    }
+    
+    @objc private func moveToProfile() {
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileStoryboard") as! ProfileViewController
         self.navigationController?.pushViewController(mainViewController, animated: true)
     }
     
