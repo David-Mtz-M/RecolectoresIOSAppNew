@@ -25,15 +25,15 @@ class Recolector {
     }
     
     convenience init(dictionary: [String: Any]) {
+        
         // Use optional binding with if let to safely unwrap the values
-        if let apellidos = dictionary["apellidos"] as? String,
-           let telefono = dictionary["telefono"] as? String,
-           let usuario = dictionary["usuario"] as? String,
-           let documentID = dictionary["documentID"] as? String {
-            self.init(documentID: documentID, apellidos: apellidos, telefono: telefono, usuario: usuario)
-        } else {
-            self.init() // Initialize with default values or handle the error case as needed
-        }
+        let apellidos = dictionary["apellidos"] as! String? ?? ""
+        let telefono = dictionary["telefono"] as! String? ?? ""
+        let usuario = dictionary["usuario"] as! String? ?? ""
+        let documentID = dictionary["documentID"] as! String? ?? ""
+
+        self.init(documentID: "", apellidos: apellidos, telefono: telefono, usuario: usuario)
+
     }
 
     

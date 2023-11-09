@@ -111,13 +111,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		835FAEB62AFC6DA500D68AB6 /* Model */ = {
+		835FAEB62AFC6DA500D68AB6 /* ModelRecolector */ = {
 			isa = PBXGroup;
 			children = (
 				835FAEB92AFC6E0700D68AB6 /* Recolector.swift */,
 				835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */,
 			);
-			path = Model;
+			path = ModelRecolector;
 			sourceTree = "<group>";
 		};
 		83E8DA942AF1B3AE00106AA6 = {
@@ -139,7 +139,7 @@
 		83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				835FAEB62AFC6DA500D68AB6 /* Model */,
+				835FAEB62AFC6DA500D68AB6 /* ModelRecolector */,
 				83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */,
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
 				83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */,
