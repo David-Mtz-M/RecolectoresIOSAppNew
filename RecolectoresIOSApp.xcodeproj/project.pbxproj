@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
+		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		839C35422AFAD9A80073FFEC /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C35412AFAD9A80073FFEC /* RequestsViewController.swift */; };
 		839C35442AFB05E50073FFEC /* RidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C35432AFB05E50073FFEC /* RidesViewController.swift */; };
 		839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C35452AFB064A0073FFEC /* ProfileViewController.swift */; };
@@ -47,9 +49,12 @@
 		83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */; };
 		83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */; };
 		83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */; };
+		83FE845B2AFC46CA00A976B4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
+		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		839C35412AFAD9A80073FFEC /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		839C35432AFB05E50073FFEC /* RidesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewController.swift; sourceTree = "<group>"; };
 		839C35452AFB064A0073FFEC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83E8DAAC2AF1B3AF00106AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83E8DAAE2AF1B3AF00106AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835FAEB62AFC6DA500D68AB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				835FAEB92AFC6E0700D68AB6 /* Recolector.swift */,
+				835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		83E8DA942AF1B3AE00106AA6 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +139,7 @@
 		83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				835FAEB62AFC6DA500D68AB6 /* Model */,
 				83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */,
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
 				83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */,
@@ -138,6 +154,7 @@
 				839C35472AFB067C0073FFEC /* DetailsViewController.swift */,
 				839C35492AFB06CC0073FFEC /* FavouritesViewController.swift */,
 				83B925772AFC06A2008E3D44 /* GoogleService-Info.plist */,
+				83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */,
 			);
 			path = RecolectoresIOSApp;
 			sourceTree = "<group>";
@@ -252,9 +269,12 @@
 				839C35442AFB05E50073FFEC /* RidesViewController.swift in Sources */,
 				839C35482AFB067C0073FFEC /* DetailsViewController.swift in Sources */,
 				83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */,
+				83FE845B2AFC46CA00A976B4 /* CustomTableViewCell.swift in Sources */,
+				835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */,
 				839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */,
 				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
+				835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

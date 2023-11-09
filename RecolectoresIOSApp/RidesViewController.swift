@@ -7,15 +7,29 @@
 
 
 import UIKit
+import FirebaseFirestore
+
 
 
 class RidesViewController: UIViewController {
+   
+    let database = Firestore.firestore()
+
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+     
 
     }
+    
+    //Firebase functions start
+    
+    
+    
+    //Firebase functions end
     
     private func configureItems(){
         

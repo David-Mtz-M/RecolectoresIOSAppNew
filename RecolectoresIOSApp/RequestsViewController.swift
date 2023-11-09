@@ -5,33 +5,43 @@
 //  Created by Administrador on 07/11/23.
 //
 
-import UIKit
-
-
-//
-//  ViewController.swift
-//  RecolectoresIOSApp
-//
-//  Created by Administrador on 31/10/23.
-//
 
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseFirestore
 
-class RequestsViewController: UIViewController, MKMapViewDelegate {
+class RequestsViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
-    let map = MKMapView()
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var recoleccionesTable: UITableView!
+    
+    private let dbReference = Firestore.firestore().collection("recolectores")
+    private (set) var recolectores = [Recolector]()
+    
+
+    
+    
+    struct Sunset {
+        let title: String
+        let imageName: String
+    }
+    
+    let data: [Sunset] = [
+        Sunset(title: "1", imageName: "house"),
+        Sunset(title: "2", imageName: "house"),
+        Sunset(title: "3", imageName: "house"),
+        Sunset(title: "4", imageName: "house"),
+    ]
+    
     let coordinate = CLLocation(latitude: 19.01978414393505, longitude: -98.24497640379656)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
-        view.addSubview(map)
-        map.frame = view.bounds
         
-        map.setRegion(MKCoordinateRegion(
+        self.map.setRegion(MKCoordinateRegion(
             center: coordinate.coordinate,
             span: MKCoordinateSpan(
                 latitudeDelta: 0.1,
@@ -40,9 +50,35 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
             ),
             animated: true)
         
-        map.delegate = self
+        self.map.delegate = self
         
         addCustomPin()
+        
+        
+        recoleccionesTable.dataSource = self
+        recoleccionesTable.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        debugPrint(recolectores.count)
+        return recolectores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let recolector = recolectores[indexPath.row]
+        
+        let cell = recoleccionesTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        
+        cell.clientName.text = recolector.apellidos
+        cell.iconImageView.image = UIImage(named: "house")
+        
+        return cell
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 
     
