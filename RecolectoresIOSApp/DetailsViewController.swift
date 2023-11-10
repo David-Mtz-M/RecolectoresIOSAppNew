@@ -8,13 +8,9 @@
 import UIKit
 
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureItems()
-
-    }
+    
     
     private func configureItems(){
         
@@ -40,6 +36,30 @@ class DetailsViewController: UIViewController {
         self.navigationController?.pushViewController(mainViewController, animated: true)
     }
     
+    @IBOutlet weak var detallesView: UITableView!
     
+    let detalles = ["Aceite de auto", "Aceite usado", "Árbol", "Baterias", "Bici", "Botellas", "Cartón", "Electrónicos", "Escombro", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicina", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetrapack", "Toner", "Voluminoso"]
     
-}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        detallesView.delegate = self
+        detallesView.dataSource = self
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return detalles.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = detallesView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
+            let detalle = detalles[indexPath.row]
+            cell.residuoImg.image = UIImage(named: detalle)
+            cell.infoLbl.text = detalle
+            return cell
+        }
+        
+        
+    }
