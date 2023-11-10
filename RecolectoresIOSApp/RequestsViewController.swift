@@ -28,10 +28,11 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var location: CLLocation!
     
     
-    
-
-    
     let coordinate = CLLocation(latitude: 19.01978414393505, longitude: -98.24497640379656)
+    
+    
+    // let distance = coordinate.distance(from: <#T##CLLocation#>)
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -48,6 +49,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             animated: true )
         
         self.map.delegate = self
+        map.showsUserLocation = true
         
         addCustomPin()
         
@@ -66,9 +68,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAH")
-        print(collectors.recolectoresArray.count)
+    
         
         
     }
@@ -83,6 +83,18 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             self.tableView.reloadData()
         }
     }
+    
+    
+    private func calculateDistance(){
+        
+        for recolector in recolecciones.recoleccionesArray{
+            print("userLocation DISTANCIAAAA")
+            let userLocation = locationManager.location
+            print(userLocation ?? "")
+        }
+    }
+    
+    
     
     private func showPins(){
         
@@ -103,31 +115,23 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let userLocation = locations[0] as CLLocation
         
         // get latitud, longitude
-      
-        
         let latitude = userLocation.coordinate.latitude
         let longitude = userLocation.coordinate.longitude
         
         let userPin = MKPointAnnotation()
-        let userCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        userPin.coordinate = userCoords
+        let iphoneCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        userPin.coordinate = iphoneCoords
         userPin.title = "Ubicacion de usuario"
         userPin.subtitle = "Me encuentro aqui!"
         map.addAnnotation(userPin)
         
-
         
-        print(latitude, longitude)
+        print("EEEEEEEE")
+        print(iphoneCoords)
         
         
     }
     
-    
-
-    
-    
-    
-
 
     
     private func addCustomPin(){
@@ -180,13 +184,25 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let iphoneLocationCoords = locationManager.location
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
+        
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.direccion?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "house-nobg")
+
+        if let iphoneCoords = iphoneLocationCoords {
+            let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
+            cell.distanciaEnMinutos?.text = String(format: "%.2f meters", distance)
+        } else {
+            cell.distanciaEnMinutos?.text = "N/A"
+        }
         
         showPins()
+
         
         return cell
     }
