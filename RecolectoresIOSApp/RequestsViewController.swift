@@ -18,8 +18,11 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
 
-    
+    // Arreglo de recolectores
     var collectors: Recolectores!
+    
+    // Arreglo de recolecciones
+    var recolecciones: Recolecciones!
     
 
     
@@ -44,11 +47,16 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
         
         collectors = Recolectores()
         
+        recolecciones = Recolecciones()
+        
         let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "recoleccionCel")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAH")
+        print(collectors.recolectoresArray.count)
         
     }
     
@@ -56,6 +64,10 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectors.loadData {
+            self.tableView.reloadData()
+        }
+        
+        recolecciones.loadData {
             self.tableView.reloadData()
         }
     }
@@ -108,13 +120,13 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
 
 extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return collectors.recolectoresArray.count
+        return recolecciones.recoleccionesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
         cell.backgroundColor = UIColor.clear
-        cell.nombreCliente?.text = collectors.recolectoresArray[indexPath.row].usuario
+        cell.nombreCliente?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "house-nobg")
         
         return cell
