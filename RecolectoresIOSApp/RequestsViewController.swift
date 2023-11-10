@@ -11,7 +11,8 @@ import MapKit
 import CoreLocation
 import FirebaseFirestore
 
-class RequestsViewController: UIViewController, MKMapViewDelegate {
+
+class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var map: MKMapView!
@@ -24,9 +25,14 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
     // Arreglo de recolecciones
     var recolecciones: Recolecciones!
     
+    var location: CLLocation!
+    
+    
+    
 
     
     let coordinate = CLLocation(latitude: 19.01978414393505, longitude: -98.24497640379656)
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +45,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
                 longitudeDelta: 0.1
                 )
             ),
-            animated: true)
+            animated: true )
         
         self.map.delegate = self
         
@@ -55,11 +61,17 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         print("AAAAAAAAAAAAAAAAAAAAAAAAAH")
         print(collectors.recolectoresArray.count)
         
+        
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,6 +83,50 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    private func showPins(){
+        
+        for recolector in recolecciones.recoleccionesArray{
+            let pin = MKPointAnnotation()
+            let latitude = Double(recolector.latitud) ?? 0
+            let longitude = Double(recolector.longitud) ?? 0
+
+            pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            pin.title = recolector.userInfo["nombreCompleto"] as? String
+            pin.subtitle = recolector.userInfo["direccion"] as? String
+            map.addAnnotation(pin)
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0] as CLLocation
+        
+        // get latitud, longitude
+      
+        
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        let userPin = MKPointAnnotation()
+        let userCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        userPin.coordinate = userCoords
+        userPin.title = "Ubicacion de usuario"
+        userPin.subtitle = "Me encuentro aqui!"
+        map.addAnnotation(userPin)
+        
+
+        
+        print(latitude, longitude)
+        
+        
+    }
+    
+    
+
+    
+    
+    
 
 
     
@@ -127,7 +183,10 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
+        cell.direccion?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "house-nobg")
+        
+        showPins()
         
         return cell
     }
@@ -138,4 +197,3 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     
     
 }
-
