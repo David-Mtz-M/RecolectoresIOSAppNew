@@ -8,8 +8,8 @@
 import UIKit
 
 
+
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     
     
     private func configureItems(){
@@ -46,7 +46,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         detallesView.dataSource = self
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 100
     }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,5 +61,4 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }
         
-        
-    }
+}
