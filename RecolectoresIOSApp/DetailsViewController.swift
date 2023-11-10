@@ -46,7 +46,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         detallesView.dataSource = self
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 150
     }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
