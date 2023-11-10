@@ -44,8 +44,12 @@ class RequestsViewController: UIViewController, MKMapViewDelegate {
         
         collectors = Recolectores()
         
+        let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "recoleccionCel")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
+        
     }
     
     
@@ -108,9 +112,10 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        cell.nombre?.text = collectors.recolectoresArray[indexPath.row].usuario
-        cell.imagenCasa?.image = UIImage(named: "house")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
+        cell.backgroundColor = UIColor.clear
+        cell.nombreCliente?.text = collectors.recolectoresArray[indexPath.row].usuario
+        cell.fotoRecoleccion?.image = UIImage(named: "house-nobg")
         
         return cell
     }

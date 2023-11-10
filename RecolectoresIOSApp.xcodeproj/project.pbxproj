@@ -43,6 +43,8 @@
 		83B925AD2AFC092B008E3D44 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 83B925AC2AFC092B008E3D44 /* FirebaseStorage */; };
 		83B925AF2AFC092B008E3D44 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 83B925AE2AFC092B008E3D44 /* FirebaseStorageCombine-Community */; };
 		83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C2DBFD2AF300EE00E86BBA /* OpcionesViewController.swift */; };
+		83E764AC2AFDA5E50055CAAF /* DemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E764AA2AFDA5E50055CAAF /* DemoTableViewCell.swift */; };
+		83E764AD2AFDA5E50055CAAF /* DemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E764AB2AFDA5E50055CAAF /* DemoTableViewCell.xib */; };
 		83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */; };
 		83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */; };
 		83E8DAA52AF1B3AE00106AA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */; };
@@ -62,6 +64,8 @@
 		839C35492AFB06CC0073FFEC /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		83B925772AFC06A2008E3D44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83C2DBFD2AF300EE00E86BBA /* OpcionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesViewController.swift; sourceTree = "<group>"; };
+		83E764AA2AFDA5E50055CAAF /* DemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewCell.swift; sourceTree = "<group>"; };
+		83E764AB2AFDA5E50055CAAF /* DemoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoTableViewCell.xib; sourceTree = "<group>"; };
 		83E8DA9D2AF1B3AE00106AA6 /* RecolectoresIOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecolectoresIOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 			path = ModelRecolector;
 			sourceTree = "<group>";
 		};
+		83E764AE2AFDA5F20055CAAF /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				83E764AB2AFDA5E50055CAAF /* DemoTableViewCell.xib */,
+				83E764AA2AFDA5E50055CAAF /* DemoTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		83E8DA942AF1B3AE00106AA6 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				83E764AE2AFDA5F20055CAAF /* CustomCell */,
 				835FAEB62AFC6DA500D68AB6 /* ModelRecolector */,
 				83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */,
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
@@ -252,6 +266,7 @@
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
+				83E764AD2AFDA5E50055CAAF /* DemoTableViewCell.xib in Resources */,
 				83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +289,7 @@
 				839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */,
 				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
+				83E764AC2AFDA5E50055CAAF /* DemoTableViewCell.swift in Sources */,
 				835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
