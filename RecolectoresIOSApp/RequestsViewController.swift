@@ -192,7 +192,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.direccion?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["direccion"] as? String
-        cell.fotoRecoleccion?.image = UIImage(named: "puebla-recicla-icono")
+        cell.fotoRecoleccion?.image = UIImage(named: "icono-basura")
 
         if let iphoneCoords = iphoneLocationCoords {
             let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)

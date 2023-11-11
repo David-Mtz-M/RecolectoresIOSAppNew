@@ -24,6 +24,15 @@ class DemoTableViewCell: UITableViewCell {
         // Initialization code
         backgroundLabel.layer.cornerRadius = 10
         backgroundLabel.layer.masksToBounds = true
+        
+        // Set text color for labels
+        nombreCliente.textColor = .white
+        nombreCliente.font = UIFont.boldSystemFont(ofSize: nombreCliente.font.pointSize)
+        
+        distanciaEnMinutos.textColor = .white
+        distanciaEnMinutos.font = UIFont.boldSystemFont(ofSize: distanciaEnMinutos.font.pointSize)
+        
+        direccion.textColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
