@@ -10,9 +10,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet var profileImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        
+        profileImageView.backgroundColor = .clear
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        
 
     }
     
@@ -37,7 +43,5 @@ class ProfileViewController: UIViewController {
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileStoryboard") as! ProfileViewController
         self.navigationController?.pushViewController(mainViewController, animated: true)
     }
-    
-    
     
 }

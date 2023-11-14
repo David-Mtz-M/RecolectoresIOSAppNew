@@ -216,25 +216,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajustes de perfil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFl-kG-Pi1">
-                                <rect key="frame" x="134.66666666666666" y="415.66666666666669" width="123.99999999999997" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenCarsonBG" translatesAutoresizingMaskIntoConstraints="NO" id="NmO-QX-FCi">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-shrinked" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-rm-XtY">
+                                <rect key="frame" x="122" y="116" width="148" height="134"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oni-tG-fAE">
+                                <rect key="frame" x="16" y="307" width="106" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Juan Miguel Pedraza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLT-iW-DNN">
+                                <rect key="frame" x="16" y="348" width="182" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaS-bf-SIh">
+                                <rect key="frame" x="16" y="416" width="63" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recolector@recicla.mx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkI-3g-uRK">
+                                <rect key="frame" x="16" y="457" width="196" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7k-Eo-7nD">
+                                <rect key="frame" x="16" y="522" width="135" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**********" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0Q-E8-SeS">
+                                <rect key="frame" x="16" y="563" width="87" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoNoBG" translatesAutoresizingMaskIntoConstraints="NO" id="lic-MF-MOs">
+                                <rect key="frame" x="203" y="706" width="174" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Qw-ec-sJO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JFl-kG-Pi1" firstAttribute="centerX" secondItem="cbL-Ac-og2" secondAttribute="centerX" id="Ece-4q-t7v"/>
-                            <constraint firstItem="JFl-kG-Pi1" firstAttribute="centerY" secondItem="cbL-Ac-og2" secondAttribute="centerY" id="cIR-mC-gAT"/>
+                            <constraint firstItem="H0Q-E8-SeS" firstAttribute="top" secondItem="i7k-Eo-7nD" secondAttribute="bottom" constant="8" symbolic="YES" id="0Mo-Z1-x4n"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H0Q-E8-SeS" secondAttribute="trailing" symbolic="YES" id="44J-P4-kGo"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="FkI-3g-uRK" secondAttribute="leading" id="4YT-Bi-rxY"/>
+                            <constraint firstItem="i7k-Eo-7nD" firstAttribute="top" secondItem="FkI-3g-uRK" secondAttribute="bottom" constant="41" id="5Ww-Qg-uNv"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="bottom" secondItem="1Zf-rm-XtY" secondAttribute="bottom" constant="568" id="9A4-M9-llK"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" secondItem="1Zf-rm-XtY" secondAttribute="trailing" constant="123" id="Aco-EP-Ah0"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="204" id="C2F-X2-ekU"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="i7k-Eo-7nD" secondAttribute="leading" id="Jl9-qc-L85"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i7k-Eo-7nD" secondAttribute="trailing" symbolic="YES" id="KQh-ya-TmC"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="Kz7-MF-zaD"/>
+                            <constraint firstItem="FkI-3g-uRK" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="M2a-2S-akb"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VLT-iW-DNN" secondAttribute="trailing" symbolic="YES" id="Srz-de-AU3"/>
+                            <constraint firstItem="i7k-Eo-7nD" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="TDT-Qd-VtL"/>
+                            <constraint firstAttribute="bottom" secondItem="FkI-3g-uRK" secondAttribute="bottom" constant="371" id="Tv7-G0-Tam"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oni-tG-fAE" secondAttribute="trailing" symbolic="YES" id="afw-ml-Bb8"/>
+                            <constraint firstItem="FkI-3g-uRK" firstAttribute="top" secondItem="uaS-bf-SIh" secondAttribute="bottom" constant="8" symbolic="YES" id="bez-k8-PrE"/>
+                            <constraint firstItem="H0Q-E8-SeS" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="c1E-L5-7Ae"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uaS-bf-SIh" secondAttribute="trailing" symbolic="YES" id="cGd-yd-al1"/>
+                            <constraint firstItem="uaS-bf-SIh" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="cuW-Pp-uGU"/>
+                            <constraint firstItem="VLT-iW-DNN" firstAttribute="top" secondItem="Oni-tG-fAE" secondAttribute="bottom" constant="8" symbolic="YES" id="eEY-N2-TzS"/>
+                            <constraint firstItem="1Zf-rm-XtY" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="13" id="j8T-zd-jt2"/>
+                            <constraint firstItem="1Zf-rm-XtY" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="122" id="n7L-qo-qYq"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="H0Q-E8-SeS" secondAttribute="leading" id="nKF-BS-BXP"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FkI-3g-uRK" secondAttribute="trailing" symbolic="YES" id="vz0-2d-lph"/>
+                            <constraint firstItem="VLT-iW-DNN" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="16" id="yAN-jd-vLB"/>
+                            <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="uaS-bf-SIh" secondAttribute="leading" id="ykx-4f-AMj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWf-ew-nGq"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="1Zf-rm-XtY" id="Qbn-Vi-ssS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Tu-Lm-ijW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="815"/>
+            <point key="canvasLocation" x="1530.534351145038" y="814.78873239436621"/>
         </scene>
         <!--Requests View Controller-->
         <scene sceneID="cd6-WP-3JN">
@@ -484,6 +552,7 @@
         <image name="favouritesOption" width="91" height="97"/>
         <image name="greenCarsonBG" width="377" height="667"/>
         <image name="logoNoBG" width="161" height="80"/>
+        <image name="profile-shrinked" width="20" height="20"/>
         <image name="profileOption" width="66" height="62"/>
         <image name="requestsOption" width="97" height="98"/>
         <image name="ridesOption" width="91" height="97"/>
