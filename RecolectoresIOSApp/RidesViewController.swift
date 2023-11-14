@@ -15,8 +15,6 @@ class RidesViewController: UIViewController {
    
     let database = Firestore.firestore()
 
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

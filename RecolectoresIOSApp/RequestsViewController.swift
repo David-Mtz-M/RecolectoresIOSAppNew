@@ -212,21 +212,23 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         let selectedRecollection = recolecciones.recoleccionesArray[indexPath.row]
         let thatSelectedRecollection = selectedRecollection
         
+        let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: locationManager.location!)
         
         //  Cal the method to navigate to the next view controller
-        thatCollectionViewController(with: thatSelectedRecollection)
-        
+        thatCollectionViewController(with: selectedRecollection, distance: distance)
+
         
     }
     
 
     
-    private func thatCollectionViewController(with recoleccion: Recoleccion?){
+    private func thatCollectionViewController(with recoleccion: Recoleccion?, distance: Double?){
         //let nextStoryboard = UIStoryboard(name: "ThatCollectionViewController", bundle: nil)
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "thatCollectionVC") as! ThatCollectionViewController
 
         // Pass the document ID to the next view controller
         nextViewController.recoleccion = recoleccion
+        nextViewController.distance = distance
 
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

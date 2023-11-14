@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ThatCollectionViewController: UIViewController{
     
@@ -13,13 +14,56 @@ class ThatCollectionViewController: UIViewController{
 
     @IBOutlet weak var recollectionBgImg: UIImageView!
     
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    @IBOutlet weak var nameBackgroundLabel: UILabel!
+    @IBOutlet weak var distanceBackgroundLabel: UILabel!
+    @IBOutlet weak var otherBackgroundLabel: UILabel!
+    
+    
+    @IBOutlet weak var directionConstantTxtLabel: UILabel!
+    @IBOutlet weak var phoneConstantTxtLabel: UILabel!
+    @IBOutlet weak var commentsConstantTxtLabel: UILabel!
+    
+    
     var recoleccion: Recoleccion?
+    var distance: Double?
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recollectionBgImg.image = UIImage(named: "house")
+        
+        recollectionBgImg.image = UIImage(named: "pueblo")
+        
+        nameLabel.text = recoleccion?.userInfo["nombreCompleto"] as? String
+        addressLabel.text = recoleccion?.userInfo["direccion"] as? String
+        phoneNumberLabel.text = recoleccion?.userInfo["telefono"] as? String
+        commentsLabel.text = recoleccion?.comentarios
+        
+        let stringDistance = String(format: "%.2f meters", distance!)
+        distanceLabel.text = stringDistance
+
+        nameBackgroundLabel.layer.cornerRadius = 10
+        nameBackgroundLabel.layer.masksToBounds = true
+        
+        distanceBackgroundLabel.layer.cornerRadius = 10
+        distanceBackgroundLabel.layer.masksToBounds = true
+        
+        otherBackgroundLabel.layer.cornerRadius = 10
+        otherBackgroundLabel.layer.masksToBounds = true
+        
+        directionConstantTxtLabel.font = UIFont.boldSystemFont(ofSize: directionConstantTxtLabel.font.pointSize)
+        phoneConstantTxtLabel.font = UIFont.boldSystemFont(ofSize: phoneConstantTxtLabel.font.pointSize)
+        commentsConstantTxtLabel.font = UIFont.boldSystemFont(ofSize: commentsConstantTxtLabel.font.pointSize)
         
         
         configureItems()
