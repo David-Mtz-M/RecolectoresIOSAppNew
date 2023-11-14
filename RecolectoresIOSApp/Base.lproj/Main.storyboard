@@ -407,6 +407,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5p-9w-sSg">
+                                <rect key="frame" x="20" y="688" width="150.66666666666666" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Aceptar Encargo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-Kc-M8E">
+                                <rect key="frame" x="200" y="688" width="162" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Rechazar Encargo"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QhE-8S-VxO">
+                                <rect key="frame" x="288" y="483" width="89" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oq7-7j-Xan"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -414,7 +433,9 @@
                             <constraint firstItem="9zZ-pU-zFI" firstAttribute="top" secondItem="aFu-Fk-q4K" secondAttribute="top" constant="20" id="25q-jI-KvA"/>
                             <constraint firstItem="v2z-W2-ceq" firstAttribute="top" secondItem="oq7-7j-Xan" secondAttribute="top" id="2lA-oR-xjg"/>
                             <constraint firstItem="Gxt-BN-swB" firstAttribute="leading" secondItem="yVZ-64-9QR" secondAttribute="leading" id="2w2-UV-hdh"/>
+                            <constraint firstItem="w5p-9w-sSg" firstAttribute="leading" secondItem="oq7-7j-Xan" secondAttribute="leading" constant="20" id="3hH-fA-vKS"/>
                             <constraint firstItem="9zZ-pU-zFI" firstAttribute="leading" secondItem="aFu-Fk-q4K" secondAttribute="leading" id="8rx-de-cQw"/>
+                            <constraint firstItem="w5p-9w-sSg" firstAttribute="top" secondItem="Yqn-4N-a3l" secondAttribute="top" constant="80" id="DHd-H4-ewu"/>
                             <constraint firstItem="oq7-7j-Xan" firstAttribute="trailing" secondItem="v2z-W2-ceq" secondAttribute="trailing" id="DhX-wJ-y7T"/>
                             <constraint firstItem="aFu-Fk-q4K" firstAttribute="leading" secondItem="Gxt-BN-swB" secondAttribute="leading" id="Dsa-Bq-HdB"/>
                             <constraint firstItem="Yqn-4N-a3l" firstAttribute="top" secondItem="9zZ-pU-zFI" secondAttribute="top" constant="20" id="EpT-it-y77"/>
@@ -431,8 +452,10 @@
                             <constraint firstItem="B85-Jq-VCz" firstAttribute="leading" secondItem="oq7-7j-Xan" secondAttribute="leading" constant="20" id="SBc-4b-ity"/>
                             <constraint firstAttribute="trailing" secondItem="4Az-9Q-l3M" secondAttribute="trailing" id="T0J-Jy-mGQ"/>
                             <constraint firstItem="hkK-iR-gw5" firstAttribute="leading" secondItem="eZg-Xv-DQ7" secondAttribute="leading" constant="5" id="T3U-7w-wSF"/>
+                            <constraint firstItem="kcq-Kc-M8E" firstAttribute="leading" secondItem="w5p-9w-sSg" secondAttribute="leading" constant="180" id="T9a-pj-36U"/>
                             <constraint firstItem="4Az-9Q-l3M" firstAttribute="leading" secondItem="scS-0N-M8W" secondAttribute="leading" id="TBd-uu-fRr"/>
                             <constraint firstItem="4Az-9Q-l3M" firstAttribute="top" secondItem="scS-0N-M8W" secondAttribute="top" id="UhF-AU-gni"/>
+                            <constraint firstItem="kcq-Kc-M8E" firstAttribute="top" secondItem="Yqn-4N-a3l" secondAttribute="top" constant="80" id="Y7V-FN-Z4k"/>
                             <constraint firstItem="vzI-5F-ddF" firstAttribute="leading" secondItem="lhp-eK-6Ue" secondAttribute="leading" constant="10" id="fF6-qV-iaP"/>
                             <constraint firstItem="v2z-W2-ceq" firstAttribute="leading" secondItem="oq7-7j-Xan" secondAttribute="leading" id="iDO-JX-9CF"/>
                             <constraint firstItem="gv4-Mm-1yg" firstAttribute="leading" secondItem="B85-Jq-VCz" secondAttribute="leading" constant="5" id="j2y-1h-AEx"/>
@@ -455,6 +478,7 @@
                         <outlet property="directionConstantTxtLabel" destination="vzI-5F-ddF" id="N1I-13-FVC"/>
                         <outlet property="distanceBackgroundLabel" destination="eZg-Xv-DQ7" id="Kkw-6z-3bt"/>
                         <outlet property="distanceLabel" destination="hkK-iR-gw5" id="2dN-gv-2eW"/>
+                        <outlet property="materialsTableView" destination="QhE-8S-VxO" id="AqY-P6-xNh"/>
                         <outlet property="nameBackgroundLabel" destination="B85-Jq-VCz" id="Zru-45-zve"/>
                         <outlet property="nameLabel" destination="gv4-Mm-1yg" id="bpl-ak-6v1"/>
                         <outlet property="otherBackgroundLabel" destination="lhp-eK-6Ue" id="ese-kc-SwR"/>
@@ -465,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFr-na-xSs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5068" y="41"/>
+            <point key="canvasLocation" x="5067.93893129771" y="40.845070422535215"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="rvC-2z-2Bc">

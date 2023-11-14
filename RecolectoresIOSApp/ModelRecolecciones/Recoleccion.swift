@@ -17,13 +17,15 @@ class Recoleccion {
     var documentID: String?
     var userCoords: CLLocation
     var comentarios: String
+    var materiales: [String: [String: Any]] = [:]
+
 
     var dictionary: [String: Any] {
-        return ["comentarios": comentarios, "latitud": latitud, "longitud": longitud, "userInfo": userInfo, "userCoords": userCoords]
+        return ["materiales": materiales,"comentarios": comentarios, "latitud": latitud, "longitud": longitud, "userInfo": userInfo, "userCoords": userCoords]
     }
 
     convenience init() {
-        self.init(documentID: nil, latitud: "", longitud: "", userInfo: [:], userCoords: CLLocation(latitude: 0.0, longitude: 0.0),  comentarios: "")
+        self.init(documentID: nil, latitud: "", longitud: "", userInfo: [:], userCoords: CLLocation(latitude: 0.0, longitude: 0.0),  comentarios: "", materiales: [:])
     }
 
     convenience init(dictionary: [String: Any]) {
@@ -33,19 +35,22 @@ class Recoleccion {
         let documentID = dictionary["documentID"] as? String
         let userCoords = dictionary["userCoords"] as? CLLocation ?? CLLocation(latitude: Double(latitud) ?? 0.0, longitude: Double(longitud) ?? 0.0)
         let comentarios = dictionary["comentarios"] as? String ?? ""
+        let materiales = dictionary["materiales"] as? [String: [String: Any]] ?? [:]
 
-        self.init(documentID: documentID, latitud: latitud, longitud: longitud, userInfo: userInfo, userCoords: userCoords, comentarios: comentarios)
+        self.init(documentID: documentID, latitud: latitud, longitud: longitud, userInfo: userInfo, userCoords: userCoords, comentarios: comentarios, materiales: materiales)
     }
 
 
-    init(documentID: String?, latitud: String, longitud: String, userInfo: [String: Any], userCoords: CLLocation, comentarios: String) {
+    init(documentID: String?, latitud: String, longitud: String, userInfo: [String: Any], userCoords: CLLocation, comentarios: String, materiales: [String: [String: Any]] = [:]) {
         self.latitud = latitud
         self.longitud = longitud
         self.userInfo = userInfo
         self.documentID = documentID
         self.userCoords = userCoords
         self.comentarios = comentarios
+        self.materiales = materiales
     }
+
 
     
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		835A4D772B0420EC00C94BD1 /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A4D752B0420EC00C94BD1 /* MaterialTableViewCell.swift */; };
+		835A4D782B0420EC00C94BD1 /* MaterialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835A4D762B0420EC00C94BD1 /* MaterialTableViewCell.xib */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		839C35422AFAD9A80073FFEC /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C35412AFAD9A80073FFEC /* RequestsViewController.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		835A4D752B0420EC00C94BD1 /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTableViewCell.swift; sourceTree = "<group>"; };
+		835A4D762B0420EC00C94BD1 /* MaterialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaterialTableViewCell.xib; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		839C35412AFAD9A80073FFEC /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835A4D742B0420D000C94BD1 /* MaterialCell */ = {
+			isa = PBXGroup;
+			children = (
+				835A4D752B0420EC00C94BD1 /* MaterialTableViewCell.swift */,
+				835A4D762B0420EC00C94BD1 /* MaterialTableViewCell.xib */,
+			);
+			path = MaterialCell;
+			sourceTree = "<group>";
+		};
 		835FAEB62AFC6DA500D68AB6 /* ModelRecolector */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +180,7 @@
 		83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				835A4D742B0420D000C94BD1 /* MaterialCell */,
 				83CDF7CD2AFDB56300574E80 /* ModelRecolecciones */,
 				83E764AE2AFDA5F20055CAAF /* CustomCell */,
 				835FAEB62AFC6DA500D68AB6 /* ModelRecolector */,
@@ -280,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835A4D782B0420EC00C94BD1 /* MaterialTableViewCell.xib in Resources */,
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
@@ -306,6 +321,7 @@
 				83FE845B2AFC46CA00A976B4 /* CustomTableViewCell.swift in Sources */,
 				835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */,
 				839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */,
+				835A4D772B0420EC00C94BD1 /* MaterialTableViewCell.swift in Sources */,
 				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
 				83AD9FA92B02E8330099F6F4 /* ThatCollectionViewController.swift in Sources */,

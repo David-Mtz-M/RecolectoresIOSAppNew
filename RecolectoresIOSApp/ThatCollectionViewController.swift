@@ -8,7 +8,9 @@
 import UIKit
 import CoreLocation
 
-class ThatCollectionViewController: UIViewController{
+class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
+    
     
     
 
@@ -35,6 +37,10 @@ class ThatCollectionViewController: UIViewController{
     var distance: Double?
     
     
+    let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombro", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicina", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetrapack", "Toner", "Voluminoso"]
+    
+    
+    @IBOutlet weak var materialsTableView: UITableView!
     
     
     
@@ -66,9 +72,63 @@ class ThatCollectionViewController: UIViewController{
         commentsConstantTxtLabel.font = UIFont.boldSystemFont(ofSize: commentsConstantTxtLabel.font.pointSize)
         
         
+        materialsTableView.delegate = self
+        materialsTableView.dataSource = self
+        let nib = UINib(nibName: "MaterialTableViewCell", bundle: nil)
+        materialsTableView.register(nib, forCellReuseIdentifier: "materialCell")
+        
         configureItems()
+        
+        printMaterials()
+        
 
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recoleccion!.materiales.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "materialCell", for: indexPath) as! MaterialTableViewCell
+        let materialesArr = getMaterialsArray()
+        let material = materialesArr[indexPath.row]
+        
+        cell.fotoMaterial.image = UIImage(named: material)
+        
+        return cell
+
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    private func getMaterialsArray() -> [String] {
+        guard let materiales = recoleccion?.materiales else {
+            return []
+        }
+        
+        var materialsArray: [String] = []
+
+        for (_, materialInfo) in materiales {
+            if let nombre = materialInfo["nombre"] as? String {
+                //print("Material Nombre: \(nombre)")
+                materialsArray.append(nombre)
+            }
+        }
+        print("Materials Array:  \(materialsArray.count)")
+        return materialsArray
+    }
+    
+    private func printMaterials(){
+        let materials = getMaterialsArray()
+        
+        for material in materials{
+            print(material)
+        }
+    }
+
+
     
     private func configureItems(){
         
