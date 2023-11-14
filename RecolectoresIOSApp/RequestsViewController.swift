@@ -207,6 +207,32 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecollection = recolecciones.recoleccionesArray[indexPath.row]
+        let thatSelectedRecollection = selectedRecollection
+        
+        
+        //  Cal the method to navigate to the next view controller
+        thatCollectionViewController(with: thatSelectedRecollection)
+        
+        
+    }
+    
+
+    
+    private func thatCollectionViewController(with recoleccion: Recoleccion?){
+        //let nextStoryboard = UIStoryboard(name: "ThatCollectionViewController", bundle: nil)
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "thatCollectionVC") as! ThatCollectionViewController
+
+        // Pass the document ID to the next view controller
+        nextViewController.recoleccion = recoleccion
+
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
