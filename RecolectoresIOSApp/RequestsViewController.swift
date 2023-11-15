@@ -9,6 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseAuth
+
+// guard let userID = Auth.auth().currentUser?.uid else { return }
 
 
 
@@ -39,6 +42,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         super.viewDidLoad()
         configureItems()
         
+        
         self.map.setRegion(MKCoordinateRegion(
             center: coordinate.coordinate,
             span: MKCoordinateSpan(
@@ -68,7 +72,8 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-    
+        
+        
         
         
     }
@@ -83,6 +88,22 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             self.tableView.reloadData()
         }
     }
+    
+    
+    private func printRecolectores() {
+        // Check if recolecciones is not nil before accessing recoleccionesArray
+        guard let recolecciones = recolecciones else {
+            print("Error: recolecciones is nil")
+            return
+        }
+
+        for recolector in collectors.recolectoresArray {
+            print("ID")
+            print(recolector.documentID)
+        }
+    }
+    
+
     
     
     
@@ -194,6 +215,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         showPins()
+        printRecolectores()
 
         
         return cell

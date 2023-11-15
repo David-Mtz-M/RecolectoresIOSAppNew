@@ -62,8 +62,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="logInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bq5-UY-cT4"/>
-                                            <segue destination="rA8-2l-xrX" kind="show" id="ZLn-hD-Tjb"/>
+                                            <action selector="logInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2R-Wa-9sc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,8 +97,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="jGd-pW-OEw"/>
                     <connections>
+                        <outlet property="emailTextField" destination="URz-Pf-MVC" id="FTr-qp-bx6"/>
                         <outlet property="passwordTextField" destination="0nr-xU-NP0" id="I3w-Qt-uDJ"/>
-                        <outlet property="userTextField" destination="URz-Pf-MVC" id="FTr-qp-bx6"/>
+                        <segue destination="rA8-2l-xrX" kind="show" identifier="moveToOptionsVC" id="KRx-qr-KaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -637,10 +637,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
