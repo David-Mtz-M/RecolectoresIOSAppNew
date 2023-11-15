@@ -10,7 +10,9 @@ import UIKit
 
 class OpcionesViewController: UIViewController {
     
-
+    var recolector: Recolector!
+    
+    
     @IBOutlet weak var requestsOption: UIImageView!
     
     @IBOutlet weak var ridesOption: UIImageView!
@@ -21,6 +23,9 @@ class OpcionesViewController: UIViewController {
     
     
     @IBOutlet weak var detailsOption: UIImageView!
+    
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +54,15 @@ class OpcionesViewController: UIViewController {
         favouriteOption.addGestureRecognizer(tapGestureFavourites)
         
         
-
+        printRecolectorData()
     }
+    
+    private func printRecolectorData(){
+        print(recolector.nombre)
+        print(recolector.apellidos)
+        print(recolector.telefono)
+    }
+
     
     @objc func moveToRequestsSB() {
         performSegue(withIdentifier: "moveToRequestsSB", sender: self)

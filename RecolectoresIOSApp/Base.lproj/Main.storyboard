@@ -197,6 +197,7 @@
                         <outlet property="profileOption" destination="b5J-Hd-C6F" id="ynV-va-pxn"/>
                         <outlet property="requestsOption" destination="QES-mB-XOO" id="ieJ-Ff-QNZ"/>
                         <outlet property="ridesOption" destination="myt-Kj-AJU" id="Esj-lQ-Vnu"/>
+                        <outlet property="welcomeLabel" destination="OOW-Xm-Ity" id="eft-Co-DDJ"/>
                         <segue destination="i0S-vm-fjJ" kind="show" identifier="moveToRequestsSB" id="wkd-BS-pdy"/>
                         <segue destination="I2r-HM-QWF" kind="show" identifier="moveToRidesSB" id="pOQ-DJ-4MM"/>
                         <segue destination="6Jr-Pc-Q8g" kind="show" identifier="moveToProfileSB" id="oWj-O2-4X9"/>

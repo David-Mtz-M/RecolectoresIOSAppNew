@@ -99,7 +99,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
         for recolector in collectors.recolectoresArray {
             print("ID")
-            print(recolector.documentID)
+             //print(recolector.documentID)
         }
     }
     

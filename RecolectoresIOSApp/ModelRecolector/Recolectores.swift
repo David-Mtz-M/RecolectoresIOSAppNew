@@ -27,7 +27,7 @@ class Recolectores{
             
             for document in QuerySnapshot!.documents  {
                 let recolector = Recolector(dictionary: document.data())
-                recolector.documentID = document.documentID
+                //recolector.documentID = document.documentID
                 self.recolectoresArray.append(recolector)
             }
             completed()

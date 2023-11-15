@@ -9,16 +9,16 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-class AuthService{
+class AuthService {
     static let shared = AuthService()
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
     
-    func loginUser(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (Recolector?, Error?) -> Void) {
         // Authenticate the user with email and password
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             if let error = error {
-                completion(error)
+                completion(nil, error)
             } else if let user = authResult?.user {
                 // Check if Recolector document exists in Firestore for the given UID
                 self.checkRecolectorDocument(uid: user.uid, completion: completion)
@@ -26,21 +26,25 @@ class AuthService{
         }
     }
     
-    private func checkRecolectorDocument(uid: String, completion: @escaping (Error?) -> Void) {
+    private func checkRecolectorDocument(uid: String, completion: @escaping (Recolector?, Error?) -> Void) {
         // Check if Recolector document exists in Firestore for the given UID
         db.collection("recolectores").document(uid).getDocument { (document, error) in
             if let error = error {
-                completion(error)
-            } else if document?.exists == true {
-                // Recolector document exists, user can log in
-                completion(nil)
+                completion(nil, error)
+            } else if let document = document, document.exists {
+                do {
+                    let recolector = try document.data(as: Recolector.self)
+                    completion(recolector, nil)
+                } catch let error {
+                    completion(nil, error)
+                }
             } else {
-                // Recolector document doesn't exist, user cannot log in
-                completion(NSError(domain: "AuthService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid user"]))
+                completion(nil, NSError(domain: "AuthService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid user"]))
             }
         }
     }
 }
+
 
 class ViewController: UIViewController {
     
@@ -73,20 +77,28 @@ class ViewController: UIViewController {
             // Handle invalid input (e.g., show an error message)
             return
         }
-
-        AuthService.shared.loginUser(email: email, password: password) { [weak self] (error) in
+        
+        AuthService.shared.loginUser(email: email, password: password) { [weak self] (recolector, error) in
             if let error = error {
                 // Handle authentication error (e.g., show an error message)
-                print("Authentication error: \(error.localizedDescription)")
-            } else {
-                // Authentication successful, navigate to the next screen or perform other actions
-                print("Authentication successful")
-                // Example: navigate to a home screen
-                self?.performSegue(withIdentifier: "moveToOptionsVC", sender: self)
+                print("Authentication error: \(error)")
+            } else if let recolector = recolector {
+                // Authentication successful, retrieve Recolector data
+                print("Recolector data: \(recolector)")
+                self?.performSegue(withIdentifier: "moveToOptionsVC", sender: recolector)
+            }
+        }
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToOptionsVC", let recolector = sender as? Recolector {
+            if let opcionesVC = segue.destination as? OpcionesViewController {
+                opcionesVC.recolector = recolector
             }
         }
     }
-    
+
     
     
     
