@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+
 class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
@@ -37,7 +38,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     var distance: Double?
     
     
-    let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombro", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicina", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetrapack", "Toner", "Voluminoso"]
+    let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicinas", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetra Pack", "Toner", "Voluminoso"]
     
     
     @IBOutlet weak var materialsTableView: UITableView!
@@ -74,6 +75,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         materialsTableView.delegate = self
         materialsTableView.dataSource = self
+        materialsTableView.backgroundColor = UIColor.clear
         let nib = UINib(nibName: "MaterialTableViewCell", bundle: nil)
         materialsTableView.register(nib, forCellReuseIdentifier: "materialCell")
         
@@ -94,6 +96,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let material = materialesArr[indexPath.row]
         
         cell.fotoMaterial.image = UIImage(named: material)
+        
+        cell.backgroundColor = UIColor.clear
         
         return cell
 

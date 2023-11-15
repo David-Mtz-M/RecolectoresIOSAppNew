@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseFirestore
+
 
 
 class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -85,14 +85,6 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     
-    private func calculateDistance(){
-        
-        for recolector in recolecciones.recoleccionesArray{
-            print("userLocation DISTANCIAAAA")
-            let userLocation = locationManager.location
-            print(userLocation ?? "")
-        }
-    }
     
     
     
@@ -210,8 +202,6 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRecollection = recolecciones.recoleccionesArray[indexPath.row]
-        let thatSelectedRecollection = selectedRecollection
-        
         let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: locationManager.location!)
         
         //  Cal the method to navigate to the next view controller
