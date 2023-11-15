@@ -221,7 +221,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-shrinked" translatesAutoresizingMaskIntoConstraints="NO" id="1Zf-rm-XtY">
-                                <rect key="frame" x="122" y="116" width="148" height="134"/>
+                                <rect key="frame" x="122" y="116" width="151" height="134"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oni-tG-fAE">
                                 <rect key="frame" x="16" y="307" width="106" height="33"/>
@@ -263,6 +263,13 @@
                                 <rect key="frame" x="203" y="706" width="174" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2N-0e-geC">
+                                <rect key="frame" x="203" y="619" width="174" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Editar información"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Qw-ec-sJO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -272,7 +279,7 @@
                             <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="FkI-3g-uRK" secondAttribute="leading" id="4YT-Bi-rxY"/>
                             <constraint firstItem="i7k-Eo-7nD" firstAttribute="top" secondItem="FkI-3g-uRK" secondAttribute="bottom" constant="41" id="5Ww-Qg-uNv"/>
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="bottom" secondItem="1Zf-rm-XtY" secondAttribute="bottom" constant="568" id="9A4-M9-llK"/>
-                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" secondItem="1Zf-rm-XtY" secondAttribute="trailing" constant="123" id="Aco-EP-Ah0"/>
+                            <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" secondItem="1Zf-rm-XtY" secondAttribute="trailing" constant="120" id="Aco-EP-Ah0"/>
                             <constraint firstItem="Oni-tG-fAE" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="204" id="C2F-X2-ekU"/>
                             <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="i7k-Eo-7nD" secondAttribute="leading" id="Jl9-qc-L85"/>
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i7k-Eo-7nD" secondAttribute="trailing" symbolic="YES" id="KQh-ya-TmC"/>
@@ -382,7 +389,7 @@
             </objects>
             <point key="canvasLocation" x="3819" y="41"/>
         </scene>
-        <!--Detalles-->
+        <!--Details View Controller-->
         <scene sceneID="rvC-2z-2Bc">
             <objects>
                 <viewController id="YSb-ty-2cb" customClass="DetailsViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -459,7 +466,7 @@
                             <constraint firstItem="U0D-hr-vhB" firstAttribute="leading" secondItem="oH6-SM-ohU" secondAttribute="leading" id="vk9-xg-66P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalles" id="CYy-8h-Pz7"/>
+                    <navigationItem key="navigationItem" id="CYy-8h-Pz7"/>
                     <connections>
                         <outlet property="detallesView" destination="U0D-hr-vhB" id="6yl-nD-ph1"/>
                     </connections>

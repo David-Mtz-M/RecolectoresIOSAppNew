@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Firebase
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var profileImageView: UIImageView!
     override func viewDidLoad() {
