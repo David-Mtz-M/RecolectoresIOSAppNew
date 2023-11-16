@@ -266,7 +266,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2N-0e-geC">
                                 <rect key="frame" x="203" y="619" width="174" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Editar información"/>
                             </button>
@@ -492,7 +491,7 @@
                                     <constraint firstAttribute="height" constant="203" id="NPt-At-Nba"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este ícono sirve para saber que el material que se va a reciclar es aceite de cartón y sus derivados" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-H3-rit">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqe-H3-rit">
                                 <rect key="frame" x="0.0" y="338" width="393" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="eUS-1R-ZmQ"/>
@@ -501,15 +500,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfB-ug-EOu">
+                                <rect key="frame" x="288" y="306" width="48" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="subir-el-volumen" imagePadding="0.0"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ffO-KK-jDN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ekv-Hu-buo" firstAttribute="leading" secondItem="ffO-KK-jDN" secondAttribute="leading" constant="57" id="4hf-wk-V0F"/>
+                            <constraint firstItem="xfB-ug-EOu" firstAttribute="top" secondItem="Ekv-Hu-buo" secondAttribute="bottom" constant="8" id="5SY-Ms-kc9"/>
                             <constraint firstItem="twR-Lx-D0c" firstAttribute="leading" secondItem="fqP-5s-N7R" secondAttribute="leading" id="F42-Ob-5G0"/>
                             <constraint firstItem="twR-Lx-D0c" firstAttribute="top" secondItem="fqP-5s-N7R" secondAttribute="top" id="FjX-Z9-bsW"/>
+                            <constraint firstItem="xfB-ug-EOu" firstAttribute="leading" secondItem="ffO-KK-jDN" secondAttribute="leading" constant="288" id="T2O-5a-aAw"/>
                             <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="Aqe-H3-rit" secondAttribute="trailing" id="dNg-OE-KSb"/>
                             <constraint firstItem="Aqe-H3-rit" firstAttribute="top" secondItem="Ekv-Hu-buo" secondAttribute="bottom" constant="40" id="eL7-ji-O5e"/>
+                            <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="xfB-ug-EOu" secondAttribute="trailing" constant="57" id="fs5-Ls-U75"/>
                             <constraint firstItem="Ekv-Hu-buo" firstAttribute="centerX" secondItem="fqP-5s-N7R" secondAttribute="centerX" id="oC9-Lo-GRj"/>
                             <constraint firstItem="Ekv-Hu-buo" firstAttribute="top" secondItem="ffO-KK-jDN" secondAttribute="top" constant="36" id="oI8-9t-Wd1"/>
                             <constraint firstAttribute="bottom" secondItem="twR-Lx-D0c" secondAttribute="bottom" id="p5J-y3-AOH"/>
@@ -614,6 +621,7 @@
         <image name="requestsOption" width="97" height="98"/>
         <image name="ridesOption" width="91" height="97"/>
         <image name="settingsOption" width="66" height="62"/>
+        <image name="subir-el-volumen" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
