@@ -8,13 +8,18 @@
 import UIKit
 
 class MoreDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var lbl_Description: UILabel!
     @IBOutlet weak var img_View: UIImageView!
+    
+    var img = UIImage()
+    var des = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        lbl_Description.text = des
+        img_View.image = img 
     }
     
 
