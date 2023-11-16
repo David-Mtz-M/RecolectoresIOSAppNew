@@ -73,7 +73,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
+
         
         
     }
@@ -87,6 +87,21 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         recolecciones.loadData {
             self.tableView.reloadData()
         }
+    }
+    
+    private func sortedArray() -> [Recoleccion] {
+        let sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
+            $1.getDistance(iphoneCoords: locationManager.location!)})
+        
+        var count = 0
+        
+        for sortedRecolector in sortedRecoleccionesArray{
+            print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
+            count += 1
+        }
+        
+        return sortedRecoleccionesArray
+        
     }
     
     
@@ -202,20 +217,25 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
         
+
+        let sortedRecoleccionesArray = sortedArray()
+        
+        
+        
         cell.backgroundColor = UIColor.clear
-        cell.nombreCliente?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
-        cell.direccion?.text = recolecciones.recoleccionesArray[indexPath.row].userInfo["direccion"] as? String
+        cell.nombreCliente?.text = sortedRecoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
+        cell.direccion?.text = sortedRecoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "icono-basura")
 
         if let iphoneCoords = iphoneLocationCoords {
-            let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
+            let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
             cell.distanciaEnMinutos?.text = String(format: "%.2f meters", distance)
         } else {
             cell.distanciaEnMinutos?.text = "N/A"
         }
         
         showPins()
-        printRecolectores()
+        
 
         
         return cell
