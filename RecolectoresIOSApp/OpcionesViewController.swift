@@ -80,6 +80,8 @@ class OpcionesViewController: UIViewController {
         print(AuthService.shared.currentRecolector!.apellidos)
         print(AuthService.shared.currentRecolector!.usuario)
         print(AuthService.shared.currentRecolector!.telefono)
+        print(AuthService.shared.currentRecolector!.cantidad_reseñas)
+        print(AuthService.shared.currentRecolector!.suma_reseñas)
         
         
 
