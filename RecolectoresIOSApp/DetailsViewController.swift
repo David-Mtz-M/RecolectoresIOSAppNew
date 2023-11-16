@@ -48,6 +48,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "MoreDetailsViewController") as? MoreDetailsViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return detalles.count

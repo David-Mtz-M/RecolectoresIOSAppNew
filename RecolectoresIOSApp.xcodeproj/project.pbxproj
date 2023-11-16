@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83199FF72B06816C00CAA2E8 /* MoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		8368221D2AFDA63A00CA757E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368221C2AFDA63A00CA757E /* CustomCell.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailsViewController.swift; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		8368221C2AFDA63A00CA757E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
 				83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */,
 				83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */,
+				83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */,
 				83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */,
 				83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */,
 				83E8DAAE2AF1B3AF00106AA6 /* Info.plist */,
@@ -276,6 +279,7 @@
 				83FE845B2AFC46CA00A976B4 /* CustomTableViewCell.swift in Sources */,
 				835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */,
 				839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */,
+				83199FF72B06816C00CAA2E8 /* MoreDetailsViewController.swift in Sources */,
 				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
 				835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */,

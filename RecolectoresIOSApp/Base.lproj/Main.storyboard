@@ -475,6 +475,48 @@
             </objects>
             <point key="canvasLocation" x="2861.8320610687024" y="814.78873239436621"/>
         </scene>
+        <!--More Details View Controller-->
+        <scene sceneID="zbl-t7-nv0">
+            <objects>
+                <viewController storyboardIdentifier="MoreDetailsViewController" id="fyN-bP-ff9" customClass="MoreDetailsViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fqP-5s-N7R">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ms0-cX-w7G">
+                                <rect key="frame" x="100" y="159" width="192" height="156"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esta imagen representa el artículo seleccionado y sus derivados" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcQ-99-tDQ">
+                                <rect key="frame" x="51" y="337" width="291" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="3s4-aB-EO6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ffO-KK-jDN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pcQ-99-tDQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ffO-KK-jDN" secondAttribute="leading" id="4oN-Yb-PML"/>
+                            <constraint firstItem="ffO-KK-jDN" firstAttribute="bottom" secondItem="Ms0-cX-w7G" secondAttribute="bottom" constant="503" id="5bB-nM-XAi"/>
+                            <constraint firstItem="Ms0-cX-w7G" firstAttribute="top" secondItem="ffO-KK-jDN" secondAttribute="top" constant="100" id="698-1V-hrR"/>
+                            <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="Ms0-cX-w7G" secondAttribute="trailing" constant="101" id="78M-xW-m6f"/>
+                            <constraint firstItem="Ms0-cX-w7G" firstAttribute="leading" secondItem="ffO-KK-jDN" secondAttribute="leading" constant="100" id="S7U-V6-vAm"/>
+                            <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="pcQ-99-tDQ" secondAttribute="trailing" constant="51" id="heU-8A-qE0"/>
+                            <constraint firstItem="pcQ-99-tDQ" firstAttribute="top" secondItem="Ms0-cX-w7G" secondAttribute="bottom" constant="22" id="rko-vH-KJm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="img_View" destination="Ms0-cX-w7G" id="xJk-GP-czC"/>
+                        <outlet property="lbl_Description" destination="pcQ-99-tDQ" id="DFa-UF-Nks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwZ-7i-K6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3842" y="815"/>
+        </scene>
         <!--Favourites View Controller-->
         <scene sceneID="ZdN-Pu-Mxi">
             <objects>
