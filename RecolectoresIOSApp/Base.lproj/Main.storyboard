@@ -502,7 +502,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfB-ug-EOu">
                                 <rect key="frame" x="288" y="306" width="48" height="38"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal"/>
                                 <buttonConfiguration key="configuration" style="plain" image="subir-el-volumen" imagePadding="0.0"/>
                             </button>
                         </subviews>
