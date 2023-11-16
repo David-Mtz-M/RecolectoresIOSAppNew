@@ -14,16 +14,13 @@ class OpcionesViewController: UIViewController {
     var email: String!
     var password: String!
     
+    @IBOutlet weak var pruebaImg: UIImageView!
+    
     
     @IBOutlet weak var requestsOption: UIImageView!
-    
     @IBOutlet weak var ridesOption: UIImageView!
-    
     @IBOutlet weak var favouriteOption: UIImageView!
-    
     @IBOutlet weak var profileOption: UIImageView!
-    
-    
     @IBOutlet weak var detailsOption: UIImageView!
     
     
@@ -57,6 +54,22 @@ class OpcionesViewController: UIViewController {
         
         welcomeLabel.text = "Bienvenido" + " " + AuthService.shared.currentRecolector!.nombre
         
+        let imgUrl = URL(string: AuthService.shared.currentRecolector!.fotoUrl)
+
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: imgUrl!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.pruebaImg.image = image // Set the image to UIImageView
+                    }
+                }
+            }
+        }
+        
+        Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: pruebaImg)
+
+
+
         
         printRecolectorData()
     }
@@ -67,6 +80,8 @@ class OpcionesViewController: UIViewController {
         print(AuthService.shared.currentRecolector!.apellidos)
         print(AuthService.shared.currentRecolector!.usuario)
         print(AuthService.shared.currentRecolector!.telefono)
+        
+        
 
     }
 

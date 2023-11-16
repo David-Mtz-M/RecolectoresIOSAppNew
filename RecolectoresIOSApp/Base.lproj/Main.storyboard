@@ -178,11 +178,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PrB-wP-TD5">
+                                <rect key="frame" x="146.66666666666666" y="674.33333333333337" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9MO-Vy-xsr"/>
+                                    <constraint firstAttribute="height" constant="100" id="Heg-5J-iLd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wm5-my-9F1"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PrB-wP-TD5" firstAttribute="centerX" secondItem="mu6-Fh-qyb" secondAttribute="centerX" id="7Gt-8j-ee4"/>
                             <constraint firstItem="2S8-Uj-4lz" firstAttribute="top" secondItem="mu6-Fh-qyb" secondAttribute="top" id="B0Z-kp-qQP"/>
+                            <constraint firstItem="PrB-wP-TD5" firstAttribute="centerY" secondItem="mu6-Fh-qyb" secondAttribute="centerY" multiplier="1.7" id="Cf0-dN-9P2"/>
                             <constraint firstItem="OOW-Xm-Ity" firstAttribute="centerY" secondItem="mu6-Fh-qyb" secondAttribute="centerY" multiplier="0.4" id="Lh1-qa-7Df"/>
                             <constraint firstItem="2S8-Uj-4lz" firstAttribute="leading" secondItem="mu6-Fh-qyb" secondAttribute="leading" id="NBK-eE-irO"/>
                             <constraint firstAttribute="trailing" secondItem="2S8-Uj-4lz" secondAttribute="trailing" id="fXC-e5-3Aj"/>
@@ -195,6 +204,7 @@
                         <outlet property="detailsOption" destination="s2D-Pv-3j3" id="jGn-xB-rLu"/>
                         <outlet property="favouriteOption" destination="FYn-aT-MSs" id="fN1-bq-04R"/>
                         <outlet property="profileOption" destination="b5J-Hd-C6F" id="ynV-va-pxn"/>
+                        <outlet property="pruebaImg" destination="PrB-wP-TD5" id="cd1-UQ-nVC"/>
                         <outlet property="requestsOption" destination="QES-mB-XOO" id="ieJ-Ff-QNZ"/>
                         <outlet property="ridesOption" destination="myt-Kj-AJU" id="Esj-lQ-Vnu"/>
                         <outlet property="welcomeLabel" destination="OOW-Xm-Ity" id="eft-Co-DDJ"/>
