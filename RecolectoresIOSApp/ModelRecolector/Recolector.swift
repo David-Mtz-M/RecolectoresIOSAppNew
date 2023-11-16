@@ -14,7 +14,6 @@ class Recolector: Decodable {
     var apellidos: String
     var telefono: String
     var usuario: String
-
     
     
     enum CodingKeys: String, CodingKey {
@@ -23,15 +22,17 @@ class Recolector: Decodable {
         case telefono
         case usuario
 
+
     }
     
     var dictionary: [String: Any]{
         return ["nombre": nombre, "apellidos": apellidos, "telefono": telefono, "usuario": usuario]
     }
     
-    convenience init(){
-        self.init( apellidos: "", telefono: "", usuario: "", nombre: "")
+    convenience init() {
+        self.init(apellidos: "", telefono: "", usuario: "", nombre: "")
     }
+
     
     convenience init(dictionary: [String: Any]) {
         
@@ -42,7 +43,8 @@ class Recolector: Decodable {
         let usuario = dictionary["usuario"] as! String? ?? ""
 
 
-        self.init( apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre)
+
+        self.init(apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre)
 
     }
 
@@ -53,9 +55,10 @@ class Recolector: Decodable {
         self.telefono = telefono
         self.usuario = usuario
 
-        
     }
     
+
+
     
     
 }

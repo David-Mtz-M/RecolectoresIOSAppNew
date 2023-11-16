@@ -11,6 +11,8 @@ import UIKit
 class OpcionesViewController: UIViewController {
     
     var recolector: Recolector!
+    var email: String!
+    var password: String!
     
     
     @IBOutlet weak var requestsOption: UIImageView!
@@ -53,14 +55,19 @@ class OpcionesViewController: UIViewController {
         favouriteOption.isUserInteractionEnabled = true
         favouriteOption.addGestureRecognizer(tapGestureFavourites)
         
+        welcomeLabel.text = "Bienvenido" + " " + AuthService.shared.currentRecolector!.nombre
+        
         
         printRecolectorData()
     }
     
     private func printRecolectorData(){
-        print(recolector.nombre)
-        print(recolector.apellidos)
-        print(recolector.telefono)
+
+        print(AuthService.shared.currentRecolector!.nombre)
+        print(AuthService.shared.currentRecolector!.apellidos)
+        print(AuthService.shared.currentRecolector!.usuario)
+        print(AuthService.shared.currentRecolector!.telefono)
+
     }
 
     

@@ -14,26 +14,32 @@ class AuthService {
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
     
+    private var _currentRecolector: Recolector?
+    
+    var currentRecolector: Recolector? {
+        return _currentRecolector
+    }
+
     func loginUser(email: String, password: String, completion: @escaping (Recolector?, Error?) -> Void) {
-        // Authenticate the user with email and password
-        auth.signIn(withEmail: email, password: password) { (authResult, error) in
+        auth.signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
+            guard let self = self else { return }
+
             if let error = error {
                 completion(nil, error)
             } else if let user = authResult?.user {
-                // Check if Recolector document exists in Firestore for the given UID
                 self.checkRecolectorDocument(uid: user.uid, completion: completion)
             }
         }
     }
-    
+
     private func checkRecolectorDocument(uid: String, completion: @escaping (Recolector?, Error?) -> Void) {
-        // Check if Recolector document exists in Firestore for the given UID
         db.collection("recolectores").document(uid).getDocument { (document, error) in
             if let error = error {
                 completion(nil, error)
             } else if let document = document, document.exists {
                 do {
                     let recolector = try document.data(as: Recolector.self)
+                    self._currentRecolector = recolector
                     completion(recolector, nil)
                 } catch let error {
                     completion(nil, error)
@@ -90,20 +96,17 @@ class ViewController: UIViewController {
         }
 
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "moveToOptionsVC", let recolector = sender as? Recolector {
+        if segue.identifier == "moveToOptionsVC"{
             if let opcionesVC = segue.destination as? OpcionesViewController {
-                opcionesVC.recolector = recolector
+                
+                opcionesVC.email = emailTextField.text
+                opcionesVC.password = passwordTextField.text
             }
         }
     }
 
-    
-    
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
