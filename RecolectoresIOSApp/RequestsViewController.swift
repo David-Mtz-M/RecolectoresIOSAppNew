@@ -88,13 +88,34 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
     }
     
+    
+    private func showPins(){
+        
+        var sortedRecolectoresArray = sortedArray()
+        
+        for sortedRecolector in sortedRecolectoresArray{
+            let pin = MKPointAnnotation()
+            let latitude = Double(sortedRecolector.latitud) ?? 0
+            let longitude = Double(sortedRecolector.longitud) ?? 0
+
+            pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            pin.title = sortedRecolector.userInfo["nombreCompleto"] as? String
+            pin.subtitle = sortedRecolector.userInfo["direccion"] as? String
+            map.addAnnotation(pin)
+        }
+        
+    }
+    
     private func sortedArray() -> [Recoleccion] {
-        let sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
+        var sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
             $1.getDistance(iphoneCoords: locationManager.location!)})
         
         var count = 0
         
+
+        
         for sortedRecolector in sortedRecoleccionesArray{
+            sortedRecoleccionesArray.removeAll(where: { $0.estado != "En Proceso"})
             print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
             count += 1
         }
@@ -115,20 +136,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
 
     
-    private func showPins(){
-        
-        for recolector in recolecciones.recoleccionesArray{
-            let pin = MKPointAnnotation()
-            let latitude = Double(recolector.latitud) ?? 0
-            let longitude = Double(recolector.longitud) ?? 0
 
-            pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            pin.title = recolector.userInfo["nombreCompleto"] as? String
-            pin.subtitle = recolector.userInfo["direccion"] as? String
-            map.addAnnotation(pin)
-        }
-        
-    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0] as CLLocation
@@ -199,7 +207,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
 extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recolecciones.recoleccionesArray.count
+        return sortedArray().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -210,9 +218,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         
 
         let sortedRecoleccionesArray = sortedArray()
-        
-        
-        
+ 
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = sortedRecoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.direccion?.text = sortedRecoleccionesArray[indexPath.row].userInfo["direccion"] as? String
