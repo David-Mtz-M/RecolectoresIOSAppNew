@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class Recolector: Decodable {
+class RecolectorDecodable: Decodable {
     
     var nombre: String
     var apellidos: String

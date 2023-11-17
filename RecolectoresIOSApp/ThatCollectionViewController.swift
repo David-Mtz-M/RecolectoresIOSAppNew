@@ -10,11 +10,11 @@ import CoreLocation
 
 
 class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
     
     
+   
+    @IBOutlet var aceptarEncargoPopup: UIView!
     
-
     @IBOutlet weak var recollectionBgImg: UIImageView!
     
     
@@ -83,8 +83,46 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         printMaterials()
         
+        
+        
+        aceptarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.20)
+        
+
 
     }
+    
+    
+    // Animate in a specified view
+    func animateIn(desiredView: UIView){
+        let backgroundView = self.view!
+        
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.center = CGPoint(x: backgroundView.center.x, y: backgroundView.center.y - 120)
+        
+        // Set the corner radius after applying the transform
+        desiredView.layer.cornerRadius = 30
+        desiredView.layer.masksToBounds = true
+      
+        //desiredView.alpha = 0
+    }
+    
+    // Animate out a specific view
+    func animateOut(desiredView: UIView){
+        desiredView.removeFromSuperview()
+    }
+
+    
+    @IBAction func aceptaEncargoAction(_ sender: Any) {
+        animateIn(desiredView: aceptarEncargoPopup)
+    }
+    
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        animateOut(desiredView: aceptarEncargoPopup)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recoleccion!.materiales.count

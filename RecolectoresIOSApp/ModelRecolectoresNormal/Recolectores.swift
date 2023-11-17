@@ -2,14 +2,14 @@
 //  Recolectores.swift
 //  RecolectoresIOSApp
 //
-//  Created by Administrador on 08/11/23.
+//  Created by Administrador on 16/11/23.
 //
 
 import Foundation
 import Firebase
 
 
-class Recolectores{
+class Recolectore{
     var recolectoresArray: [Recolector] = []
     var db: Firestore!
     

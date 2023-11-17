@@ -13,43 +13,44 @@ class AuthService {
     static let shared = AuthService()
     private let auth = Auth.auth()
     private let db = Firestore.firestore()
-    
-    private var _currentRecolector: Recolector?
-    
-    var currentRecolector: Recolector? {
-        return _currentRecolector
-    }
 
-    func loginUser(email: String, password: String, completion: @escaping (Recolector?, Error?) -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (Recolector?, String?, Error?) -> Void) {
         auth.signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
             guard let self = self else { return }
 
             if let error = error {
-                completion(nil, error)
+                completion(nil, nil, error)
             } else if let user = authResult?.user {
-                self.checkRecolectorDocument(uid: user.uid, completion: completion)
+                self.checkRecolectorDocument(uid: user.uid) { recolector, documentId, error in
+                    completion(recolector, documentId, error)
+                }
             }
         }
     }
 
-    private func checkRecolectorDocument(uid: String, completion: @escaping (Recolector?, Error?) -> Void) {
+    private func checkRecolectorDocument(uid: String, completion: @escaping (Recolector?, String?, Error?) -> Void) {
         db.collection("recolectores").document(uid).getDocument { (document, error) in
             if let error = error {
-                completion(nil, error)
+                completion(nil, nil, error)
             } else if let document = document, document.exists {
                 do {
-                    let recolector = try document.data(as: Recolector.self)
-                    self._currentRecolector = recolector
-                    completion(recolector, nil)
-                } catch let error {
-                    completion(nil, error)
+                    if let recolectorData = document.data() {
+                        let recolector =  Recolector(dictionary: recolectorData)
+                        let documentId = document.documentID
+                        print(documentId)
+                        completion(recolector, documentId, nil)
+                    } else {
+                        // Handle the case when recolectorData is nil
+                        completion(nil, nil, NSError(domain: "AuthService", code: 2, userInfo: [NSLocalizedDescriptionKey: "Invalid recolector data"]))
+                    }
                 }
             } else {
-                completion(nil, NSError(domain: "AuthService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid user"]))
+                completion(nil, nil, NSError(domain: "AuthService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Invalid user"]))
             }
         }
     }
 }
+
 
 
 class ViewController: UIViewController {
@@ -83,29 +84,40 @@ class ViewController: UIViewController {
             // Handle invalid input (e.g., show an error message)
             return
         }
-        
-        AuthService.shared.loginUser(email: email, password: password) { [weak self] (recolector, error) in
+
+        AuthService.shared.loginUser(email: email, password: password) { [weak self] (recolector, documentId, error) in
             if let error = error {
                 // Handle authentication error (e.g., show an error message)
                 print("Authentication error: \(error)")
             } else if let recolector = recolector {
                 // Authentication successful, retrieve Recolector data
                 print("Recolector data: \(recolector)")
-                self?.performSegue(withIdentifier: "moveToOptionsVC", sender: recolector)
-            }
-        }
-
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "moveToOptionsVC"{
-            if let opcionesVC = segue.destination as? OpcionesViewController {
                 
-                opcionesVC.email = emailTextField.text
-                opcionesVC.password = passwordTextField.text
+                // Combine Recolector and documentId into a single sender
+                let senderData: [AnyHashable: Any] = ["recolector": recolector, "docId": documentId ?? ""]
+                
+                // Perform the segue with the combined sender
+                self?.performSegue(withIdentifier: "moveToOptionsVC", sender: senderData)
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToOptionsVC" {
+            if let opcionesVC = segue.destination as? OpcionesViewController,
+               let senderData = sender as? [AnyHashable: Any],
+               let recolector = senderData["recolector"] as? Recolector {
+                opcionesVC.recolector = recolector
+                
+                // Set documentID here
+                opcionesVC.docId = senderData["docId"] as? String ?? ""
+            }
+        }
+    }
+
+
+
+
 
     
     override func viewWillAppear(_ animated: Bool) {

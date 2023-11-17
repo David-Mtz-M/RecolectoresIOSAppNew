@@ -14,7 +14,6 @@ import FirebaseAuth
 // guard let userID = Auth.auth().currentUser?.uid else { return }
 
 
-
 class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
@@ -23,7 +22,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
 
     // Arreglo de recolectores
-    var collectors: Recolectores!
+    //var collectors: Recolectores!
     
     // Arreglo de recolecciones
     var recolecciones: Recolecciones!
@@ -57,7 +56,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         addCustomPin()
         
-        collectors = Recolectores()
+        //collectors = Recolectores()
         
         recolecciones = Recolecciones()
         
@@ -80,9 +79,9 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectors.loadData {
-            self.tableView.reloadData()
-        }
+        //collectors.loadData {
+          //  self.tableView.reloadData()
+        //}
         
         recolecciones.loadData {
             self.tableView.reloadData()
@@ -107,22 +106,14 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     private func printRecolectores() {
         // Check if recolecciones is not nil before accessing recoleccionesArray
-        guard let recolecciones = recolecciones else {
-            print("Error: recolecciones is nil")
-            return
+        for recoleccion in recolecciones.recoleccionesArray{
+            print("ID")
+            print(recoleccion.documentID!)
         }
 
-        for recolector in collectors.recolectoresArray {
-            print("ID")
-             //print(recolector.documentID)
-        }
     }
     
 
-    
-    
-    
-    
     
     private func showPins(){
         
@@ -236,7 +227,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         
         showPins()
         
-
+        printRecolectores()
         
         return cell
     }

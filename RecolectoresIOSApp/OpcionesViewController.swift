@@ -11,6 +11,7 @@ import UIKit
 class OpcionesViewController: UIViewController {
     
     var recolector: Recolector!
+    var docId: String!
     var email: String!
     var password: String!
     
@@ -52,40 +53,28 @@ class OpcionesViewController: UIViewController {
         favouriteOption.isUserInteractionEnabled = true
         favouriteOption.addGestureRecognizer(tapGestureFavourites)
         
-        welcomeLabel.text = "Bienvenido" + " " + AuthService.shared.currentRecolector!.nombre
+        //welcomeLabel.text = "Bienvenido" + " " + AuthService.shared.currentRecolector!.nombre
         
-        let imgUrl = URL(string: AuthService.shared.currentRecolector!.fotoUrl)
+        //let imgUrl = URL(string: AuthService.shared.currentRecolector!.fotoUrl)
 
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: imgUrl!) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.pruebaImg.image = image // Set the image to UIImageView
-                    }
-                }
-            }
+
+        
+        //Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: pruebaImg)
+            
+        print(docId!)
+
+        if recolector != nil{
+            print("RECOLECTOR EXISTE")
+            print("DOC ID")
+            print(docId!)
+            print("DOC ID")
+        }else{
+            print("RECOLECTOR NO EXISTE")
         }
         
-        Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: pruebaImg)
-
-
-
         
-        printRecolectorData()
     }
-    
-    private func printRecolectorData(){
 
-        print(AuthService.shared.currentRecolector!.nombre)
-        print(AuthService.shared.currentRecolector!.apellidos)
-        print(AuthService.shared.currentRecolector!.usuario)
-        print(AuthService.shared.currentRecolector!.telefono)
-        print(AuthService.shared.currentRecolector!.cantidad_reseñas)
-        print(AuthService.shared.currentRecolector!.suma_reseñas)
-        
-        
-
-    }
 
     
     @objc func moveToRequestsSB() {
