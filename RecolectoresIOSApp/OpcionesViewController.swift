@@ -15,6 +15,11 @@ class OpcionesViewController: UIViewController {
     var email: String!
     var password: String!
     
+
+    
+
+    
+    
     @IBOutlet weak var pruebaImg: UIImageView!
     
     
@@ -30,6 +35,16 @@ class OpcionesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
+        
+        
+        
+        let recolectorData = UserDefaults.standard
+        
+        if docId != nil{
+            recolectorData.set(docId, forKey: "documentID")
+            recolectorData.set(recolector.dictionary, forKey: "SavedDict")
+        }
+
         
         // Configurar imagen para que al hacer tap mande a otro storyboard
 
@@ -53,26 +68,19 @@ class OpcionesViewController: UIViewController {
         favouriteOption.isUserInteractionEnabled = true
         favouriteOption.addGestureRecognizer(tapGestureFavourites)
         
-        //welcomeLabel.text = "Bienvenido" + " " + AuthService.shared.currentRecolector!.nombre
+        let recolectorInMemory = recolectorData.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        let nombre = recolectorInMemory["nombre"] as! String
+        let fotoUrl = recolectorInMemory["fotoUrl"] as! String
         
-        //let imgUrl = URL(string: AuthService.shared.currentRecolector!.fotoUrl)
+        welcomeLabel.text = "Bienvenido" + " " + nombre
+        
+        let imgUrl = URL(string: fotoUrl)
 
 
         
-        //Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: pruebaImg)
+        Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: pruebaImg)
             
-        print(docId!)
 
-        if recolector != nil{
-            print("RECOLECTOR EXISTE")
-            print("DOC ID")
-            print(docId!)
-            print("DOC ID")
-        }else{
-            print("RECOLECTOR NO EXISTE")
-        }
-        
-        
     }
 
 
