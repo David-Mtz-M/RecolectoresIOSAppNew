@@ -7,11 +7,12 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 
 class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    
+
    
     @IBOutlet var aceptarEncargoPopup: UIView!
     
@@ -79,14 +80,22 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let nib = UINib(nibName: "MaterialTableViewCell", bundle: nil)
         materialsTableView.register(nib, forCellReuseIdentifier: "materialCell")
         
+        
         configureItems()
         
         printMaterials()
         
         
-        
         aceptarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.20)
         
+        // Reference to write data in Firebase
+        
+        // var ref: DatabaseReference!
+        // ref = Database.database().reference()
+
+        print("Recoleccion ID")
+        let id = recoleccion?.documentID!
+        print(id!)
 
 
     }
@@ -122,6 +131,49 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func cancelAction(_ sender: Any) {
         animateOut(desiredView: aceptarEncargoPopup)
     }
+    
+    
+    @IBAction func confirmarRecoleccion(_ sender: Any) {
+        // Guardar ID de la recoleccion en cuestion
+        let  recoleccionDocumentID = recoleccion?.documentID
+        
+        // Acceder a atributos del recolector asi como a su recolectorID
+        let defaults = UserDefaults.standard
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        // Atributos
+        let apellidos = recolectorInMemory["apellidos"] as! String
+        let cantidad_reseñas = recolectorInMemory["cantidad_reseñas"] as! Int
+        let fotoUrl = recolectorInMemory["fotoUrl"] as! String
+        let recolectorID = defaults.string(forKey: "documentID")
+        let nombre = recolectorInMemory["nombre"] as! String
+        let suma_reseñas = recolectorInMemory["suma_reseñas"] as! Int
+        let telefono = recolectorInMemory["telefono"] as! String
+        
+        print("Recoleccion document ID: ")
+        print(recoleccionDocumentID!)
+        
+        // Hacer el write en Firebase
+        let db = Firestore.firestore()
+        db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
+            "recolector.apellidos": apellidos,
+            "recolector.cantidad_reseñas": cantidad_reseñas  ,
+            "recolector.fotoUrl":  fotoUrl ,
+            "recolector.id": recolectorID!  ,
+            "recolector.nombre":  nombre ,
+            "recolector.suma_reseñas":  suma_reseñas ,
+            "recolector.telefono": telefono,
+            "latitud": 777
+        ]){ err in
+            if let err = err {
+              print("Error updating document: \(err)")
+            } else {
+              print("Document successfully updated")
+            }
+            
+        }
+        animateOut(desiredView: aceptarEncargoPopup)
+    }
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

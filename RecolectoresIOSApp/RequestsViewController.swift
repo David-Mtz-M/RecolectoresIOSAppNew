@@ -91,7 +91,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     private func showPins(){
         
-        var sortedRecolectoresArray = sortedArray()
+        let sortedRecolectoresArray = sortedArray()
         
         for sortedRecolector in sortedRecolectoresArray{
             let pin = MKPointAnnotation()
@@ -115,7 +115,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
         
         for sortedRecolector in sortedRecoleccionesArray{
-            sortedRecoleccionesArray.removeAll(where: { $0.estado != "En Proceso"})
+            sortedRecoleccionesArray.removeAll(where: { $0.estado != "Iniciada"})
             print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
             count += 1
         }
@@ -240,9 +240,13 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRecollection = recolecciones.recoleccionesArray[indexPath.row]
-        let distance = recolecciones.recoleccionesArray[indexPath.row].getDistance(iphoneCoords: locationManager.location!)
         
+        let sortedRecoleccionesArray = sortedArray()
+        let selectedRecollection = sortedRecoleccionesArray[indexPath.row]
+        
+        let distance = selectedRecollection.getDistance(iphoneCoords: locationManager.location!)
+
+
         //  Cal the method to navigate to the next view controller
         thatCollectionViewController(with: selectedRecollection, distance: distance)
 
