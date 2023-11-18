@@ -598,39 +598,6 @@
             </objects>
             <point key="canvasLocation" x="5067.93893129771" y="40.845070422535215"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="L1T-dQ-6qU">
-            <objects>
-                <viewController id="bJU-Eq-Jwp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ku8-zD-0lo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzq-bK-50w">
-                                <rect key="frame" x="0.0" y="318" width="393" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="HVO-85-q4p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="knM-f0-6uS"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="knM-f0-6uS" firstAttribute="bottom" secondItem="Rzq-bK-50w" secondAttribute="bottom" constant="300" id="Qgg-iU-6zM"/>
-                            <constraint firstItem="knM-f0-6uS" firstAttribute="trailing" secondItem="Rzq-bK-50w" secondAttribute="trailing" id="c2u-xS-JJK"/>
-                            <constraint firstItem="Rzq-bK-50w" firstAttribute="leading" secondItem="knM-f0-6uS" secondAttribute="leading" id="ztg-QL-sow"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="lJh-VS-J9y"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rLv-tZ-nZA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6051" y="41"/>
-        </scene>
         <!--Details View Controller-->
         <scene sceneID="rvC-2z-2Bc">
             <objects>
@@ -708,7 +675,7 @@
         <!--Rides View Controller-->
         <scene sceneID="7qt-nB-BBP">
             <objects>
-                <viewController id="I2r-HM-QWF" customClass="RidesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ridesVC" id="I2r-HM-QWF" customClass="RidesViewController" customModule="RecolectoresIOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gii-BR-Vti">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -716,27 +683,38 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenCarsonBG" translatesAutoresizingMaskIntoConstraints="NO" id="zVQ-C4-CZQ">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver viajes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyY-44-vYd">
-                                <rect key="frame" x="160" y="415.66666666666669" width="73" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tienes 0 viajes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2Z-7a-Ivw">
+                                <rect key="frame" x="107.33333333333333" y="123.00000000000001" width="178.66666666666669" height="33.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="78w-OY-lTK">
+                                <rect key="frame" x="0.0" y="186.66666666666669" width="393" height="631.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eG7-dq-qHF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zVQ-C4-CZQ" firstAttribute="centerY" secondItem="Gii-BR-Vti" secondAttribute="centerY" id="1hC-x1-LcR"/>
                             <constraint firstItem="zVQ-C4-CZQ" firstAttribute="centerX" secondItem="Gii-BR-Vti" secondAttribute="centerX" id="4rG-tO-fxY"/>
+                            <constraint firstItem="eG7-dq-qHF" firstAttribute="bottom" secondItem="78w-OY-lTK" secondAttribute="bottom" id="5TJ-Jm-yhq"/>
                             <constraint firstAttribute="bottom" secondItem="zVQ-C4-CZQ" secondAttribute="bottom" id="J47-3D-N7K"/>
-                            <constraint firstItem="hyY-44-vYd" firstAttribute="centerY" secondItem="Gii-BR-Vti" secondAttribute="centerY" id="JTM-Zr-Jhw"/>
                             <constraint firstAttribute="trailing" secondItem="zVQ-C4-CZQ" secondAttribute="trailing" id="JpA-QK-yWq"/>
                             <constraint firstItem="zVQ-C4-CZQ" firstAttribute="top" secondItem="Gii-BR-Vti" secondAttribute="top" id="KPa-NO-Sma"/>
+                            <constraint firstItem="S2Z-7a-Ivw" firstAttribute="centerX" secondItem="Gii-BR-Vti" secondAttribute="centerX" id="RqB-QN-UC2"/>
                             <constraint firstItem="zVQ-C4-CZQ" firstAttribute="leading" secondItem="Gii-BR-Vti" secondAttribute="leading" id="djS-Hr-nGK"/>
-                            <constraint firstItem="hyY-44-vYd" firstAttribute="centerX" secondItem="Gii-BR-Vti" secondAttribute="centerX" id="ls2-sR-mCQ"/>
+                            <constraint firstItem="S2Z-7a-Ivw" firstAttribute="top" secondItem="Gii-BR-Vti" secondAttribute="topMargin" constant="20" id="ePC-Dw-c5q"/>
+                            <constraint firstItem="eG7-dq-qHF" firstAttribute="trailing" secondItem="78w-OY-lTK" secondAttribute="trailing" id="jgP-Ja-xMW"/>
+                            <constraint firstItem="78w-OY-lTK" firstAttribute="top" secondItem="S2Z-7a-Ivw" secondAttribute="bottom" constant="30" id="jnk-kP-qjH"/>
+                            <constraint firstItem="78w-OY-lTK" firstAttribute="leading" secondItem="eG7-dq-qHF" secondAttribute="leading" id="vQx-zw-WsC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ka2-Pr-e0g"/>
+                    <connections>
+                        <outlet property="ridesTableView" destination="78w-OY-lTK" id="tQz-fQ-pQR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7DF-Of-8Yk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

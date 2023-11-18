@@ -15,6 +15,7 @@ class DemoTableViewCell: UITableViewCell {
     @IBOutlet weak var direccion: UILabel!
     @IBOutlet weak var backgroundLabel: UILabel!
     
+    @IBOutlet weak var horaRecoleccion: UILabel!
     
     
     
@@ -33,6 +34,9 @@ class DemoTableViewCell: UITableViewCell {
         distanciaEnMinutos.font = UIFont.boldSystemFont(ofSize: distanciaEnMinutos.font.pointSize)
         
         direccion.textColor = .white
+        
+        horaRecoleccion.textColor = .white
+        horaRecoleccion.font = UIFont.boldSystemFont(ofSize: distanciaEnMinutos.font.pointSize)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -14,13 +14,17 @@ import FirebaseFirestore
 class RidesViewController: UIViewController {
    
     let database = Firestore.firestore()
-
+    var recoleccion: Recoleccion?
+    var distance: Double?
+    
+    
+    @IBOutlet weak var ridesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
      
-
+        ridesTableView.backgroundColor = UIColor.clear
     }
     
     //Firebase functions start

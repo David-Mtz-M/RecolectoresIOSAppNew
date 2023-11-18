@@ -19,10 +19,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var tableView: UITableView!
-    
-    
 
-    
 
     // Arreglo de recolectores
     //var collectors: Recolectores!
@@ -75,12 +72,18 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        let fechaActual = Date()
+        let format = DateFormatter()
+        format.timeStyle = .short
+        format.dateStyle = .short
+        print("Fecha actual formatted: ")
+        print(format.string(from: fechaActual))
+        print("Fecha actual")
+        print(fechaActual)
+        
 
-        
-        
     }
     
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -115,15 +118,22 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         var sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
             $1.getDistance(iphoneCoords: locationManager.location!)})
         
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM/yyyy"
+        
+        let systemDate = format.string(from: date)
+        
         var count = 0
         
-
-        
-        for sortedRecolector in sortedRecoleccionesArray{
+        for _ in sortedRecoleccionesArray{
             sortedRecoleccionesArray.removeAll(where: { $0.estado != "En Proceso"})
-            print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
-            count += 1
+            // Remueve aquellas recolecciones que no coinciden con el día de hoy
+            sortedRecoleccionesArray.removeAll(where: { $0.fechaRecoleccion != systemDate})
+            //print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
+            //count += 1
         }
+        
         
         return sortedRecoleccionesArray
         
@@ -133,16 +143,16 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     private func printRecolectores() {
         // Check if recolecciones is not nil before accessing recoleccionesArray
         for recoleccion in recolecciones.recoleccionesArray{
-            print("ID")
-            print(recoleccion.documentID!)
+            print("DIA, HORA INICIO, HORA FINAL")
+            print(recoleccion.fechaRecoleccion)
+            print(recoleccion.horaRecoleccionInicio)
+            print(recoleccion.horaRecoleccionFinal)
         }
 
     }
     
 
-    
 
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0] as CLLocation
         
@@ -157,14 +167,9 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         userPin.subtitle = "Me encuentro aqui!"
         map.addAnnotation(userPin)
         
-        
-        print("EEEEEEEE")
+        print("Iphone coordinates")
         print(iphoneCoords)
-        
-        
     }
-    
-
     
     private func addCustomPin(){
         let pin = MKPointAnnotation()
@@ -223,11 +228,15 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         
 
         let sortedRecoleccionesArray = sortedArray()
+        
+        var horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
+        var horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
  
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = sortedRecoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.direccion?.text = sortedRecoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "icono-basura")
+        cell.horaRecoleccion?.text = horaInicio + " " + "-" + " " + horaFinal
 
         if let iphoneCoords = iphoneLocationCoords {
             let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
@@ -238,7 +247,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         
         showPins()
         
-        printRecolectores()
+        //printRecolectores()
         
         return cell
     }
@@ -254,12 +263,9 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
 
         //  Cal the method to navigate to the next view controller
         thatCollectionViewController(with: selectedRecollection, distance: distance)
-
-        
     }
     
 
-    
     private func thatCollectionViewController(with recoleccion: Recoleccion?, distance: Double?){
         //let nextStoryboard = UIStoryboard(name: "ThatCollectionViewController", bundle: nil)
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "thatCollectionVC") as! ThatCollectionViewController
@@ -271,7 +277,6 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100

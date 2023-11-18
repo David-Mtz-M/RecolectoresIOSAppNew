@@ -87,7 +87,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         configureItems()
         
-        printMaterials()
+        // printMaterials()
         
         
         aceptarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
@@ -105,11 +105,60 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         // var ref: DatabaseReference!
         // ref = Database.database().reference()
 
-        print("Recoleccion ID")
-        let id = recoleccion?.documentID!
+        let fechaAñoRecoleccion = recoleccion?.fechaRecoleccion
+
+        let horaInicio = recoleccion?.horaRecoleccionInicio
+        
+        let horaFinal = recoleccion?.horaRecoleccionFinal
+        
+        let id = recoleccion?.documentID
+        
         print(id!)
+        
+     
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "dd/MM/yyyy"
+        
+
+        
+        let systemDateYear = format.string(from: date)
+
+        
+        if fechaAñoRecoleccion! < systemDateYear{
+            print("La recoleccion ya paso")
+        }
+        
+        print("Fecha recoleccion dd/MM/yyyy")
+        print(fechaAñoRecoleccion!)
+        print("Fecha sistema dd/MM/yyyy")
+        print(systemDateYear)
+        print(horaInicio!)
+        print(horaFinal!)
+        
+        
+        
+        
+        //compareDates(phoneDate: Date(), recoleccionDate: )
 
 
+    }
+    
+    func compareDates(phoneDate: Date, recoleccionDate: Date){
+        let format = DateFormatter()
+        format.timeStyle = .short
+        format.dateStyle = .short
+        
+        if phoneDate > recoleccionDate{
+            print("Ya paso la recoleccion")
+            print(format.string(from: phoneDate))
+            print(format.string(from: recoleccionDate))
+        }else{
+            print("Aun hay tiempo para la recoleccion")
+            print(format.string(from: phoneDate))
+            print(format.string(from: recoleccionDate))
+            
+        }
     }
     
     
@@ -161,6 +210,17 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBAction func confirmarRecoleccion(_ sender: Any) {
+        
+        
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ridesVC") as! RidesViewController
+
+        // Pass the document ID to the next view controller
+        nextViewController.recoleccion = recoleccion
+        nextViewController.distance = distance
+
+
+        
+        
         // Guardar ID de la recoleccion en cuestion
         let  recoleccionDocumentID = recoleccion?.documentID
         
@@ -199,6 +259,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
             
         }
         animateOut(desiredView: aceptarEncargoPopup)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     
