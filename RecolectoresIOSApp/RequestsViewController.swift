@@ -229,14 +229,14 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
 
         let sortedRecoleccionesArray = sortedArray()
         
-        var horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
-        var horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
+        let horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
+        let horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
  
         cell.backgroundColor = UIColor.clear
         cell.nombreCliente?.text = sortedRecoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
         cell.direccion?.text = sortedRecoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "icono-basura")
-        cell.horaRecoleccion?.text = horaInicio + " " + "-" + " " + horaFinal
+        cell.horaRecoleccion?.text = "Horario: " + horaInicio + " " + "-" + " " + horaFinal
 
         if let iphoneCoords = iphoneLocationCoords {
             let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)

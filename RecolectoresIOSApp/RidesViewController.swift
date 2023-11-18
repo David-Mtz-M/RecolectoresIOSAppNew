@@ -11,7 +11,9 @@ import FirebaseFirestore
 
 
 
-class RidesViewController: UIViewController {
+class RidesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    
    
     let database = Firestore.firestore()
     var recoleccion: Recoleccion?
@@ -23,15 +25,27 @@ class RidesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
-     
+        
+        let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
+        ridesTableView.register(nib, forCellReuseIdentifier: "recoleccionCel")
+        ridesTableView.delegate = self
+        ridesTableView.dataSource = self
         ridesTableView.backgroundColor = UIColor.clear
+        
+        
+        
     }
     
-    //Firebase functions start
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
     
     
     
-    //Firebase functions end
     
     private func configureItems(){
         
