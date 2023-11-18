@@ -13,10 +13,14 @@ import Firebase
 class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
 
-   
+    @IBOutlet var rechazarEncargoPopup: UIView!
+    
     @IBOutlet var aceptarEncargoPopup: UIView!
     
     @IBOutlet weak var recollectionBgImg: UIImageView!
+    
+    @IBOutlet weak var aceptarEncargoBtn: UIButton!
+    @IBOutlet weak var rechazarEncargoBtn: UIButton!
     
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -86,7 +90,15 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         printMaterials()
         
         
-        aceptarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.20)
+        aceptarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
+        
+        rechazarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
+        
+        aceptarEncargoBtn.layer.cornerRadius = 10
+        aceptarEncargoBtn.layer.masksToBounds = true
+        
+        rechazarEncargoBtn.layer.cornerRadius = 10
+        rechazarEncargoBtn.layer.masksToBounds = true
         
         // Reference to write data in Firebase
         
@@ -107,8 +119,12 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         backgroundView.addSubview(desiredView)
         
-        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         desiredView.center = CGPoint(x: backgroundView.center.x, y: backgroundView.center.y - 120)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        })
         
         // Set the corner radius after applying the transform
         desiredView.layer.cornerRadius = 30
@@ -121,15 +137,26 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     func animateOut(desiredView: UIView){
         desiredView.removeFromSuperview()
     }
-
+    
+    
+    @IBAction func rechazarEncargoAction(_ sender: Any) {
+        animateIn(desiredView: rechazarEncargoPopup)
+    }
+    
     
     @IBAction func aceptaEncargoAction(_ sender: Any) {
+        
         animateIn(desiredView: aceptarEncargoPopup)
     }
     
     
-    @IBAction func cancelAction(_ sender: Any) {
+    @IBAction func cancelActionAceptarPopup(_ sender: Any) {
         animateOut(desiredView: aceptarEncargoPopup)
+    }
+    
+    
+    @IBAction func cancelActionRechazarPopup(_ sender: Any) {
+        animateOut(desiredView: rechazarEncargoPopup)
     }
     
     
@@ -173,6 +200,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         }
         animateOut(desiredView: aceptarEncargoPopup)
     }
+    
+    
     
     
     

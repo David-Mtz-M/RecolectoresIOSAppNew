@@ -20,6 +20,9 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
+    
+
+    
 
     // Arreglo de recolectores
     //var collectors: Recolectores!
@@ -77,6 +80,8 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //collectors.loadData {
@@ -115,7 +120,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
         
         for sortedRecolector in sortedRecoleccionesArray{
-            sortedRecoleccionesArray.removeAll(where: { $0.estado != "Iniciada"})
+            sortedRecoleccionesArray.removeAll(where: { $0.estado != "En Proceso"})
             print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
             count += 1
         }

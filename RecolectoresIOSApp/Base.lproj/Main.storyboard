@@ -420,7 +420,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5p-9w-sSg">
                                 <rect key="frame" x="20" y="688" width="150.66666666666666" height="35"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="tableCellBlueTextColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Aceptar Encargo"/>
@@ -430,10 +430,13 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-Kc-M8E">
                                 <rect key="frame" x="200" y="688" width="162" height="35"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" red="0.70319771769999995" green="0.1770296395" blue="0.2194649279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Rechazar Encargo"/>
+                                <connections>
+                                    <action selector="rechazarEncargoAction:" destination="5J4-fX-Sws" eventType="touchUpInside" id="NQY-uo-ad6"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QhE-8S-VxO">
                                 <rect key="frame" x="288" y="483" width="89" height="170"/>
@@ -486,6 +489,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="69J-hY-d9s"/>
                     <connections>
+                        <outlet property="aceptarEncargoBtn" destination="w5p-9w-sSg" id="0wk-zF-OVn"/>
                         <outlet property="aceptarEncargoPopup" destination="qTP-9n-6L4" id="4eV-bU-D5v"/>
                         <outlet property="addressLabel" destination="yVZ-64-9QR" id="5P1-CQ-Rl0"/>
                         <outlet property="commentsConstantTxtLabel" destination="9zZ-pU-zFI" id="RqK-Tq-E8m"/>
@@ -499,6 +503,8 @@
                         <outlet property="otherBackgroundLabel" destination="lhp-eK-6Ue" id="ese-kc-SwR"/>
                         <outlet property="phoneConstantTxtLabel" destination="Gxt-BN-swB" id="tHL-CO-hSm"/>
                         <outlet property="phoneNumberLabel" destination="aFu-Fk-q4K" id="6GS-Np-g4Q"/>
+                        <outlet property="rechazarEncargoBtn" destination="kcq-Kc-M8E" id="1vp-bR-aSe"/>
+                        <outlet property="rechazarEncargoPopup" destination="hw3-Fq-Lk3" id="9pT-Tx-Inu"/>
                         <outlet property="recollectionBgImg" destination="v2z-W2-ceq" id="C8d-bM-rwn"/>
                     </connections>
                 </viewController>
@@ -520,7 +526,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
                             <connections>
-                                <action selector="cancelAction:" destination="5J4-fX-Sws" eventType="touchUpInside" id="Trz-Iq-Xl8"/>
+                                <action selector="cancelActionAceptarPopup:" destination="5J4-fX-Sws" eventType="touchUpInside" id="Trz-Iq-Xl8"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWQ-y3-5t6">
@@ -544,6 +550,49 @@
                         <constraint firstItem="U9J-75-E0M" firstAttribute="top" secondItem="qTP-9n-6L4" secondAttribute="top" constant="30" id="X3J-aG-iM6"/>
                         <constraint firstItem="U9J-75-E0M" firstAttribute="centerX" secondItem="qTP-9n-6L4" secondAttribute="centerX" id="fO1-IY-IER"/>
                         <constraint firstAttribute="trailing" secondItem="Cln-Hl-uzZ" secondAttribute="trailing" constant="40" id="rLg-h9-1Qq"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="hw3-Fq-Lk3">
+                    <rect key="frame" x="0.0" y="0.0" width="319" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Estás seguro de que deseas rechazar esta recolección?  Esta acción no puede deshacerse." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsM-5X-Na9">
+                            <rect key="frame" x="9.6666666666666572" y="20" width="300" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="sNh-VS-bDc"/>
+                                <constraint firstAttribute="width" constant="300" id="tcw-qT-9Z2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-TC-TLF">
+                            <rect key="frame" x="40" y="125" width="100" height="35"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Confirmar"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaX-GN-CsV">
+                            <rect key="frame" x="187.33333333333334" y="125" width="91.666666666666657" height="35"/>
+                            <color key="backgroundColor" red="0.70319771769999995" green="0.1770296395" blue="0.2194649279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
+                            <connections>
+                                <action selector="cancelActionRechazarPopup:" destination="5J4-fX-Sws" eventType="touchUpInside" id="0dL-bz-zXC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="dFH-a6-fg5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="QsM-5X-Na9" firstAttribute="top" secondItem="hw3-Fq-Lk3" secondAttribute="top" constant="20" id="341-3u-Kij"/>
+                        <constraint firstAttribute="bottom" secondItem="dxU-TC-TLF" secondAttribute="bottom" constant="40" id="3FA-EC-UrX"/>
+                        <constraint firstAttribute="trailing" secondItem="DaX-GN-CsV" secondAttribute="trailing" constant="40" id="A2x-xO-tED"/>
+                        <constraint firstItem="dxU-TC-TLF" firstAttribute="leading" secondItem="hw3-Fq-Lk3" secondAttribute="leading" constant="40" id="fVV-6T-Pgq"/>
+                        <constraint firstItem="QsM-5X-Na9" firstAttribute="centerX" secondItem="hw3-Fq-Lk3" secondAttribute="centerX" id="gnd-ky-OYx"/>
+                        <constraint firstAttribute="bottom" secondItem="DaX-GN-CsV" secondAttribute="bottom" constant="40" id="skt-v2-fm4"/>
                     </constraints>
                 </view>
             </objects>
@@ -728,10 +777,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tableCellBlueTextColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
