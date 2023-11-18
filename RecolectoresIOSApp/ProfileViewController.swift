@@ -12,8 +12,11 @@ import Firebase
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var profileImageView: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         configureItems()
         
         profileImageView.backgroundColor = .clear
