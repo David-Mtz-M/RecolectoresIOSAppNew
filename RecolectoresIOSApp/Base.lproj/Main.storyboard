@@ -257,6 +257,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-Sj-z0g">
+                                <rect key="frame" x="238" y="240" width="35" height="35"/>
+                                <color key="backgroundColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7qK-1K-7QL"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="camera"/>
+                                <connections>
+                                    <action selector="changeImageTapped:" destination="6Jr-Pc-Q8g" eventType="touchUpInside" id="fxO-0S-ttg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Qw-ec-sJO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -266,6 +277,7 @@
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" secondItem="1Zf-rm-XtY" secondAttribute="trailing" constant="120" id="Aco-EP-Ah0"/>
                             <constraint firstItem="Oni-tG-fAE" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="204" id="C2F-X2-ekU"/>
                             <constraint firstItem="b3W-dl-C9B" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="61" id="EJs-Nm-xWJ"/>
+                            <constraint firstItem="sOa-Sj-z0g" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="238" id="FMv-nK-UgB"/>
                             <constraint firstItem="FkI-3g-uRK" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="61" id="M2a-2S-akb"/>
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VLT-iW-DNN" secondAttribute="trailing" symbolic="YES" id="Srz-de-AU3"/>
                             <constraint firstAttribute="bottom" secondItem="FkI-3g-uRK" secondAttribute="bottom" constant="377" id="Tv7-G0-Tam"/>
@@ -275,16 +287,19 @@
                             <constraint firstItem="uaS-bf-SIh" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="61" id="cuW-Pp-uGU"/>
                             <constraint firstItem="VLT-iW-DNN" firstAttribute="top" secondItem="Oni-tG-fAE" secondAttribute="bottom" constant="8" symbolic="YES" id="eEY-N2-TzS"/>
                             <constraint firstItem="b3W-dl-C9B" firstAttribute="top" secondItem="FkI-3g-uRK" secondAttribute="bottom" constant="21" id="fTc-dw-G16"/>
+                            <constraint firstItem="sOa-Sj-z0g" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="137" id="gYb-HS-TfP"/>
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" secondItem="b3W-dl-C9B" secondAttribute="trailing" constant="236" id="hWV-y2-t0j"/>
                             <constraint firstItem="1Zf-rm-XtY" firstAttribute="top" secondItem="9Qw-ec-sJO" secondAttribute="top" constant="13" id="j8T-zd-jt2"/>
                             <constraint firstItem="1Zf-rm-XtY" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="122" id="n7L-qo-qYq"/>
                             <constraint firstItem="9Qw-ec-sJO" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FkI-3g-uRK" secondAttribute="trailing" symbolic="YES" id="vz0-2d-lph"/>
                             <constraint firstItem="VLT-iW-DNN" firstAttribute="leading" secondItem="9Qw-ec-sJO" secondAttribute="leading" constant="61" id="yAN-jd-vLB"/>
                             <constraint firstItem="Oni-tG-fAE" firstAttribute="leading" secondItem="uaS-bf-SIh" secondAttribute="leading" id="ykx-4f-AMj"/>
+                            <constraint firstItem="sOa-Sj-z0g" firstAttribute="trailing" secondItem="1Zf-rm-XtY" secondAttribute="trailing" id="ynG-G8-2Os"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PWf-ew-nGq"/>
                     <connections>
+                        <outlet property="changeImageButton" destination="sOa-Sj-z0g" id="Zpa-3h-i9U"/>
                         <outlet property="profileImageView" destination="1Zf-rm-XtY" id="Qbn-Vi-ssS"/>
                     </connections>
                 </viewController>
@@ -587,6 +602,7 @@
     </scenes>
     <resources>
         <image name="Aceite usado" width="731" height="730"/>
+        <image name="camera" width="32" height="32"/>
         <image name="favouritesOption" width="91" height="97"/>
         <image name="greenCarsonBG" width="377" height="667"/>
         <image name="logoNoBG" width="161" height="80"/>

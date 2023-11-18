@@ -12,6 +12,7 @@ import Firebase
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet weak var changeImageButton: UIButton!
     
     let imagePicker = UIImagePickerController()
     override func viewDidLoad() {
@@ -46,6 +47,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @objc private func moveToProfile() {
         let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileStoryboard") as! ProfileViewController
         self.navigationController?.pushViewController(mainViewController, animated: true)
+    }
+    @IBAction func changeImageTapped(_ sender: UIButton){
+        present(imagePicker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            profileImageView.image = pickedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }
