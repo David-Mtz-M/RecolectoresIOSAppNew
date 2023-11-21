@@ -6,12 +6,18 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MoreDetailsViewController: UIViewController {
     
+    var audioPlayer: AVAudioPlayer?
+    let audioFiles = ["audio1"]
+    
+    @IBAction func playSoundButton(_ sender: Any) {
+        
+    }
     @IBOutlet weak var lbl_Description: UILabel!
     @IBOutlet weak var img_View: UIImageView!
-    
     var img = UIImage()
     var des = ""
     

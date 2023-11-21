@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83199FF72B06816C00CAA2E8 /* MoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */; };
+		8324EAF62B0D4EE100B7625E /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 8324EAF52B0D4EE100B7625E /* Sounds */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		8368221D2AFDA63A00CA757E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368221C2AFDA63A00CA757E /* CustomCell.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailsViewController.swift; sourceTree = "<group>"; };
+		8324EAF52B0D4EE100B7625E /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = ../../Downloads/Sounds; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		8368221C2AFDA63A00CA757E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		83E8DA942AF1B3AE00106AA6 = {
 			isa = PBXGroup;
 			children = (
+				8324EAF52B0D4EE100B7625E /* Sounds */,
 				83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */,
 				83E8DA9E2AF1B3AE00106AA6 /* Products */,
 			);
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8324EAF62B0D4EE100B7625E /* Sounds in Resources */,
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,

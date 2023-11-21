@@ -502,6 +502,9 @@
                                 <color key="backgroundColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <buttonConfiguration key="configuration" style="filled" image="subir-el-volumen"/>
+                                <connections>
+                                    <action selector="playSoundButton:" destination="fyN-bP-ff9" eventType="touchUpInside" id="oRv-W2-rKb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ffO-KK-jDN"/>
@@ -523,7 +526,8 @@
                     </view>
                     <connections>
                         <outlet property="img_View" destination="Ekv-Hu-buo" id="lqf-k2-veK"/>
-                        <outlet property="lbl_Description" destination="Aqe-H3-rit" id="JfX-Ez-sj4"/>
+                        <outlet property="lbl_Description" destination="Aqe-H3-rit" id="l5J-gC-8sH"/>
+                        <outlet property="playSoundButton" destination="Wf9-9L-EcN" id="bL1-p7-3Ps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BwZ-7i-K6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
