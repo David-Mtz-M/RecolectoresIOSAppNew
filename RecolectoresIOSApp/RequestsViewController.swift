@@ -127,7 +127,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         var count = 0
         
         for _ in sortedRecoleccionesArray{
-            sortedRecoleccionesArray.removeAll(where: { $0.estado != "En Proceso"})
+            sortedRecoleccionesArray.removeAll(where: { $0.estado != "Iniciada"})
             // Remueve aquellas recolecciones que no coinciden con el día de hoy
             sortedRecoleccionesArray.removeAll(where: { $0.fechaRecoleccion != systemDate})
             //print(count, sortedRecolector.getDistance(iphoneCoords: locationManager.location!))
@@ -202,8 +202,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     @objc private func moveBackToOptions() {
-        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "OptionsStoryboard") as! OpcionesViewController
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func moveToProfile() {

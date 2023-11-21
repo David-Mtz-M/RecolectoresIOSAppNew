@@ -13,9 +13,12 @@ import Firebase
 class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
 
+    @IBOutlet var continuarEncargoPopup: UIView!
     @IBOutlet var rechazarEncargoPopup: UIView!
-    
     @IBOutlet var aceptarEncargoPopup: UIView!
+    
+    @IBOutlet weak var distanciaRestanteLabel: UILabel!
+    
     
     @IBOutlet weak var recollectionBgImg: UIImageView!
     
@@ -94,11 +97,16 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         rechazarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
         
+        continuarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
+    
         aceptarEncargoBtn.layer.cornerRadius = 10
         aceptarEncargoBtn.layer.masksToBounds = true
         
         rechazarEncargoBtn.layer.cornerRadius = 10
         rechazarEncargoBtn.layer.masksToBounds = true
+        
+        continuarEncargoPopup.layer.cornerRadius = 10
+        continuarEncargoPopup.layer.masksToBounds = true
         
         // Reference to write data in Firebase
         
@@ -114,6 +122,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let id = recoleccion?.documentID
         
         print(id!)
+        
         
      
         let date = Date()
@@ -138,6 +147,13 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         
         
+        aceptarEncargoBtn.setTitle("AAAAAA", for: .normal)
+        aceptarEncargoBtn.setTitle("Button Title", for: [])
+
+        configureButtons()
+        let distanceTxt = String(format: "%.2f", distance!)
+        distanciaRestanteLabel.text = "Te faltan \(distanceTxt) de distancia"
+
         
         //compareDates(phoneDate: Date(), recoleccionDate: )
 
@@ -158,6 +174,14 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
             print(format.string(from: phoneDate))
             print(format.string(from: recoleccionDate))
             
+        }
+    }
+    
+    func configureButtons(){
+        if recoleccion?.estado == "En Proceso"{
+            aceptarEncargoBtn.setTitle("Finalizar", for: .normal)
+        }else{
+            aceptarEncargoBtn.setTitle("Aceptar Encargo", for: .normal)
         }
     }
     
@@ -189,13 +213,18 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBAction func rechazarEncargoAction(_ sender: Any) {
+
         animateIn(desiredView: rechazarEncargoPopup)
+        
     }
     
     
     @IBAction func aceptaEncargoAction(_ sender: Any) {
-        
-        animateIn(desiredView: aceptarEncargoPopup)
+        if aceptarEncargoBtn.title(for: .normal) == "Finalizar"{
+            animateIn(desiredView: continuarEncargoPopup)
+        }else{
+            animateIn(desiredView: aceptarEncargoPopup)
+        }
     }
     
     
@@ -208,6 +237,9 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         animateOut(desiredView: rechazarEncargoPopup)
     }
     
+    @IBAction func continuarActionPopup(_ sender: Any) {
+        animateOut(desiredView: continuarEncargoPopup)
+    }
     
     @IBAction func confirmarRecoleccion(_ sender: Any) {
         
@@ -215,7 +247,6 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ridesVC") as! RidesViewController
 
         // Pass the document ID to the next view controller
-        nextViewController.recoleccion = recoleccion
         nextViewController.distance = distance
 
 
@@ -249,7 +280,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
             "recolector.nombre":  nombre ,
             "recolector.suma_reseñas":  suma_reseñas ,
             "recolector.telefono": telefono,
-            "latitud": 777
+            "estado": "En Proceso"
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -327,8 +358,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     @objc private func moveBackToRecollections() {
-        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "RequestsStoryboard") as! RequestsViewController
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func moveToProfile() {

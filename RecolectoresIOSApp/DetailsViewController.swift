@@ -31,8 +31,7 @@ class DetailsViewController: UIViewController {
     
 
     @objc private func moveBackToOptions() {
-        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "OptionsStoryboard") as! OpcionesViewController
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func moveToProfile() {
