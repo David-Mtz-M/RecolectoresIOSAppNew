@@ -42,6 +42,9 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var commentsConstantTxtLabel: UILabel!
     
     
+    @IBOutlet weak var mapaImg: UIImageView!
+    
+    
     var recoleccion: Recoleccion?
     var distance: Double?
     
@@ -108,57 +111,30 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         continuarEncargoPopup.layer.cornerRadius = 10
         continuarEncargoPopup.layer.masksToBounds = true
         
-        // Reference to write data in Firebase
         
-        // var ref: DatabaseReference!
-        // ref = Database.database().reference()
-
-        let fechaAñoRecoleccion = recoleccion?.fechaRecoleccion
-
-        let horaInicio = recoleccion?.horaRecoleccionInicio
+        let tapGestureRequests = UITapGestureRecognizer(target: self, action: #selector(moveToMapDetails))
+        mapaImg.isUserInteractionEnabled = true
+        mapaImg.addGestureRecognizer(tapGestureRequests)
         
-        let horaFinal = recoleccion?.horaRecoleccionFinal
-        
-        let id = recoleccion?.documentID
-        
-        print(id!)
-        
-        
-     
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "dd/MM/yyyy"
-        
-
-        
-        let systemDateYear = format.string(from: date)
-
-        
-        if fechaAñoRecoleccion! < systemDateYear{
-            print("La recoleccion ya paso")
-        }
-        
-        print("Fecha recoleccion dd/MM/yyyy")
-        print(fechaAñoRecoleccion!)
-        print("Fecha sistema dd/MM/yyyy")
-        print(systemDateYear)
-        print(horaInicio!)
-        print(horaFinal!)
-        
-        
-        
-        aceptarEncargoBtn.setTitle("AAAAAA", for: .normal)
-        aceptarEncargoBtn.setTitle("Button Title", for: [])
 
         configureButtons()
-        let distanceTxt = String(format: "%.2f", distance!)
-        distanciaRestanteLabel.text = "Te faltan \(distanceTxt) de distancia"
-
         
-        //compareDates(phoneDate: Date(), recoleccionDate: )
+        let distanceTxt = String(format: "%.2f", distance!)
+        distanciaRestanteLabel.text = "Falta recorrer \(distanceTxt) metros de distancia"
 
 
     }
+    
+
+    
+    @objc func moveToMapDetails() {
+        guard let mapRouteVC = storyboard?.instantiateViewController(withIdentifier: "mapRouteSB") as? MapRouteViewController else { return }
+        mapRouteVC.recoleccion = recoleccion
+        mapRouteVC.distance = distance
+        navigationController?.pushViewController(mapRouteVC, animated: true)
+    }
+
+
     
     func compareDates(phoneDate: Date, recoleccionDate: Date){
         let format = DateFormatter()
@@ -180,8 +156,10 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     func configureButtons(){
         if recoleccion?.estado == "En Proceso"{
             aceptarEncargoBtn.setTitle("Finalizar", for: .normal)
+            mapaImg.image = UIImage(named: "mapa")
         }else{
             aceptarEncargoBtn.setTitle("Aceptar Encargo", for: .normal)
+            mapaImg.image = nil
         }
     }
     

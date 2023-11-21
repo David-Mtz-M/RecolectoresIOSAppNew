@@ -58,6 +58,7 @@
 		83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */; };
 		83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */; };
 		83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */; };
+		83E8E9E22B0D6CCE0005881C /* MapRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8E9E12B0D6CCE0005881C /* MapRouteViewController.swift */; };
 		83FE845B2AFC46CA00A976B4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83E8DAAC2AF1B3AF00106AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83E8DAAE2AF1B3AF00106AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E8E9E12B0D6CCE0005881C /* MapRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouteViewController.swift; sourceTree = "<group>"; };
 		83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 				839C35452AFB064A0073FFEC /* ProfileViewController.swift */,
 				839C35472AFB067C0073FFEC /* DetailsViewController.swift */,
 				839C35492AFB06CC0073FFEC /* FavouritesViewController.swift */,
+				83E8E9E12B0D6CCE0005881C /* MapRouteViewController.swift */,
 				83B925772AFC06A2008E3D44 /* GoogleService-Info.plist */,
 				83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */,
 			);
@@ -331,6 +334,7 @@
 				83D2B8E02B07066F00840FFA /* Recolectores.swift in Sources */,
 				839C35442AFB05E50073FFEC /* RidesViewController.swift in Sources */,
 				839C35482AFB067C0073FFEC /* DetailsViewController.swift in Sources */,
+				83E8E9E22B0D6CCE0005881C /* MapRouteViewController.swift in Sources */,
 				83CDF7D12AFDB88100574E80 /* Recolecciones.swift in Sources */,
 				83D2B8DE2B07066500840FFA /* Recolector.swift in Sources */,
 				83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */,
