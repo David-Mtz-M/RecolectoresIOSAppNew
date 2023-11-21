@@ -497,13 +497,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf9-9L-EcN">
+                                <rect key="frame" x="248" y="260" width="33" height="38"/>
+                                <color key="backgroundColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.1520714567" green="0.77407274640000001" blue="0.15624620910000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <buttonConfiguration key="configuration" style="filled" image="subir-el-volumen"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ffO-KK-jDN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Wf9-9L-EcN" firstAttribute="leading" secondItem="ffO-KK-jDN" secondAttribute="leading" constant="248" id="3yE-P6-b9h"/>
                             <constraint firstItem="Ekv-Hu-buo" firstAttribute="leading" secondItem="ffO-KK-jDN" secondAttribute="leading" constant="57" id="4hf-wk-V0F"/>
+                            <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="Wf9-9L-EcN" secondAttribute="trailing" constant="112" id="92m-as-2GZ"/>
                             <constraint firstItem="twR-Lx-D0c" firstAttribute="leading" secondItem="fqP-5s-N7R" secondAttribute="leading" id="F42-Ob-5G0"/>
                             <constraint firstItem="twR-Lx-D0c" firstAttribute="top" secondItem="fqP-5s-N7R" secondAttribute="top" id="FjX-Z9-bsW"/>
+                            <constraint firstItem="Wf9-9L-EcN" firstAttribute="top" secondItem="ffO-KK-jDN" secondAttribute="top" constant="201" id="TTz-cA-dHN"/>
                             <constraint firstItem="ffO-KK-jDN" firstAttribute="trailing" secondItem="Aqe-H3-rit" secondAttribute="trailing" id="dNg-OE-KSb"/>
                             <constraint firstItem="Aqe-H3-rit" firstAttribute="top" secondItem="Ekv-Hu-buo" secondAttribute="bottom" constant="40" id="eL7-ji-O5e"/>
                             <constraint firstItem="Ekv-Hu-buo" firstAttribute="centerX" secondItem="fqP-5s-N7R" secondAttribute="centerX" id="oC9-Lo-GRj"/>
@@ -611,14 +620,15 @@
         <image name="requestsOption" width="97" height="98"/>
         <image name="ridesOption" width="91" height="97"/>
         <image name="settingsOption" width="66" height="62"/>
+        <image name="subir-el-volumen" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
