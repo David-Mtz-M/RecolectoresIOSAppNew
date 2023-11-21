@@ -49,6 +49,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.navigationController?.pushViewController(mainViewController, animated: true)
     }
     @IBAction func changeImageTapped(_ sender: UIButton){
+        let alertController = UIAlertController(title: "Seleccionar Foto", message: "¿Cómo desea tomar la foto?", preferredStyle: .actionSheet)
+        let takePhotoAction = UIAlertAction(title: "Tomar Foto", style: .default) { [unowned self] _ in
+            self.showImagePicker(sourceType: .camera)
+        }
+        let choosePhotoAction = UIAlertAction(title: "Elegir de la Galería", style: .default) { [unowned self] _ in
+            self.showImagePicker(sourceType: .photoLibrary)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alertController.addAction(takePhotoAction)
+        alertController.addAction(choosePhotoAction)
+        alertController.addAction(cancelAction)
+        
         present(imagePicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -59,6 +71,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    func showImagePicker (sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true, completion: nil)
     }
     
 }

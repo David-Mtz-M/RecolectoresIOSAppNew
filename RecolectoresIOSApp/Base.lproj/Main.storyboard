@@ -299,8 +299,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="PWf-ew-nGq"/>
                     <connections>
-                        <outlet property="changeImageButton" destination="sOa-Sj-z0g" id="Zpa-3h-i9U"/>
-                        <outlet property="profileImageView" destination="1Zf-rm-XtY" id="Qbn-Vi-ssS"/>
+                        <outlet property="changeImageButton" destination="sOa-Sj-z0g" id="FLh-id-ChZ"/>
+                        <outlet property="profileImageView" destination="1Zf-rm-XtY" id="c2q-cf-HcH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Tu-Lm-ijW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
