@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		83199FF72B06816C00CAA2E8 /* MoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */; };
-		8324EAF62B0D4EE100B7625E /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 8324EAF52B0D4EE100B7625E /* Sounds */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		8368221D2AFDA63A00CA757E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368221C2AFDA63A00CA757E /* CustomCell.swift */; };
@@ -57,7 +56,33 @@
 
 /* Begin PBXFileReference section */
 		83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailsViewController.swift; sourceTree = "<group>"; };
-		8324EAF52B0D4EE100B7625E /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = ../../Downloads/Sounds; sourceTree = "<group>"; };
+		8324EAF82B0D7D0000B7625E /* llantas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = llantas.mp3; sourceTree = "<group>"; };
+		8324EAF92B0D7D0000B7625E /* madera.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = madera.mp3; sourceTree = "<group>"; };
+		8324EAFA2B0D7D0000B7625E /* aceiteUsado.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aceiteUsado.mp3; sourceTree = "<group>"; };
+		8324EAFB2B0D7D0000B7625E /* papel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = papel.mp3; sourceTree = "<group>"; };
+		8324EAFC2B0D7D0000B7625E /* plasticos.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = plasticos.mp3; sourceTree = "<group>"; };
+		8324EAFD2B0D7D0000B7625E /* ropa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ropa.mp3; sourceTree = "<group>"; };
+		8324EAFE2B0D7D0000B7625E /* libros.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = libros.mp3; sourceTree = "<group>"; };
+		8324EAFF2B0D7D0000B7625E /* carton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carton.mp3; sourceTree = "<group>"; };
+		8324EB002B0D7D0000B7625E /* escombro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = escombro.mp3; sourceTree = "<group>"; };
+		8324EB012B0D7D0000B7625E /* baterias.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = baterias.mp3; sourceTree = "<group>"; };
+		8324EB022B0D7D0000B7625E /* toner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = toner.mp3; sourceTree = "<group>"; };
+		8324EB032B0D7D0000B7625E /* pilas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pilas.mp3; sourceTree = "<group>"; };
+		8324EB042B0D7D0000B7625E /* tetrapack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tetrapack.mp3; sourceTree = "<group>"; };
+		8324EB052B0D7D0000B7625E /* voluminoso.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = voluminoso.mp3; sourceTree = "<group>"; };
+		8324EB062B0D7D0000B7625E /* tapas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tapas.mp3; sourceTree = "<group>"; };
+		8324EB072B0D7D0000B7625E /* juguetes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = juguetes.mp3; sourceTree = "<group>"; };
+		8324EB082B0D7D0000B7625E /* organico.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = organico.mp3; sourceTree = "<group>"; };
+		8324EB092B0D7D0000B7625E /* medicina.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = medicina.mp3; sourceTree = "<group>"; };
+		8324EB0A2B0D7D0000B7625E /* botellas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = botellas.mp3; sourceTree = "<group>"; };
+		8324EB0B2B0D7D0000B7625E /* industriales.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = industriales.mp3; sourceTree = "<group>"; };
+		8324EB0C2B0D7D0000B7625E /* pruebaaudio.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = pruebaaudio.ogg; sourceTree = "<group>"; };
+		8324EB0D2B0D7D0000B7625E /* arbol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arbol.mp3; sourceTree = "<group>"; };
+		8324EB0E2B0D7D0000B7625E /* electronicos.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = electronicos.mp3; sourceTree = "<group>"; };
+		8324EB0F2B0D7D0000B7625E /* aceiteAuto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = aceiteAuto.mp3; sourceTree = "<group>"; };
+		8324EB102B0D7D0000B7625E /* bici.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bici.mp3; sourceTree = "<group>"; };
+		8324EB112B0D7D0000B7625E /* pallets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pallets.mp3; sourceTree = "<group>"; };
+		8324EB122B0D7D0000B7625E /* metal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = metal.mp3; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		8368221C2AFDA63A00CA757E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -117,6 +142,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8324EAF72B0D7D0000B7625E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8324EAF82B0D7D0000B7625E /* llantas.mp3 */,
+				8324EAF92B0D7D0000B7625E /* madera.mp3 */,
+				8324EAFA2B0D7D0000B7625E /* aceiteUsado.mp3 */,
+				8324EAFB2B0D7D0000B7625E /* papel.mp3 */,
+				8324EAFC2B0D7D0000B7625E /* plasticos.mp3 */,
+				8324EAFD2B0D7D0000B7625E /* ropa.mp3 */,
+				8324EAFE2B0D7D0000B7625E /* libros.mp3 */,
+				8324EAFF2B0D7D0000B7625E /* carton.mp3 */,
+				8324EB002B0D7D0000B7625E /* escombro.mp3 */,
+				8324EB012B0D7D0000B7625E /* baterias.mp3 */,
+				8324EB022B0D7D0000B7625E /* toner.mp3 */,
+				8324EB032B0D7D0000B7625E /* pilas.mp3 */,
+				8324EB042B0D7D0000B7625E /* tetrapack.mp3 */,
+				8324EB052B0D7D0000B7625E /* voluminoso.mp3 */,
+				8324EB062B0D7D0000B7625E /* tapas.mp3 */,
+				8324EB072B0D7D0000B7625E /* juguetes.mp3 */,
+				8324EB082B0D7D0000B7625E /* organico.mp3 */,
+				8324EB092B0D7D0000B7625E /* medicina.mp3 */,
+				8324EB0A2B0D7D0000B7625E /* botellas.mp3 */,
+				8324EB0B2B0D7D0000B7625E /* industriales.mp3 */,
+				8324EB0C2B0D7D0000B7625E /* pruebaaudio.ogg */,
+				8324EB0D2B0D7D0000B7625E /* arbol.mp3 */,
+				8324EB0E2B0D7D0000B7625E /* electronicos.mp3 */,
+				8324EB0F2B0D7D0000B7625E /* aceiteAuto.mp3 */,
+				8324EB102B0D7D0000B7625E /* bici.mp3 */,
+				8324EB112B0D7D0000B7625E /* pallets.mp3 */,
+				8324EB122B0D7D0000B7625E /* metal.mp3 */,
+			);
+			name = Sounds;
+			path = RecolectoresIOSApp/Sounds;
+			sourceTree = SOURCE_ROOT;
+		};
 		835FAEB62AFC6DA500D68AB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +189,6 @@
 		83E8DA942AF1B3AE00106AA6 = {
 			isa = PBXGroup;
 			children = (
-				8324EAF52B0D4EE100B7625E /* Sounds */,
 				83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */,
 				83E8DA9E2AF1B3AE00106AA6 /* Products */,
 			);
@@ -146,6 +205,7 @@
 		83E8DA9F2AF1B3AE00106AA6 /* RecolectoresIOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				8324EAF72B0D7D0000B7625E /* Sounds */,
 				835FAEB62AFC6DA500D68AB6 /* Model */,
 				83E8DAA02AF1B3AE00106AA6 /* AppDelegate.swift */,
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
@@ -258,7 +318,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8324EAF62B0D4EE100B7625E /* Sounds in Resources */,
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
