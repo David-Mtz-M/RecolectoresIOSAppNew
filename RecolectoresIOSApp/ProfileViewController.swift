@@ -19,11 +19,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         imagePicker.delegate = self
         configureItems()
-        
+        //Imagen Redonda
         profileImageView.backgroundColor = .clear
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        
+        //Botón de cambio de perfil redonda
         changeImageButton.layer.cornerRadius = changeImageButton.frame.size.width / 2
         changeImageButton.clipsToBounds = true
 
