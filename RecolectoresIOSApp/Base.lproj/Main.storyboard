@@ -508,6 +508,7 @@
                         <outlet property="distanceBackgroundLabel" destination="eZg-Xv-DQ7" id="Kkw-6z-3bt"/>
                         <outlet property="distanceLabel" destination="hkK-iR-gw5" id="2dN-gv-2eW"/>
                         <outlet property="distanciaRestanteLabel" destination="GXX-Ti-3Eb" id="Koc-5i-bX2"/>
+                        <outlet property="finalizarEncargoPopup" destination="FgK-Df-sfq" id="U2l-eq-FQv"/>
                         <outlet property="mapaImg" destination="U23-km-dWt" id="K8N-tR-ZBR"/>
                         <outlet property="materialsTableView" destination="QhE-8S-VxO" id="AqY-P6-xNh"/>
                         <outlet property="nameBackgroundLabel" destination="B85-Jq-VCz" id="Zru-45-zve"/>
@@ -526,8 +527,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="305" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Desea aceptar la recolección?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-75-E0M">
-                            <rect key="frame" x="34.333333333333329" y="30" width="236.33333333333337" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Deseas aceptar la recolección?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-75-E0M">
+                            <rect key="frame" x="30" y="30" width="245" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -646,8 +647,50 @@
                         <constraint firstItem="5Tn-3D-XoA" firstAttribute="centerX" secondItem="Rub-Do-oxp" secondAttribute="centerX" id="yTa-in-WwE"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" id="FgK-Df-sfq">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Has finalizado la recolección?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjn-v2-DTi">
+                            <rect key="frame" x="33.666666666666657" y="40" width="232.99999999999997" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcD-Bh-JMk">
+                            <rect key="frame" x="80" y="105" width="39" height="35"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Sí"/>
+                            <connections>
+                                <action selector="finalizarEncargoActionTrue:" destination="5J4-fX-Sws" eventType="touchUpInside" id="W5X-hy-pU8"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-6d-kub">
+                            <rect key="frame" x="174" y="105" width="46" height="35"/>
+                            <color key="backgroundColor" red="0.70319771769999995" green="0.1770296395" blue="0.2194649279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="No"/>
+                            <connections>
+                                <action selector="finalizarEncargoActionFalse:" destination="5J4-fX-Sws" eventType="touchUpInside" id="Y3C-YB-9Jg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="g6s-OL-8Jc"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="FcD-Bh-JMk" firstAttribute="leading" secondItem="FgK-Df-sfq" secondAttribute="leading" constant="80" id="3OL-Nn-BOw"/>
+                        <constraint firstItem="Mjn-v2-DTi" firstAttribute="top" secondItem="FgK-Df-sfq" secondAttribute="top" constant="40" id="462-H6-Doc"/>
+                        <constraint firstAttribute="bottom" secondItem="FcD-Bh-JMk" secondAttribute="bottom" constant="60" id="BDQ-1o-ofL"/>
+                        <constraint firstItem="Mjn-v2-DTi" firstAttribute="centerX" secondItem="FgK-Df-sfq" secondAttribute="centerX" id="HNS-YQ-9Yc"/>
+                        <constraint firstAttribute="trailing" secondItem="Ut1-6d-kub" secondAttribute="trailing" constant="80" id="ZcF-qU-Kbl"/>
+                        <constraint firstAttribute="bottom" secondItem="Ut1-6d-kub" secondAttribute="bottom" constant="60" id="d6y-xj-nNf"/>
+                    </constraints>
+                </view>
             </objects>
-            <point key="canvasLocation" x="5004" y="41"/>
+            <point key="canvasLocation" x="5170" y="41"/>
         </scene>
         <!--Map Route View Controller-->
         <scene sceneID="Pvb-Y4-hYG">
@@ -678,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFA-k0-5BR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5976" y="41"/>
+            <point key="canvasLocation" x="6682" y="41"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="rvC-2z-2Bc">

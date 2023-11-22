@@ -16,6 +16,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var continuarEncargoPopup: UIView!
     @IBOutlet var rechazarEncargoPopup: UIView!
     @IBOutlet var aceptarEncargoPopup: UIView!
+    @IBOutlet var finalizarEncargoPopup: UIView!
     
     @IBOutlet weak var distanciaRestanteLabel: UILabel!
     
@@ -55,9 +56,11 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var materialsTableView: UITableView!
     
     
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         recollectionBgImg.image = UIImage(named: "pueblo")
@@ -101,6 +104,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         rechazarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
         
         continuarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
+        
+        finalizarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
     
         aceptarEncargoBtn.layer.cornerRadius = 10
         aceptarEncargoBtn.layer.masksToBounds = true
@@ -111,6 +116,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         continuarEncargoPopup.layer.cornerRadius = 10
         continuarEncargoPopup.layer.masksToBounds = true
         
+        finalizarEncargoPopup.layer.cornerRadius = 10
+        finalizarEncargoPopup.layer.masksToBounds = true
         
         let tapGestureRequests = UITapGestureRecognizer(target: self, action: #selector(moveToMapDetails))
         mapaImg.isUserInteractionEnabled = true
@@ -155,10 +162,14 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     func configureButtons(){
         if recoleccion?.estado == "En Proceso"{
-            aceptarEncargoBtn.setTitle("Finalizar", for: .normal)
+            aceptarEncargoBtn.setTitle("Ver distancia", for: .normal)
             mapaImg.image = UIImage(named: "mapa")
             mapaImg.clipsToBounds = true
             
+            if distance! <= 200.0{
+                animateIn(desiredView: finalizarEncargoPopup)
+            }
+
         }else{
             aceptarEncargoBtn.setTitle("Aceptar Encargo", for: .normal)
             mapaImg.image = nil
@@ -200,13 +211,24 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBAction func aceptaEncargoAction(_ sender: Any) {
-        if aceptarEncargoBtn.title(for: .normal) == "Finalizar"{
-            animateIn(desiredView: continuarEncargoPopup)
+        if aceptarEncargoBtn.title(for: .normal) == "Ver distancia"{
+           if distance! <= 200{
+               animateIn(desiredView: finalizarEncargoPopup)
+           }else{
+               animateIn(desiredView: continuarEncargoPopup)
+           }
         }else{
             animateIn(desiredView: aceptarEncargoPopup)
         }
     }
     
+    
+    @IBAction func finalizarEncargoActionTrue(_ sender: Any) {
+    }
+    
+    @IBAction func finalizarEncargoActionFalse(_ sender: Any) {
+        animateOut(desiredView: finalizarEncargoPopup)
+    }
     
     @IBAction func cancelActionAceptarPopup(_ sender: Any) {
         animateOut(desiredView: aceptarEncargoPopup)
@@ -219,6 +241,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func continuarActionPopup(_ sender: Any) {
         animateOut(desiredView: continuarEncargoPopup)
+        
     }
     
     @IBAction func confirmarRecoleccion(_ sender: Any) {
@@ -251,7 +274,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         print(recoleccionDocumentID!)
         
         // Hacer el write en Firebase
-        let db = Firestore.firestore()
+
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
             "recolector.apellidos": apellidos,
             "recolector.cantidad_reseñas": cantidad_reseñas  ,
