@@ -24,6 +24,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         
+        changeImageButton.layer.cornerRadius = changeImageButton.frame.size.width / 2
+        changeImageButton.clipsToBounds = true
 
     }
     

@@ -173,9 +173,8 @@
 				8324EB112B0D7D0000B7625E /* pallets.mp3 */,
 				8324EB122B0D7D0000B7625E /* metal.mp3 */,
 			);
-			name = Sounds;
-			path = RecolectoresIOSApp/Sounds;
-			sourceTree = SOURCE_ROOT;
+			path = Sounds;
+			sourceTree = "<group>";
 		};
 		835FAEB62AFC6DA500D68AB6 /* Model */ = {
 			isa = PBXGroup;
