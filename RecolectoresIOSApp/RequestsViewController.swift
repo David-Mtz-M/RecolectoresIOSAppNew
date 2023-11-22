@@ -90,7 +90,6 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         //collectors.loadData {
           //  self.tableView.reloadData()
         //}
-        
         recolecciones.loadData {
             self.tableView.reloadData()
         }
@@ -124,7 +123,6 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         let systemDate = format.string(from: date)
         
-        var count = 0
         
         for _ in sortedRecoleccionesArray{
             sortedRecoleccionesArray.removeAll(where: { $0.estado != "Iniciada"})
@@ -139,6 +137,29 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
+    
+    private func printRecolecciones(){
+        let sortedRecolecciones = sortedArray()
+        
+        for recoleccion in recolecciones.recoleccionesArray {
+            print("Recoleccion normal")
+            print(recoleccion.estado)
+            print(recoleccion.documentID!)
+            print(recoleccion.fechaRecoleccion)
+            print("\n")
+        }
+    }
+    
+    private func printSortedRecolecciones(){
+        let sortedRecolecciones = sortedArray()
+        
+        for sortedRecoleccion in sortedRecolecciones {
+            print("Sorted Recoleccion")
+            print(sortedRecoleccion.estado)
+            print(sortedRecoleccion.documentID!)
+            print(sortedRecoleccion.fechaRecoleccion)
+        }
+    }
     
     private func printRecolectores() {
         // Check if recolecciones is not nil before accessing recoleccionesArray
@@ -221,6 +242,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         let iphoneLocationCoords = locationManager.location
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "recoleccionCel", for: indexPath) as! DemoTableViewCell
@@ -245,6 +267,8 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         showPins()
+        //printRecolecciones()
+        //printSortedRecolecciones()
         
         //printRecolectores()
         

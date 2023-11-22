@@ -17,6 +17,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var rechazarEncargoPopup: UIView!
     @IBOutlet var aceptarEncargoPopup: UIView!
     @IBOutlet var finalizarEncargoPopup: UIView!
+    @IBOutlet var ratingPopup: UIView!
+    
     
     @IBOutlet weak var distanciaRestanteLabel: UILabel!
     
@@ -45,9 +47,22 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var mapaImg: UIImageView!
     
+    @IBOutlet var starButtonCollection: [UIButton]!
+    
+
     
     var recoleccion: Recoleccion?
     var distance: Double?
+    var rating = 0{
+        didSet{
+            for starButton in starButtonCollection{
+                let imageName = (starButton.tag < rating ? "star.fill" : "star")
+                starButton.setImage(UIImage(systemName: imageName), for: .normal)
+                starButton.tintColor = (starButton.tag < rating ? .systemRed : .darkText)
+            }
+            print(">> new rating \(rating)")
+        }
+    }
     
     
     let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicinas", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetra Pack", "Toner", "Voluminoso"]
@@ -106,6 +121,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         continuarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
         
         finalizarEncargoPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
+        
+        ratingPopup.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.85, height: self.view.bounds.height * 0.22)
     
         aceptarEncargoBtn.layer.cornerRadius = 10
         aceptarEncargoBtn.layer.masksToBounds = true
@@ -119,6 +136,9 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         finalizarEncargoPopup.layer.cornerRadius = 10
         finalizarEncargoPopup.layer.masksToBounds = true
         
+        ratingPopup.layer.cornerRadius = 10
+        ratingPopup.layer.masksToBounds = true
+        
         let tapGestureRequests = UITapGestureRecognizer(target: self, action: #selector(moveToMapDetails))
         mapaImg.isUserInteractionEnabled = true
         mapaImg.addGestureRecognizer(tapGestureRequests)
@@ -128,11 +148,19 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         let distanceTxt = String(format: "%.2f", distance!)
         distanciaRestanteLabel.text = "Falta recorrer \(distanceTxt) metros de distancia"
-
+        
+        for starButton in starButtonCollection{
+            starButton.setTitle("", for: .normal)
+        }
 
     }
     
 
+    
+    @IBAction func starButtonPressed(_ sender: UIButton) {
+        rating = sender.tag + 1
+    }
+    
     
     @objc func moveToMapDetails() {
         guard let mapRouteVC = storyboard?.instantiateViewController(withIdentifier: "mapRouteSB") as? MapRouteViewController else { return }
@@ -223,7 +251,17 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
+    @IBAction func finalizarRatingAction(_ sender: Any) {
+        animateOut(desiredView: ratingPopup)
+        // actualizar reseñas
+        
+    }
+    
+    
     @IBAction func finalizarEncargoActionTrue(_ sender: Any) {
+        animateIn(desiredView: ratingPopup)
+        animateOut(desiredView: finalizarEncargoPopup)
+        
     }
     
     @IBAction func finalizarEncargoActionFalse(_ sender: Any) {
@@ -270,8 +308,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let suma_reseñas = recolectorInMemory["suma_reseñas"] as! Int
         let telefono = recolectorInMemory["telefono"] as! String
         
-        print("Recoleccion document ID: ")
-        print(recoleccionDocumentID!)
+
         
         // Hacer el write en Firebase
 
