@@ -157,6 +157,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         if recoleccion?.estado == "En Proceso"{
             aceptarEncargoBtn.setTitle("Finalizar", for: .normal)
             mapaImg.image = UIImage(named: "mapa")
+            mapaImg.clipsToBounds = true
+            
         }else{
             aceptarEncargoBtn.setTitle("Aceptar Encargo", for: .normal)
             mapaImg.image = nil
