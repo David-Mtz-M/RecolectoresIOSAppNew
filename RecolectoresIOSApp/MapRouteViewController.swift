@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class MapRouteViewController: UIViewController, CLLocationManagerDelegate {
+class MapRouteViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     @IBOutlet weak var map: MKMapView!
@@ -31,12 +31,17 @@ class MapRouteViewController: UIViewController, CLLocationManagerDelegate {
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
 
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         
+        map.delegate = self
+        map.showsUserLocation = true
         
     }
+    
+
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last! as CLLocation
@@ -45,7 +50,98 @@ class MapRouteViewController: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.map.setRegion(region, animated: true)
+        
+        let userCoordsLatitude2D = recoleccion?.latitud
+        let userCoordsLongitude2D = recoleccion?.longitud
+        
+        let userCoordsLatitude2DDouble = Double(userCoordsLatitude2D!) ?? 0.0
+        let userCoordsLongitude2DDouble = Double(userCoordsLongitude2D!) ?? 0.0
+        
+        let userCoords2D = CLLocationCoordinate2D(latitude: userCoordsLatitude2DDouble, longitude: userCoordsLongitude2DDouble)
+        
+        print("Recoleccion coordinates")
+        print(userCoords2D.latitude)
+        print(userCoords2D.longitude)
+        print("Phone coordinates")
+        print(location.coordinate.latitude)
+        print(location.coordinate.longitude)
+        
+        
+        showRouteOnMap(pickupCoordinate: center, destinationCoordinate: userCoords2D)
     }
+    
+    
+    
+    func showRouteOnMap(pickupCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
+
+        let sourcePlacemark = MKPlacemark(coordinate: pickupCoordinate, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
+
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+
+        let sourceAnnotation = MKPointAnnotation()
+
+        if let location = sourcePlacemark.location {
+            sourceAnnotation.coordinate = location.coordinate
+            sourceAnnotation.title = "Estas aqui"
+        }
+
+        let destinationAnnotation = MKPointAnnotation()
+
+        if let location = destinationPlacemark.location {
+            destinationAnnotation.coordinate = location.coordinate
+            let telefono = recoleccion?.userInfo["telefono"] as? String
+            let nombreUsuario = recoleccion?.userInfo["nombreCompleto"] as? String
+            
+            destinationAnnotation.title = "Cliente: " + nombreUsuario!
+            destinationAnnotation.subtitle = "Telefono: " + telefono!
+        }
+
+        self.map.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .walking
+
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+
+        directions.calculate {
+            (response, error) -> Void in
+
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+
+                return
+            }
+
+            let route = response.routes[0]
+
+            self.map.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+
+            let rect = route.polyline.boundingMapRect
+            self.map.setRegion(MKCoordinateRegion(rect), animated: true)
+        }
+    }
+    
+    
+    //this delegate function is for displaying the route overlay and styling it
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+         let renderer = MKPolylineRenderer(overlay: overlay)
+         renderer.strokeColor = UIColor.blue
+         renderer.lineWidth = 5.0
+         return renderer
+    }
+    
+
+    
+
+    
+    
     
     private func configureItems(){
         
