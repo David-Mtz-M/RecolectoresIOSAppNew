@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            profileImageView.image = pickedImage
+            profileImageView.image = pickedImage  
         }
         dismiss(animated: true, completion: nil)
     }
@@ -82,4 +82,5 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(imagePicker, animated: true, completion: nil)
     }
     
+
 }

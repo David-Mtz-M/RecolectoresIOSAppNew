@@ -55,11 +55,11 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         playSoundButton.layer.cornerRadius = playSoundButton.frame.size.width / 2
         playSoundButton.clipsToBounds = true
         
-        if let selectedIcon = selectedIcon, let audioFileName = audioMapping[selectedIcon], let path = Bundle.main.path(forResource: audioFileName, ofType: "mp3"){
+        if let path = Bundle.main.path(forResource: "Coldaplay - Yellow", ofType: "mp3") {
             let url = URL(fileURLWithPath: path)
             
             do{
-                player = try AVAudioPlayer(contentsOf: url as URL)
+                player = try AVAudioPlayer(contentsOf: url)
                 player?.prepareToPlay()
                 player?.delegate = self
             }
@@ -76,10 +76,10 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         }
         if player.isPlaying {
             player.stop()
-            playSoundButton.setTitle("Play", for: .normal)
+            
         } else {
             player.play()
-            playSoundButton.setTitle("Pause", for: .normal)
+            
         }
     }
 }
