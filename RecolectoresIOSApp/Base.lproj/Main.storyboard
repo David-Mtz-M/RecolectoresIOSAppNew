@@ -592,6 +592,9 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Confirmar"/>
+                            <connections>
+                                <action selector="confirmarRechazarRecoleccionAction:" destination="5J4-fX-Sws" eventType="touchUpInside" id="jLy-lL-Bsm"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaX-GN-CsV">
                             <rect key="frame" x="187.66666666666666" y="125" width="91.333333333333343" height="35"/>

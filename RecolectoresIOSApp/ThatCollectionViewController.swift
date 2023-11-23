@@ -179,6 +179,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
             "recolector.suma_reseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
+            "estado": "Completada"
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -188,6 +189,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
        
             }
         }
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -295,8 +297,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "recolector.cantidad_reseñas": FieldValue.increment(Int64(1)),
-            "estado": "En Proceso"
+            "recolector.cantidad_reseñas": FieldValue.increment(Int64(1))
+            
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -324,6 +326,26 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func continuarActionPopup(_ sender: Any) {
         animateOut(desiredView: continuarEncargoPopup)
         
+    }
+    
+    
+    @IBAction func confirmarRechazarRecoleccionAction(_ sender: Any) {
+        //añadir codigo restante
+        // Guardar ID de la recoleccion en cuestion
+        let  recoleccionDocumentID = recoleccion?.documentID
+        
+        db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
+            "estado": "Cancelada"
+            
+        ]){ err in
+            if let err = err {
+              print("Error updating document: \(err)")
+            } else {
+              print("Se canceló la recolección satisfactoriamente")
+            }
+        }
+        animateOut(desiredView: rechazarEncargoPopup)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func confirmarRecoleccion(_ sender: Any) {
