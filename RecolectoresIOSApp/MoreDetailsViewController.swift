@@ -10,6 +10,7 @@ import AVFoundation
 
 class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
+    var selectedIcon: String?
     var player: AVAudioPlayer?
     @IBOutlet weak var playSoundButton: UIButton!
     @IBOutlet weak var lbl_Description: UILabel!
@@ -54,8 +55,8 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         playSoundButton.layer.cornerRadius = playSoundButton.frame.size.width / 2
         playSoundButton.clipsToBounds = true
         
-        if let firstElement = detalles.first, let audioFileName = audioMapping[firstElement], let path = Bundle.main.path(forResource: audioFileName, ofType: "mp3"){
-            let url = NSURL(fileURLWithPath: path)
+        if let selectedIcon = selectedIcon, let audioFileName = audioMapping[selectedIcon], let path = Bundle.main.path(forResource: audioFileName, ofType: "mp3"){
+            let url = URL(fileURLWithPath: path)
             
             do{
                 player = try AVAudioPlayer(contentsOf: url as URL)
@@ -63,7 +64,7 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
                 player?.delegate = self
             }
             catch{
-                print("Couldn't create the player for \(firstElement). Error: \(error.localizedDescription)")
+                print("Couldn't create the player. Error: \(error.localizedDescription)")
             }
         }
     }

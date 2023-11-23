@@ -50,11 +50,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "MoreDetailsViewController") as? MoreDetailsViewController {
-            vc.img = UIImage(named: detalles[indexPath.row])!
-            vc.des = descripcion[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let selectedIcon = detalles[indexPath.row]
+        let moreDetailsVC = storyboard?.instantiateViewController(withIdentifier: "MoreDetailsViewController") as! MoreDetailsViewController
+        moreDetailsVC.selectedIcon = selectedIcon
+        moreDetailsVC.detalles = detalles
+        moreDetailsVC.img = UIImage(named: selectedIcon) ?? UIImage()
+        moreDetailsVC.des = descripcion[indexPath.row]
+        navigationController?.pushViewController(moreDetailsVC, animated: true)
     }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
