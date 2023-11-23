@@ -8,7 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		83199FF72B06816C00CAA2E8 /* MoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */; };
-		832DBACE2B0FC1F2009AA6BA /* Coldplay - Yellow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBACD2B0FC1F1009AA6BA /* Coldplay - Yellow.mp3 */; };
+		832DBADC2B0FEC94009AA6BA /* tetrapack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBADB2B0FEC94009AA6BA /* tetrapack.mp3 */; };
+		832DBAE62B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAE52B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 */; };
+		832DBAEE2B0FF234009AA6BA /* acieteauto-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAED2B0FF234009AA6BA /* acieteauto-2.mp3 */; };
+		832DBAF02B0FF363009AA6BA /* pallets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAEF2B0FF363009AA6BA /* pallets.mp3 */; };
+		832DBAF42B0FF4EF009AA6BA /* toner-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAF32B0FF4EF009AA6BA /* toner-2.mp3 */; };
+		832DBAF62B100F9E009AA6BA /* aceiteusado-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAF52B100F9E009AA6BA /* aceiteusado-2.mp3 */; };
+		832DBAF82B1011FD009AA6BA /* arbol-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAF72B1011FD009AA6BA /* arbol-2.mp3 */; };
+		832DBAFA2B1012C4009AA6BA /* baterias-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAF92B1012C4009AA6BA /* baterias-2.mp3 */; };
+		832DBAFC2B1013B5009AA6BA /* bici-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAFB2B1013B5009AA6BA /* bici-2.mp3 */; };
+		832DBAFE2B1014E0009AA6BA /* botellas-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */; };
+		832DBB002B1015CD009AA6BA /* carton-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */; };
+		832DBB022B1016DB009AA6BA /* electronicos-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		8368221D2AFDA63A00CA757E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368221C2AFDA63A00CA757E /* CustomCell.swift */; };
@@ -57,7 +68,18 @@
 
 /* Begin PBXFileReference section */
 		83199FF62B06816C00CAA2E8 /* MoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailsViewController.swift; sourceTree = "<group>"; };
-		832DBACD2B0FC1F1009AA6BA /* Coldplay - Yellow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Coldplay - Yellow.mp3"; sourceTree = "<group>"; };
+		832DBADB2B0FEC94009AA6BA /* tetrapack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tetrapack.mp3; sourceTree = "<group>"; };
+		832DBAE52B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "audio_material_ropa-2.mp3"; sourceTree = "<group>"; };
+		832DBAED2B0FF234009AA6BA /* acieteauto-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "acieteauto-2.mp3"; sourceTree = "<group>"; };
+		832DBAEF2B0FF363009AA6BA /* pallets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pallets.mp3; sourceTree = "<group>"; };
+		832DBAF32B0FF4EF009AA6BA /* toner-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toner-2.mp3"; sourceTree = "<group>"; };
+		832DBAF52B100F9E009AA6BA /* aceiteusado-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "aceiteusado-2.mp3"; sourceTree = "<group>"; };
+		832DBAF72B1011FD009AA6BA /* arbol-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "arbol-2.mp3"; sourceTree = "<group>"; };
+		832DBAF92B1012C4009AA6BA /* baterias-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "baterias-2.mp3"; sourceTree = "<group>"; };
+		832DBAFB2B1013B5009AA6BA /* bici-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bici-2.mp3"; sourceTree = "<group>"; };
+		832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "botellas-2.mp3"; sourceTree = "<group>"; };
+		832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "carton-2.mp3"; sourceTree = "<group>"; };
+		832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "electronicos-2.mp3"; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		8368221C2AFDA63A00CA757E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -163,7 +185,18 @@
 				839C35492AFB06CC0073FFEC /* FavouritesViewController.swift */,
 				83FE845A2AFC46CA00A976B4 /* CustomTableViewCell.swift */,
 				8368221C2AFDA63A00CA757E /* CustomCell.swift */,
-				832DBACD2B0FC1F1009AA6BA /* Coldplay - Yellow.mp3 */,
+				832DBAED2B0FF234009AA6BA /* acieteauto-2.mp3 */,
+				832DBAF52B100F9E009AA6BA /* aceiteusado-2.mp3 */,
+				832DBAF72B1011FD009AA6BA /* arbol-2.mp3 */,
+				832DBAF92B1012C4009AA6BA /* baterias-2.mp3 */,
+				832DBAFB2B1013B5009AA6BA /* bici-2.mp3 */,
+				832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */,
+				832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */,
+				832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */,
+				832DBAEF2B0FF363009AA6BA /* pallets.mp3 */,
+				832DBAE52B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 */,
+				832DBADB2B0FEC94009AA6BA /* tetrapack.mp3 */,
+				832DBAF32B0FF4EF009AA6BA /* toner-2.mp3 */,
 			);
 			path = RecolectoresIOSApp;
 			sourceTree = "<group>";
@@ -258,11 +291,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832DBAFC2B1013B5009AA6BA /* bici-2.mp3 in Resources */,
+				832DBAFE2B1014E0009AA6BA /* botellas-2.mp3 in Resources */,
+				832DBAF42B0FF4EF009AA6BA /* toner-2.mp3 in Resources */,
+				832DBAF62B100F9E009AA6BA /* aceiteusado-2.mp3 in Resources */,
+				832DBAFA2B1012C4009AA6BA /* baterias-2.mp3 in Resources */,
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
+				832DBB002B1015CD009AA6BA /* carton-2.mp3 in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
+				832DBAEE2B0FF234009AA6BA /* acieteauto-2.mp3 in Resources */,
+				832DBB022B1016DB009AA6BA /* electronicos-2.mp3 in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
-				832DBACE2B0FC1F2009AA6BA /* Coldplay - Yellow.mp3 in Resources */,
 				83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */,
+				832DBAF02B0FF363009AA6BA /* pallets.mp3 in Resources */,
+				832DBADC2B0FEC94009AA6BA /* tetrapack.mp3 in Resources */,
+				832DBAF82B1011FD009AA6BA /* arbol-2.mp3 in Resources */,
+				832DBAE62B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

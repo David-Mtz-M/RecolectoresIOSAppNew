@@ -18,13 +18,16 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     var img = UIImage()
     var des = ""
     var detalles: [String] = []
+    //Diccionario que lee el ícono del array e identifica el nombre del archivo mp3 del ícono
     var audioMapping : [String: String] = [
-        "Aceite de auto": "aceiteauto",
-        "Aceite usado": "aceiteusado",
-        "Árbol": "arbol",
-        "Baterias": "baterias",
-        "Cartón": "carton",
-        "Electrónicos": "electronicos",
+        "Aceite de auto": "acieteauto-2",
+        "Aceite usado": "aceiteusado-2",
+        "Árbol": "arbol-2",
+        "Baterias": "baterias-2",
+        "Bici": "bici-2",
+        "Botellas": "botellas-2",
+        "Cartón": "carton-2",
+        "Electrónicos": "electronicos-2",
         "Escombro": "escombro",
         "Industriales": "industriales",
         "Juguetes": "juguetes",
@@ -34,14 +37,14 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         "Medicina": "medicina",
         "Metal": "metal",
         "Orgánico": "organico",
-        "Pallets": "palltes",
+        "Pallets": "pallets",
         "Papel": "papel",
         "Pilas": "pilas",
         "Plásticos": "plasticos",
-        "Ropa": "ropa",
+        "Ropa": "audio_material_ropa-2",
         "Tapitas": "tapas",
         "Tetrapack": "tetrapack",
-        "Toner": "toner",
+        "Toner": "toner-2",
         "Voluminoso": "voluminoso"]
 
     
@@ -49,17 +52,17 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         super.viewDidLoad()
 
         lbl_Description.text = des
-        img_View.image = img 
+        img_View.image = img
         
         //Boton redondo
         playSoundButton.layer.cornerRadius = playSoundButton.frame.size.width / 2
         playSoundButton.clipsToBounds = true
         
-        if let path = Bundle.main.path(forResource: "Coldaplay - Yellow", ofType: "mp3") {
+        if let selectedIcon = selectedIcon, let audioFileName = audioMapping[selectedIcon], let path = Bundle.main.path(forResource: audioFileName, ofType: "mp3"){
             let url = URL(fileURLWithPath: path)
             
             do{
-                player = try AVAudioPlayer(contentsOf: url)
+                player = try AVAudioPlayer(contentsOf: url as URL)
                 player?.prepareToPlay()
                 player?.delegate = self
             }
@@ -76,10 +79,8 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         }
         if player.isPlaying {
             player.stop()
-            
         } else {
             player.play()
-            
         }
     }
 }
