@@ -41,7 +41,7 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         recolecciones = Recolecciones()
         
 
-        
+
         
     }
     
@@ -142,20 +142,26 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         let selectedRecollection = sortedRecoleccionesArray[indexPath.row]
         
         let distance = selectedRecollection.getDistance(iphoneCoords: locationManager.location!)
+        
+        // Extract recolector data and send it to ThatCollectionViewController
+        let defaults = UserDefaults.standard
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        let recolector = Recolector(dictionary: recolectorInMemory)
 
 
         //  Cal the method to navigate to the next view controller
-        thatCollectionViewController(with: selectedRecollection, distance: distance)
+        thatCollectionViewController(with: selectedRecollection, distance: distance, recolector: recolector)
     }
     
 
-    private func thatCollectionViewController(with recoleccion: Recoleccion?, distance: Double?){
+    private func thatCollectionViewController(with recoleccion: Recoleccion?, distance: Double?, recolector: Recolector?){
         //let nextStoryboard = UIStoryboard(name: "ThatCollectionViewController", bundle: nil)
         let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "thatCollectionVC") as! ThatCollectionViewController
 
         // Pass the document ID to the next view controller
         nextViewController.recoleccion = recoleccion
         nextViewController.distance = distance
+        nextViewController.recolector = recolector
 
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

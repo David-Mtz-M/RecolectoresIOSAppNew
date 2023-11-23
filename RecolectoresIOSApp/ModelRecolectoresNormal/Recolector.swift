@@ -17,14 +17,15 @@ class Recolector {
     var cantidad_reseñas: Int
     var suma_reseñas: Int
     var documentID: String?
+    var reseñaActual: Int
     
     
     var dictionary: [String: Any]{
-        return [ "nombre": nombre, "apellidos": apellidos, "telefono": telefono, "usuario": usuario, "fotoUrl": fotoUrl, "cantidad_reseñas": cantidad_reseñas, "suma_reseñas": suma_reseñas]
+        return [ "nombre": nombre, "apellidos": apellidos, "telefono": telefono, "usuario": usuario, "fotoUrl": fotoUrl, "cantidad_reseñas": cantidad_reseñas, "suma_reseñas": suma_reseñas, "reseñaActual": reseñaActual]
     }
     
     convenience init() {
-        self.init(apellidos: "", telefono: "", usuario: "", nombre: "", fotoUrl: "", cantidad_reseñas: 0, suma_reseñas: 0, documentID: nil)
+        self.init(apellidos: "", telefono: "", usuario: "", nombre: "", fotoUrl: "", cantidad_reseñas: 0, suma_reseñas: 0, documentID: nil, reseñaActual: 0)
     }
 
     
@@ -39,16 +40,17 @@ class Recolector {
         let cantidad_reseñas = dictionary["cantidad_reseñas"] as! Int? ?? 0
         let suma_reseñas = dictionary["suma_reseñas"] as! Int? ?? 0
         let documentID = dictionary["documentID"] as? String
+        let reseñaActual = dictionary["reseñaActual"] as! Int? ?? 0
         
 
 
 
-        self.init(apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre, fotoUrl: fotoUrl, cantidad_reseñas: cantidad_reseñas, suma_reseñas: suma_reseñas, documentID: documentID)
+        self.init(apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre, fotoUrl: fotoUrl, cantidad_reseñas: cantidad_reseñas, suma_reseñas: suma_reseñas, documentID: documentID, reseñaActual: reseñaActual)
 
     }
 
     
-    init( apellidos: String, telefono: String, usuario: String, nombre: String, fotoUrl: String, cantidad_reseñas: Int, suma_reseñas: Int, documentID: String?) {
+    init( apellidos: String, telefono: String, usuario: String, nombre: String, fotoUrl: String, cantidad_reseñas: Int, suma_reseñas: Int, documentID: String?, reseñaActual: Int) {
         self.nombre = nombre
         self.apellidos = apellidos
         self.telefono = telefono
@@ -57,6 +59,7 @@ class Recolector {
         self.cantidad_reseñas = cantidad_reseñas
         self.suma_reseñas = suma_reseñas
         self.documentID = documentID
+        self.reseñaActual = reseñaActual
 
     }
     

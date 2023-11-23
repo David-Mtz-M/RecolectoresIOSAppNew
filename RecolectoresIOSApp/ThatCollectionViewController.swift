@@ -53,6 +53,12 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     var recoleccion: Recoleccion?
     var distance: Double?
+    var recolector: Recolector?
+    
+    var ratingOficial: Int?
+    
+
+    
     var rating = 0{
         didSet{
             for starButton in starButtonCollection{
@@ -61,8 +67,14 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
                 starButton.tintColor = (starButton.tag < rating ? .systemRed : .darkText)
             }
             print(">> new rating \(rating)")
+            ratingOficial = rating
+            recolector?.reseñaActual = rating
+            print("Reseña actual \(ratingOficial ?? 0)")
         }
     }
+    
+   
+    
     
     
     let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicinas", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetra Pack", "Toner", "Voluminoso"]
@@ -152,13 +164,30 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         for starButton in starButtonCollection{
             starButton.setTitle("", for: .normal)
         }
-
+        
     }
     
-
+    
     
     @IBAction func starButtonPressed(_ sender: UIButton) {
         rating = sender.tag + 1
+        print("Rating Oficial: \(ratingOficial ?? 0)")
+        print("Reseña actual: \(recolector?.reseñaActual ?? 0)")
+        
+        // Guardar ID de la recoleccion en cuestion
+        let  recoleccionDocumentID = recoleccion?.documentID
+        
+        db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
+            "recolector.suma_reseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
+        ]){ err in
+            if let err = err {
+              print("Error updating document: \(err)")
+            } else {
+              print("Se actualizó la cantidad de reseñas")
+            print(self.recolector?.reseñaActual ?? 0)
+       
+            }
+        }
     }
     
     
@@ -262,6 +291,21 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         animateIn(desiredView: ratingPopup)
         animateOut(desiredView: finalizarEncargoPopup)
         
+        // Guardar ID de la recoleccion en cuestion
+        let  recoleccionDocumentID = recoleccion?.documentID
+        
+        db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
+            "recolector.cantidad_reseñas": FieldValue.increment(Int64(1)),
+            "estado": "En Proceso"
+        ]){ err in
+            if let err = err {
+              print("Error updating document: \(err)")
+            } else {
+              print("Se actualizó la reseña y cantidad de reseñas")
+            print(self.recolector?.reseñaActual ?? 0)
+       
+            }
+        }
     }
     
     @IBAction func finalizarEncargoActionFalse(_ sender: Any) {
@@ -290,36 +334,29 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         // Pass the document ID to the next view controller
         nextViewController.distance = distance
 
-
-        
-        
         // Guardar ID de la recoleccion en cuestion
         let  recoleccionDocumentID = recoleccion?.documentID
         
-        // Acceder a atributos del recolector asi como a su recolectorID
-        let defaults = UserDefaults.standard
-        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
         // Atributos
-        let apellidos = recolectorInMemory["apellidos"] as! String
-        let cantidad_reseñas = recolectorInMemory["cantidad_reseñas"] as! Int
-        let fotoUrl = recolectorInMemory["fotoUrl"] as! String
-        let recolectorID = defaults.string(forKey: "documentID")
-        let nombre = recolectorInMemory["nombre"] as! String
-        let suma_reseñas = recolectorInMemory["suma_reseñas"] as! Int
-        let telefono = recolectorInMemory["telefono"] as! String
+        let apellidos = recolector?.apellidos
+        let cantidad_reseñas = recolector?.cantidad_reseñas
+        let fotoUrl = recolector?.fotoUrl
+        let recolectorID = recolector?.documentID
+        let nombre = recolector?.nombre
+        let suma_reseñas = recolector?.suma_reseñas
+        let telefono = recolector?.telefono
         
-
-        
+     
         // Hacer el write en Firebase
 
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "recolector.apellidos": apellidos,
-            "recolector.cantidad_reseñas": cantidad_reseñas  ,
-            "recolector.fotoUrl":  fotoUrl ,
+            "recolector.apellidos": apellidos!,
+            "recolector.cantidad_reseñas": cantidad_reseñas!  ,
+            "recolector.fotoUrl":  fotoUrl! ,
             "recolector.id": recolectorID!  ,
-            "recolector.nombre":  nombre ,
-            "recolector.suma_reseñas":  suma_reseñas ,
-            "recolector.telefono": telefono,
+            "recolector.nombre":  nombre! ,
+            "recolector.suma_reseñas":  suma_reseñas! ,
+            "recolector.telefono": telefono! ,
             "estado": "En Proceso"
         ]){ err in
             if let err = err {
