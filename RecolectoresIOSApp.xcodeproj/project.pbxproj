@@ -20,6 +20,20 @@
 		832DBAFE2B1014E0009AA6BA /* botellas-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */; };
 		832DBB002B1015CD009AA6BA /* carton-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */; };
 		832DBB022B1016DB009AA6BA /* electronicos-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */; };
+		832DBB042B101803009AA6BA /* escombro-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB032B101802009AA6BA /* escombro-2.mp3 */; };
+		832DBB062B101886009AA6BA /* industriales-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB052B101886009AA6BA /* industriales-2.mp3 */; };
+		832DBB082B10191D009AA6BA /* juguetes-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB072B10191D009AA6BA /* juguetes-2.mp3 */; };
+		832DBB0A2B1019BC009AA6BA /* libros-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB092B1019BC009AA6BA /* libros-2.mp3 */; };
+		832DBB0C2B101A0B009AA6BA /* llantas-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB0B2B101A0B009AA6BA /* llantas-2.mp3 */; };
+		832DBB0E2B101ABE009AA6BA /* madera-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB0D2B101ABE009AA6BA /* madera-2.mp3 */; };
+		832DBB102B101B29009AA6BA /* medicina-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB0F2B101B29009AA6BA /* medicina-2.mp3 */; };
+		832DBB122B101B9E009AA6BA /* metal-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB112B101B9E009AA6BA /* metal-2.mp3 */; };
+		832DBB142B101BF3009AA6BA /* organico-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB132B101BF3009AA6BA /* organico-2.mp3 */; };
+		832DBB162B101C44009AA6BA /* papel-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB152B101C44009AA6BA /* papel-2.mp3 */; };
+		832DBB182B101C9F009AA6BA /* pilas-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB172B101C9F009AA6BA /* pilas-2.mp3 */; };
+		832DBB1A2B101CE5009AA6BA /* plasticos-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB192B101CE5009AA6BA /* plasticos-2.mp3 */; };
+		832DBB1C2B101D71009AA6BA /* tapas-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB1B2B101D71009AA6BA /* tapas-3.mp3 */; };
+		832DBB1E2B101DB3009AA6BA /* voluminoso-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 832DBB1D2B101DB3009AA6BA /* voluminoso-2.mp3 */; };
 		835FAEBA2AFC6E0700D68AB6 /* Recolector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEB92AFC6E0700D68AB6 /* Recolector.swift */; };
 		835FAEBC2AFC7E6E00D68AB6 /* Recolectores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */; };
 		8368221D2AFDA63A00CA757E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368221C2AFDA63A00CA757E /* CustomCell.swift */; };
@@ -80,6 +94,20 @@
 		832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "botellas-2.mp3"; sourceTree = "<group>"; };
 		832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "carton-2.mp3"; sourceTree = "<group>"; };
 		832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "electronicos-2.mp3"; sourceTree = "<group>"; };
+		832DBB032B101802009AA6BA /* escombro-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "escombro-2.mp3"; sourceTree = "<group>"; };
+		832DBB052B101886009AA6BA /* industriales-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "industriales-2.mp3"; sourceTree = "<group>"; };
+		832DBB072B10191D009AA6BA /* juguetes-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "juguetes-2.mp3"; sourceTree = "<group>"; };
+		832DBB092B1019BC009AA6BA /* libros-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "libros-2.mp3"; sourceTree = "<group>"; };
+		832DBB0B2B101A0B009AA6BA /* llantas-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "llantas-2.mp3"; sourceTree = "<group>"; };
+		832DBB0D2B101ABE009AA6BA /* madera-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "madera-2.mp3"; sourceTree = "<group>"; };
+		832DBB0F2B101B29009AA6BA /* medicina-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "medicina-2.mp3"; sourceTree = "<group>"; };
+		832DBB112B101B9E009AA6BA /* metal-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "metal-2.mp3"; sourceTree = "<group>"; };
+		832DBB132B101BF3009AA6BA /* organico-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "organico-2.mp3"; sourceTree = "<group>"; };
+		832DBB152B101C44009AA6BA /* papel-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "papel-2.mp3"; sourceTree = "<group>"; };
+		832DBB172B101C9F009AA6BA /* pilas-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pilas-2.mp3"; sourceTree = "<group>"; };
+		832DBB192B101CE5009AA6BA /* plasticos-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "plasticos-2.mp3"; sourceTree = "<group>"; };
+		832DBB1B2B101D71009AA6BA /* tapas-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tapas-3.mp3"; sourceTree = "<group>"; };
+		832DBB1D2B101DB3009AA6BA /* voluminoso-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "voluminoso-2.mp3"; sourceTree = "<group>"; };
 		835FAEB92AFC6E0700D68AB6 /* Recolector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolector.swift; sourceTree = "<group>"; };
 		835FAEBB2AFC7E6E00D68AB6 /* Recolectores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recolectores.swift; sourceTree = "<group>"; };
 		8368221C2AFDA63A00CA757E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -193,10 +221,24 @@
 				832DBAFD2B1014E0009AA6BA /* botellas-2.mp3 */,
 				832DBAFF2B1015CD009AA6BA /* carton-2.mp3 */,
 				832DBB012B1016DB009AA6BA /* electronicos-2.mp3 */,
+				832DBB032B101802009AA6BA /* escombro-2.mp3 */,
+				832DBB052B101886009AA6BA /* industriales-2.mp3 */,
+				832DBB072B10191D009AA6BA /* juguetes-2.mp3 */,
+				832DBB092B1019BC009AA6BA /* libros-2.mp3 */,
+				832DBB0B2B101A0B009AA6BA /* llantas-2.mp3 */,
+				832DBB0D2B101ABE009AA6BA /* madera-2.mp3 */,
+				832DBB0F2B101B29009AA6BA /* medicina-2.mp3 */,
+				832DBB112B101B9E009AA6BA /* metal-2.mp3 */,
+				832DBB132B101BF3009AA6BA /* organico-2.mp3 */,
 				832DBAEF2B0FF363009AA6BA /* pallets.mp3 */,
+				832DBB152B101C44009AA6BA /* papel-2.mp3 */,
+				832DBB172B101C9F009AA6BA /* pilas-2.mp3 */,
+				832DBB192B101CE5009AA6BA /* plasticos-2.mp3 */,
 				832DBAE52B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 */,
+				832DBB1B2B101D71009AA6BA /* tapas-3.mp3 */,
 				832DBADB2B0FEC94009AA6BA /* tetrapack.mp3 */,
 				832DBAF32B0FF4EF009AA6BA /* toner-2.mp3 */,
+				832DBB1D2B101DB3009AA6BA /* voluminoso-2.mp3 */,
 			);
 			path = RecolectoresIOSApp;
 			sourceTree = "<group>";
@@ -292,21 +334,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				832DBAFC2B1013B5009AA6BA /* bici-2.mp3 in Resources */,
+				832DBB0C2B101A0B009AA6BA /* llantas-2.mp3 in Resources */,
 				832DBAFE2B1014E0009AA6BA /* botellas-2.mp3 in Resources */,
 				832DBAF42B0FF4EF009AA6BA /* toner-2.mp3 in Resources */,
+				832DBB1C2B101D71009AA6BA /* tapas-3.mp3 in Resources */,
+				832DBB182B101C9F009AA6BA /* pilas-2.mp3 in Resources */,
 				832DBAF62B100F9E009AA6BA /* aceiteusado-2.mp3 in Resources */,
 				832DBAFA2B1012C4009AA6BA /* baterias-2.mp3 in Resources */,
 				83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */,
+				832DBB0E2B101ABE009AA6BA /* madera-2.mp3 in Resources */,
+				832DBB082B10191D009AA6BA /* juguetes-2.mp3 in Resources */,
 				832DBB002B1015CD009AA6BA /* carton-2.mp3 in Resources */,
+				832DBB0A2B1019BC009AA6BA /* libros-2.mp3 in Resources */,
 				83B925782AFC06A2008E3D44 /* GoogleService-Info.plist in Resources */,
+				832DBB142B101BF3009AA6BA /* organico-2.mp3 in Resources */,
+				832DBB1A2B101CE5009AA6BA /* plasticos-2.mp3 in Resources */,
+				832DBB1E2B101DB3009AA6BA /* voluminoso-2.mp3 in Resources */,
+				832DBB062B101886009AA6BA /* industriales-2.mp3 in Resources */,
 				832DBAEE2B0FF234009AA6BA /* acieteauto-2.mp3 in Resources */,
 				832DBB022B1016DB009AA6BA /* electronicos-2.mp3 in Resources */,
+				832DBB162B101C44009AA6BA /* papel-2.mp3 in Resources */,
+				832DBB042B101803009AA6BA /* escombro-2.mp3 in Resources */,
 				83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */,
 				83E8DAA82AF1B3AE00106AA6 /* Main.storyboard in Resources */,
 				832DBAF02B0FF363009AA6BA /* pallets.mp3 in Resources */,
+				832DBB122B101B9E009AA6BA /* metal-2.mp3 in Resources */,
 				832DBADC2B0FEC94009AA6BA /* tetrapack.mp3 in Resources */,
 				832DBAF82B1011FD009AA6BA /* arbol-2.mp3 in Resources */,
 				832DBAE62B0FEEEF009AA6BA /* audio_material_ropa-2.mp3 in Resources */,
+				832DBB102B101B29009AA6BA /* medicina-2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
