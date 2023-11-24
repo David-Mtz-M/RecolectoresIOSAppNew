@@ -9,6 +9,6 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell{
     
-    @IBOutlet weak var nombre: UILabel!
-    @IBOutlet weak var imagenCasa: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var clientName: UILabel!
 }
