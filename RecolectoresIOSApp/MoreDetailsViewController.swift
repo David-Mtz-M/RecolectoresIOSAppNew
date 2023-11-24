@@ -37,7 +37,7 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         "Medicina": "medicina-2",
         "Metal": "metal-2",
         "Orgánico": "organico-2",
-        "Pallets": "pallets",    
+        "Pallets": "pallets",
         "Papel": "papel-2",
         "Pilas": "pilas-2",
         "Plásticos": "plasticos-2",
