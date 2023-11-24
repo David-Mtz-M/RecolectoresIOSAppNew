@@ -63,21 +63,34 @@ class Recolector {
 
     }
     
-    class func loadProfilePicture(imgUrl: URL, imgView: UIImageView) {
+    class func loadProfilePicture(imgUrl: URL, imgView: UIImageView, placeholderImage: UIImage? = nil) {
+        // Use the placeholder image initially
+        imgView.image = placeholderImage ?? UIImage(named: "placeholder")
+
         DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: imgUrl) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imgView.image = image // Set the image to UIImageView
-                    }
+            if let imageData = try? Data(contentsOf: imgUrl),
+               let bgImage = UIImage(data: imageData) {
+                // Update the UI on the main queue
+                DispatchQueue.main.async {
+                    imgView.image = bgImage
                 }
+            } else {
+                // Handle the error
+                print("Error downloading image")
             }
         }
     }
+
+
+
+
     
- 
+    
+    
+    
+    
 
-
+    
 
     
 }

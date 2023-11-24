@@ -17,12 +17,20 @@ class AuthService {
     func loginUser(email: String, password: String, completion: @escaping (Recolector?, String?, Error?) -> Void) {
         auth.signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
             guard let self = self else { return }
+            
+
+
 
             if let error = error {
                 completion(nil, nil, error)
             } else if let user = authResult?.user {
                 self.checkRecolectorDocument(uid: user.uid) { recolector, documentId, error in
                     completion(recolector, documentId, error)
+                    // save data to UserDefaults
+                    let savedData = UserDefaults.standard
+                    
+                    savedData.set(password, forKey: "email")
+                    savedData.set(email, forKey: "password")
                 }
             }
         }
