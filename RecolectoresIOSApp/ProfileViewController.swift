@@ -17,9 +17,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var nombreRecolectorLabel: UILabel!
     
+    @IBOutlet weak var cerrarSesionButton: UIButton!
     
     @IBOutlet weak var correoRecolectorLabel: UILabel!
     
+    @IBOutlet weak var historialButton: UIButton!
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -35,6 +37,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         changeImageButton.clipsToBounds = true
         
         changeImageButton.setTitle("", for: .normal)
+        
+        //Boton de historial personalizado
+        let corners: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        historialButton.layer.cornerRadius = 20
+        historialButton.layer.maskedCorners = corners
+        //Botón de cerrar sesión personalizdo
+        let corners2: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        cerrarSesionButton.layer.cornerRadius = 20
+        cerrarSesionButton.layer.maskedCorners = corners2
         
         let defaults = UserDefaults.standard
         let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
