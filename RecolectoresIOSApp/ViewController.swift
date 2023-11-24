@@ -26,11 +26,7 @@ class AuthService {
             } else if let user = authResult?.user {
                 self.checkRecolectorDocument(uid: user.uid) { recolector, documentId, error in
                     completion(recolector, documentId, error)
-                    // save data to UserDefaults
-                    let savedData = UserDefaults.standard
-                    
-                    savedData.set(password, forKey: "email")
-                    savedData.set(email, forKey: "password")
+  
                 }
             }
         }
@@ -90,8 +86,15 @@ class ViewController: UIViewController {
     @IBAction func logInButton(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             // Handle invalid input (e.g., show an error message)
+            // save data to UserDefaults
+
             return
         }
+        
+        let savedData = UserDefaults.standard
+        
+    
+        savedData.set(email, forKey: "email")
 
         AuthService.shared.loginUser(email: email, password: password) { [weak self] (recolector, documentId, error) in
             if let error = error {

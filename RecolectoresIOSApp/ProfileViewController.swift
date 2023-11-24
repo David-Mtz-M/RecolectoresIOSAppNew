@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let recolector = Recolector(dictionary: recolectorInMemory)
         
         let imgUrl = URL(string: recolector.fotoUrl)
-        let correo = defaults.string(forKey: "correo")
+        let correo = defaults.string(forKey: "email")
         
         
         Recolector.loadProfilePicture(imgUrl: imgUrl!, imgView: profileImageView)
