@@ -165,6 +165,10 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
             starButton.setTitle("", for: .normal)
         }
         
+        let defaults = UserDefaults.standard
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        recolector = Recolector(dictionary: recolectorInMemory)
+        
     }
     
     
@@ -178,7 +182,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "recolector.suma_reseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
+            "clienteSumaReseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
             "estado": "Completada"
         ]){ err in
             if let err = err {
@@ -297,7 +301,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "recolector.cantidad_reseñas": FieldValue.increment(Int64(1))
+            "clienteCantidadReseñas": FieldValue.increment(Int64(1))
             
         ]){ err in
             if let err = err {
@@ -359,14 +363,27 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         // Guardar ID de la recoleccion en cuestion
         let  recoleccionDocumentID = recoleccion?.documentID
         
+        let data = UserDefaults.standard
+        let recolectorID = data.string(forKey: "documentID")
+        
+       // recolectorData.set(docId, forKey: "documentID")
+        
+        print(recoleccionDocumentID!)
+        
         // Atributos
         let apellidos = recolector?.apellidos
         let cantidad_reseñas = recolector?.cantidad_reseñas
         let fotoUrl = recolector?.fotoUrl
-        let recolectorID = recolector?.documentID
+        //let recolectorID = recolector?.documentID
         let nombre = recolector?.nombre
         let suma_reseñas = recolector?.suma_reseñas
         let telefono = recolector?.telefono
+        
+        print("Recolector apellidos")
+        print(apellidos!)
+        
+        print("Recolector ID")
+        print(recolectorID!)
         
      
         // Hacer el write en Firebase

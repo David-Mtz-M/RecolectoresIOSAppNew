@@ -69,10 +69,7 @@ class OpcionesViewController: UIViewController {
         
         welcomeLabel.text = "Bienvenido" + " " + nombre
         
-        let imgUrl = URL(string: fotoUrl)
 
-        // Set a placeholder image
-        let placeholderImage = UIImage(named: "placeholder") ?? UIImage()
 
 
 
