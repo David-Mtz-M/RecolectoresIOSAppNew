@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsr-Sf-4Ag">
-                                        <rect key="frame" x="108.33333333333333" y="60.000000000000007" width="58.333333333333329" height="20.333333333333336"/>
+                                        <rect key="frame" x="100" y="60.000000000000007" width="75" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDr-7v-ju6">
-                                        <rect key="frame" x="93.666666666666657" y="174.33333333333331" width="87.666666666666657" height="20.333333333333343"/>
+                                        <rect key="frame" x="80" y="174.33333333333331" width="115" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -68,8 +68,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0nr-xU-NP0" firstAttribute="width" secondItem="xbZ-dg-bE8" secondAttribute="width" id="1RA-Hr-FCy"/>
-                                    <constraint firstItem="uDr-7v-ju6" firstAttribute="leading" secondItem="xbZ-dg-bE8" secondAttribute="leading" constant="93.670000000000002" id="3fh-Uf-tMe"/>
-                                    <constraint firstItem="rsr-Sf-4Ag" firstAttribute="leading" secondItem="xbZ-dg-bE8" secondAttribute="leading" constant="108.33333333333336" id="ESJ-pW-n6A"/>
+                                    <constraint firstItem="uDr-7v-ju6" firstAttribute="leading" secondItem="xbZ-dg-bE8" secondAttribute="leading" constant="80" id="3fh-Uf-tMe"/>
+                                    <constraint firstItem="rsr-Sf-4Ag" firstAttribute="leading" secondItem="xbZ-dg-bE8" secondAttribute="leading" constant="100" id="ESJ-pW-n6A"/>
                                     <constraint firstItem="URz-Pf-MVC" firstAttribute="width" secondItem="xbZ-dg-bE8" secondAttribute="width" id="hya-dZ-jpE"/>
                                 </constraints>
                             </stackView>

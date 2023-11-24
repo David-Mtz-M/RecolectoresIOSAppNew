@@ -31,6 +31,9 @@ class OpcionesViewController: UIViewController {
         super.viewDidLoad()
         configureItems()
         
+        //Oculta el backButton de IOS para salir del logout
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.navigationItem.leftBarButtonItem = nil
         
         
         let recolectorData = UserDefaults.standard
@@ -166,10 +169,8 @@ class OpcionesViewController: UIViewController {
         let resizedImage = image.resizedTo(width: 30, height: 30)
 
         let profileImg = resizedImage.withRenderingMode(.alwaysOriginal)
-        let returnImg = UIImage(named: "returnIcon")?.withRenderingMode(.alwaysOriginal)
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: #selector(moveToProfile))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: returnImg, style: .done, target: self, action: #selector(moveBackToOptions))
     }
 
 
