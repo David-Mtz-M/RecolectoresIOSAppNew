@@ -58,6 +58,8 @@
 		83E8DAAA2AF1B3AF00106AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */; };
 		83E8DAAD2AF1B3AF00106AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */; };
 		83E8E9E22B0D6CCE0005881C /* MapRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8E9E12B0D6CCE0005881C /* MapRouteViewController.swift */; };
+		83F095082B113BFA0035278B /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F095072B113BFA0035278B /* LogOutViewController.swift */; };
+		83F0950A2B116A910035278B /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F095092B116A910035278B /* HistorialViewController.swift */; };
 		83F710222B1021B8005B0020 /* MoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F710212B1021B8005B0020 /* MoreDetailsViewController.swift */; };
 		83F710242B102471005B0020 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F710232B102471005B0020 /* DetailsViewController.swift */; };
 		83F710272B102536005B0020 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F710262B102536005B0020 /* CustomCell.swift */; };
@@ -117,6 +119,8 @@
 		83E8DAAC2AF1B3AF00106AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83E8DAAE2AF1B3AF00106AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83E8E9E12B0D6CCE0005881C /* MapRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouteViewController.swift; sourceTree = "<group>"; };
+		83F095072B113BFA0035278B /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		83F095092B116A910035278B /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 		83F710212B1021B8005B0020 /* MoreDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetailsViewController.swift; sourceTree = "<group>"; };
 		83F710232B102471005B0020 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		83F710262B102536005B0020 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				83E8DAA22AF1B3AE00106AA6 /* SceneDelegate.swift */,
 				83E8DAA42AF1B3AE00106AA6 /* ViewController.swift */,
 				83E8DAA62AF1B3AE00106AA6 /* Main.storyboard */,
+				83F095072B113BFA0035278B /* LogOutViewController.swift */,
 				83E8DAAB2AF1B3AF00106AA6 /* LaunchScreen.storyboard */,
 				83E8DAA92AF1B3AF00106AA6 /* Assets.xcassets */,
 				83E8DAAE2AF1B3AF00106AA6 /* Info.plist */,
@@ -274,6 +279,7 @@
 				83B925772AFC06A2008E3D44 /* GoogleService-Info.plist */,
 				83F710232B102471005B0020 /* DetailsViewController.swift */,
 				83F710212B1021B8005B0020 /* MoreDetailsViewController.swift */,
+				83F095092B116A910035278B /* HistorialViewController.swift */,
 				83F7102C2B103614005B0020 /* Sounds */,
 			);
 			path = RecolectoresIOSApp;
@@ -468,12 +474,14 @@
 				83E8DAA12AF1B3AE00106AA6 /* AppDelegate.swift in Sources */,
 				83F710242B102471005B0020 /* DetailsViewController.swift in Sources */,
 				835FAEBA2AFC6E0700D68AB6 /* RecolectorDecodable.swift in Sources */,
+				83F095082B113BFA0035278B /* LogOutViewController.swift in Sources */,
 				839C35462AFB064A0073FFEC /* ProfileViewController.swift in Sources */,
 				835A4D772B0420EC00C94BD1 /* MaterialTableViewCell.swift in Sources */,
 				83C2DBFE2AF300EE00E86BBA /* OpcionesViewController.swift in Sources */,
 				83E8DAA32AF1B3AE00106AA6 /* SceneDelegate.swift in Sources */,
 				83AD9FA92B02E8330099F6F4 /* ThatCollectionViewController.swift in Sources */,
 				83E764AC2AFDA5E50055CAAF /* DemoTableViewCell.swift in Sources */,
+				83F0950A2B116A910035278B /* HistorialViewController.swift in Sources */,
 				835FAEBC2AFC7E6E00D68AB6 /* RecolectoresDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,14 +22,15 @@ class Recoleccion {
     var fechaRecoleccion: String
     var horaRecoleccionInicio: String
     var horaRecoleccionFinal: String
+    var recolector: [String: [String: Any]] = [:]
 
 
     var dictionary: [String: Any] {
-        return ["horaRecoleccionFinal": horaRecoleccionFinal, "horaRecoleccionInicio": horaRecoleccionInicio, "fechaRecoleccion": fechaRecoleccion, "estado": estado, "materiales": materiales,"comentarios": comentarios, "latitud": latitud, "longitud": longitud, "userInfo": userInfo, "userCoords": userCoords]
+        return ["recolector": recolector, "horaRecoleccionFinal": horaRecoleccionFinal, "horaRecoleccionInicio": horaRecoleccionInicio, "fechaRecoleccion": fechaRecoleccion, "estado": estado, "materiales": materiales,"comentarios": comentarios, "latitud": latitud, "longitud": longitud, "userInfo": userInfo, "userCoords": userCoords]
     }
 
     convenience init() {
-        self.init(documentID: nil, latitud: "", longitud: "", userInfo: [:], userCoords: CLLocation(latitude: 0.0, longitude: 0.0),  comentarios: "", materiales: [:], estado: "", fechaRecoleccion: "", horaRecoleccionInicio: "", horaRecoleccionFinal: "")
+        self.init(documentID: nil, latitud: "", longitud: "", userInfo: [:], userCoords: CLLocation(latitude: 0.0, longitude: 0.0),  comentarios: "", materiales: [:], estado: "", fechaRecoleccion: "", horaRecoleccionInicio: "", horaRecoleccionFinal: "", recolector: [:])
     }
 
     convenience init(dictionary: [String: Any]) {
@@ -44,12 +45,14 @@ class Recoleccion {
         let fechaRecoleccion = dictionary["fechaRecoleccion"] as? String ?? ""
         let horaRecoleccionInicio = dictionary["horaRecoleccionInicio"] as? String ?? ""
         let horaRecoleccionFinal = dictionary["horaRecoleccionFinal"] as? String ?? ""
+        let recolector = dictionary["recolector"] as? [String: [String: Any]] ?? [:]
 
-        self.init(documentID: documentID, latitud: latitud, longitud: longitud, userInfo: userInfo, userCoords: userCoords, comentarios: comentarios, materiales: materiales, estado: estado, fechaRecoleccion: fechaRecoleccion, horaRecoleccionInicio: horaRecoleccionInicio, horaRecoleccionFinal: horaRecoleccionFinal)
+        self.init(documentID: documentID, latitud: latitud, longitud: longitud, userInfo: userInfo, userCoords: userCoords, comentarios: comentarios, materiales: materiales, estado: estado, fechaRecoleccion: fechaRecoleccion, horaRecoleccionInicio: horaRecoleccionInicio, horaRecoleccionFinal: horaRecoleccionFinal, recolector: recolector)
     }
 
 
-    init(documentID: String?, latitud: String, longitud: String, userInfo: [String: Any], userCoords: CLLocation, comentarios: String, materiales: [String: [String: Any]] = [:], estado: String, fechaRecoleccion: String, horaRecoleccionInicio: String, horaRecoleccionFinal: String  ) {
+    init(documentID: String?, latitud: String, longitud: String, userInfo: [String: Any], userCoords: CLLocation, comentarios: String, materiales: [String: [String: Any]] = [:], estado: String, fechaRecoleccion: String, horaRecoleccionInicio: String, horaRecoleccionFinal: String,
+         recolector: [String: [String: Any]] = [:]) {
         self.latitud = latitud
         self.longitud = longitud
         self.userInfo = userInfo
@@ -61,6 +64,7 @@ class Recoleccion {
         self.fechaRecoleccion = fechaRecoleccion
         self.horaRecoleccionInicio = horaRecoleccionInicio
         self.horaRecoleccionFinal = horaRecoleccionFinal
+        self.recolector = recolector
     }
 
 

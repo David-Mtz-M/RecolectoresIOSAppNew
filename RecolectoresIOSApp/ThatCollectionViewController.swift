@@ -169,8 +169,36 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
         recolector = Recolector(dictionary: recolectorInMemory)
         
+        ocultarBotones()
+        
     }
     
+    private func ocultarBotones() {
+        // Get the view controllers on the navigation stack
+        if let viewControllers = self.navigationController?.viewControllers,
+           let lastIndex = viewControllers.lastIndex(of: self),
+           lastIndex > 0 {
+            // Get the view controller before the current one
+            let previousViewController = viewControllers[lastIndex - 1]
+
+            // Assuming "HistorialViewController" is the identifier of the view controller in "HistorialSB" storyboard
+            if previousViewController.restorationIdentifier == "HistorialSB" {
+                // Your code for the specific view controller
+                aceptarEncargoBtn.isHidden = true
+                rechazarEncargoBtn.isHidden = true
+                print("In the HistorialSB storyboard")
+            } else {
+                aceptarEncargoBtn.isHidden = false
+                rechazarEncargoBtn.isHidden = false
+                // Your code for other view controllers or no storyboard
+                print("Not in the HistorialSB storyboard")
+            }
+            
+        }
+    }
+
+
+
     
     
     @IBAction func starButtonPressed(_ sender: UIButton) {
@@ -182,8 +210,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "clienteSumaReseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
-            "estado": "Completada"
+            "clienteSumaReseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0))
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -193,7 +220,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
        
             }
         }
-        self.navigationController?.popViewController(animated: true)
+        // self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -301,8 +328,8 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "clienteCantidadReseñas": FieldValue.increment(Int64(1))
-            
+            "clienteCantidadReseñas": FieldValue.increment(Int64(1)),
+            "estado": "Completada"
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -312,6 +339,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
        
             }
         }
+        animateOut(desiredView: finalizarEncargoPopup)
     }
     
     @IBAction func finalizarEncargoActionFalse(_ sender: Any) {
@@ -390,11 +418,9 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
 
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
             "recolector.apellidos": apellidos!,
-            "recolector.cantidad_reseñas": cantidad_reseñas!  ,
             "recolector.fotoUrl":  fotoUrl! ,
             "recolector.id": recolectorID!  ,
             "recolector.nombre":  nombre! ,
-            "recolector.suma_reseñas":  suma_reseñas! ,
             "recolector.telefono": telefono! ,
             "estado": "En Proceso"
         ]){ err in
