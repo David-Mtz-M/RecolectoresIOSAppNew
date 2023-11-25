@@ -400,11 +400,11 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         // Atributos
         let apellidos = recolector?.apellidos
-        let cantidad_reseñas = recolector?.cantidad_reseñas
+
         let fotoUrl = recolector?.fotoUrl
         //let recolectorID = recolector?.documentID
         let nombre = recolector?.nombre
-        let suma_reseñas = recolector?.suma_reseñas
+
         let telefono = recolector?.telefono
         
         print("Recolector apellidos")

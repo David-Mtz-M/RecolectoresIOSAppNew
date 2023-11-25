@@ -166,12 +166,3 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
 
 
-extension UIImage {
-    func resizedTo(width: CGFloat, height: CGFloat) -> UIImage {
-        let newSize = CGSize(width: width, height: height)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
-        defer { UIGraphicsEndImageContext() }
-        self.draw(in: CGRect(origin: .zero, size: newSize))
-        return UIGraphicsGetImageFromCurrentImageContext() ?? self
-    }
-}

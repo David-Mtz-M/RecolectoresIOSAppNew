@@ -201,14 +201,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
        
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !(annotation is MKUserLocation) else {
-            return nil
-        }
-        var annotationView: MKAnnotationView?
-        
-        return annotationView
-    }
+
     
     private func configureItems() {
         let defaults = UserDefaults.standard
