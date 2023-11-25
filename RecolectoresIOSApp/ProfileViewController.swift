@@ -82,14 +82,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func cerrarSesionTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "LogOutStoryBoard", sender: self)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LogOutStoryBoard"{
-            
-        }
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
