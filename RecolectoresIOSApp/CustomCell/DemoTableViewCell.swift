@@ -18,8 +18,10 @@ class DemoTableViewCell: UITableViewCell {
     @IBOutlet weak var horaRecoleccion: UILabel!
     
     
+    @IBOutlet weak var calificacionCliente: UIImageView!
     
-
+    @IBOutlet weak var calificacionClienteLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,6 +36,8 @@ class DemoTableViewCell: UITableViewCell {
         distanciaEnMinutos.font = UIFont.boldSystemFont(ofSize: distanciaEnMinutos.font.pointSize)
         
         direccion.textColor = .white
+        
+        calificacionClienteLabel.textColor = .white
         
         horaRecoleccion.textColor = .white
         horaRecoleccion.font = UIFont.boldSystemFont(ofSize: distanciaEnMinutos.font.pointSize)

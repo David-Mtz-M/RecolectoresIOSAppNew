@@ -74,10 +74,10 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
    
+    // lata chilera
     
     
-    
-    let detalles = ["Aceite de Auto", "Aceite Usado", "Árbol", "Baterías", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Madera", "Medicinas", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetra Pack", "Toner", "Voluminoso"]
+    let detalles = ["Aceite Auto", "Aceite Usado", "Árbol", "Baterias", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Lata", "Lata Chilera", "Madera", "Medicina", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetrapack", "Toner", "Voluminoso"]
     
     
     @IBOutlet weak var materialsTableView: UITableView!

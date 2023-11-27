@@ -297,6 +297,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
             cell.distanciaEnMinutos?.text = "N/A"
         }
         
+        
         showPins()
         //printRecolecciones()
         //printSortedRecolecciones()
@@ -333,7 +334,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        120
     }
     
     

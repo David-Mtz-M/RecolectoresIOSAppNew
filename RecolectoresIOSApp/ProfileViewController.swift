@@ -33,8 +33,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageView.layer.masksToBounds = true
         //profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         //Botón de cambio de perfil redonda
+        //changeImageButton.layer.cornerRadius = changeImageButton.frame.size.height / 2
         //changeImageButton.layer.cornerRadius = changeImageButton.frame.size.width / 2
-        changeImageButton.clipsToBounds = true
+        //changeImageButton.clipsToBounds = true
         
         changeImageButton.setTitle("", for: .normal)
         
