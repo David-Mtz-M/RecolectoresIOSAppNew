@@ -62,6 +62,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var verifyLogIn: UILabel!
     
     
     
@@ -81,13 +82,17 @@ class ViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor.red.cgColor
         
     }
+    
+    private func updateLogInWarning(message: String?){
+        verifyLogIn.text = message
+    }
 
 
     @IBAction func logInButton(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             // Handle invalid input (e.g., show an error message)
             // save data to UserDefaults
-
+            updateLogInWarning(message: "Ingresa tu usuario y contraseña")
             return
         }
         
@@ -100,6 +105,7 @@ class ViewController: UIViewController {
             if let error = error {
                 // Handle authentication error (e.g., show an error message)
                 print("Authentication error: \(error)")
+                self?.updateLogInWarning(message: "Usuario o contraseña incorrectos")
             } else if let recolector = recolector {
                 // Authentication successful, retrieve Recolector data
                 print("Recolector data: \(recolector)")
@@ -156,6 +162,8 @@ class ViewController: UIViewController {
             navigationBar.layer.addSublayer(borderLayer)
         }
     }
+    
+    
 
 
 
