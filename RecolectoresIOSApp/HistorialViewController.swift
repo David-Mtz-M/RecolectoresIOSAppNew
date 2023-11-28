@@ -125,7 +125,7 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
         let horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
-        let clienteID = sortedRecoleccionesArray[indexPath.row].idUsuarioCliente
+        //let clienteID = sortedRecoleccionesArray[indexPath.row].idUsuarioCliente
 
         
 

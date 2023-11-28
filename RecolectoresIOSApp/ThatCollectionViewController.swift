@@ -46,6 +46,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBOutlet weak var mapaImg: UIImageView!
+    @IBOutlet weak var favouritesOptionImg: UIImageView!
     
     @IBOutlet var starButtonCollection: [UIButton]!
     
@@ -155,6 +156,10 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         mapaImg.isUserInteractionEnabled = true
         mapaImg.addGestureRecognizer(tapGestureRequests)
         
+        let favouriteGestureRequests = UITapGestureRecognizer(target: self, action: #selector(favouritesOption))
+        favouritesOptionImg.isUserInteractionEnabled = true
+        favouritesOptionImg.addGestureRecognizer(favouriteGestureRequests)
+        
 
         configureButtons()
         
@@ -166,8 +171,13 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         let defaults = UserDefaults.standard
-        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
-        recolector = Recolector(dictionary: recolectorInMemory)
+
+        let recolectorID = defaults.object(forKey: "documentID")
+
+        
+        print("recolectorID")
+        print(recolectorID!)
+        
         
         ocultarBotones()
         
@@ -230,6 +240,74 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         mapRouteVC.recoleccion = recoleccion
         mapRouteVC.distance = distance
         navigationController?.pushViewController(mapRouteVC, animated: true)
+    }
+    
+    private func añadirFavoritos(recolectorID: String, clienteID: String, añadir: Bool){
+        if añadir == true{
+            db.collection("recolectores").document(recolectorID).updateData([
+                "favoritos": FieldValue.arrayUnion([clienteID])
+            ]){ err in
+                if let err = err {
+                  print("Error updating document: \(err)")
+                } else {
+                  print("Se añadió al arreglo de favoritos")
+           
+                }
+            }
+        }else{
+            db.collection("recolectores").document(recolectorID).updateData([
+                "favoritos": FieldValue.arrayRemove([clienteID])
+            ]){ err in
+                if let err = err {
+                  print("Error updating document: \(err)")
+                } else {
+                  print("Se eliminó al arreglo de favoritos")
+           
+                }
+            }
+        }
+    }
+    
+    @objc func favouritesOption(){
+        
+        // Guardar ID del cliente de la recoleccion
+        let recoleccionClienteID = recoleccion?.idUsuarioCliente
+        print("recoleccionClienteID: " + recoleccionClienteID!)
+        // Guardar ID del recolector
+        let defaults = UserDefaults.standard
+        let recolectorID = defaults.object(forKey: "documentID") as? String
+        
+
+        if self.favouritesOptionImg.image == UIImage(named: "no-favoritos"){
+            showToast(message: "Recolección añadida a favoritos", font: .systemFont(ofSize: 13))
+            self.favouritesOptionImg.image = UIImage(named: "si-favoritos")
+            añadirFavoritos(recolectorID: recolectorID!, clienteID: recoleccionClienteID!, añadir: true)
+            
+        }else{
+            showToast(message: "Recolección eliminada de favoritos", font: .systemFont(ofSize: 13))
+            self.favouritesOptionImg.image = UIImage(named: "no-favoritos")
+            añadirFavoritos(recolectorID: recolectorID!, clienteID: recoleccionClienteID!, añadir: false)
+            
+        }
+        
+    }
+    
+    private func showToast(message : String, font: UIFont) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 125, y: self.view.frame.size.height-100, width: 250, height: 40))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(1.0)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        // Use DispatchQueue to delay the removal of the toastLabel
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            toastLabel.removeFromSuperview()
+        }
     }
 
 

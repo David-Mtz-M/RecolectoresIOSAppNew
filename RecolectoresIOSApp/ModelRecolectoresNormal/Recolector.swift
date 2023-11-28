@@ -18,14 +18,15 @@ class Recolector {
     var suma_reseñas: Int
     var documentID: String?
     var reseñaActual: Int
+    var favoritos: Array<String>
     
     
     var dictionary: [String: Any]{
-        return [ "nombre": nombre, "apellidos": apellidos, "telefono": telefono, "usuario": usuario, "fotoUrl": fotoUrl, "cantidad_reseñas": cantidad_reseñas, "suma_reseñas": suma_reseñas, "reseñaActual": reseñaActual]
+        return [ "nombre": nombre, "apellidos": apellidos, "telefono": telefono, "usuario": usuario, "fotoUrl": fotoUrl, "cantidad_reseñas": cantidad_reseñas, "suma_reseñas": suma_reseñas, "reseñaActual": reseñaActual, "favoritos": favoritos]
     }
     
     convenience init() {
-        self.init(apellidos: "", telefono: "", usuario: "", nombre: "", fotoUrl: "", cantidad_reseñas: 0, suma_reseñas: 0, documentID: nil, reseñaActual: 0)
+        self.init(apellidos: "", telefono: "", usuario: "", nombre: "", fotoUrl: "", cantidad_reseñas: 0, suma_reseñas: 0, documentID: nil, reseñaActual: 0, favoritos: [])
     }
 
     
@@ -41,16 +42,17 @@ class Recolector {
         let suma_reseñas = dictionary["suma_reseñas"] as! Int? ?? 0
         let documentID = dictionary["documentID"] as? String
         let reseñaActual = dictionary["reseñaActual"] as! Int? ?? 0
+        let favoritos = dictionary["favoritos"] as? Array<String> ?? []
         
 
 
 
-        self.init(apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre, fotoUrl: fotoUrl, cantidad_reseñas: cantidad_reseñas, suma_reseñas: suma_reseñas, documentID: documentID, reseñaActual: reseñaActual)
+        self.init(apellidos: apellidos, telefono: telefono, usuario: usuario, nombre: nombre, fotoUrl: fotoUrl, cantidad_reseñas: cantidad_reseñas, suma_reseñas: suma_reseñas, documentID: documentID, reseñaActual: reseñaActual, favoritos: favoritos)
 
     }
 
     
-    init( apellidos: String, telefono: String, usuario: String, nombre: String, fotoUrl: String, cantidad_reseñas: Int, suma_reseñas: Int, documentID: String?, reseñaActual: Int) {
+    init( apellidos: String, telefono: String, usuario: String, nombre: String, fotoUrl: String, cantidad_reseñas: Int, suma_reseñas: Int, documentID: String?, reseñaActual: Int, favoritos: Array<String>) {
         self.nombre = nombre
         self.apellidos = apellidos
         self.telefono = telefono
@@ -60,6 +62,7 @@ class Recolector {
         self.suma_reseñas = suma_reseñas
         self.documentID = documentID
         self.reseñaActual = reseñaActual
+        self.favoritos = favoritos
 
     }
     

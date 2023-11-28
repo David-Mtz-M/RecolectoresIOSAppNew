@@ -32,20 +32,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageView.backgroundColor = .clear
         profileImageView.layer.masksToBounds = true
         //profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        
         //Botón de cambio de perfil redonda
         //changeImageButton.layer.cornerRadius = changeImageButton.frame.size.height / 2
         //changeImageButton.layer.cornerRadius = changeImageButton.frame.size.width / 2
-        //changeImageButton.clipsToBounds = true
+        changeImageButton.clipsToBounds = true
         
         changeImageButton.setTitle("", for: .normal)
         
         //Boton de historial personalizado
         let corners: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
-        historialButton.layer.cornerRadius = 20
+        historialButton.layer.cornerRadius = 0
         historialButton.layer.maskedCorners = corners
         //Botón de cerrar sesión personalizdo
         let corners2: CACornerMask = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
-        cerrarSesionButton.layer.cornerRadius = 20
+        cerrarSesionButton.layer.cornerRadius = 0
         cerrarSesionButton.layer.maskedCorners = corners2
         
         let defaults = UserDefaults.standard
