@@ -293,8 +293,6 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         getClienteCalificacion(recolectorID: sortedRecoleccionesArray[indexPath.row].idUsuarioCliente) { clienteCalificacion in
             cell.calificacionClienteLabel.text = clienteCalificacion
             
-            print("cliente calificacion")
-            print(clienteCalificacion)
         }
         
         
@@ -306,6 +304,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    
     private func getClienteCalificacion(recolectorID: String, completion: @escaping (String) -> Void) {
         var clienteCalificacion = "S/C"
         
@@ -318,7 +317,6 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
                     completion(clienteCalificacion)
                 } else {
                     for document in querySnapshot!.documents {
-                        print("FuncionaaaaAAAAA")
                         let clienteCantidadReseñas = document["clienteCantidadReseñas"] as? Double ?? 0.0
                         let clienteSumaReseñas = document["clienteSumaReseñas"] as? Double ?? 0.0
                         if clienteSumaReseñas <= 0.0 || clienteCantidadReseñas <= 0.0 {
@@ -326,10 +324,7 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
                             return
                         }
                         let calificacionCliente = String(format: "%.1f", clienteSumaReseñas / clienteCantidadReseñas)
-                        print("datos cliente")
-                        print(clienteSumaReseñas)
-                        print(calificacionCliente)
-                        print("\(calificacionCliente)")
+                        //print("\(calificacionCliente)")
                         clienteCalificacion = calificacionCliente
                     }
                     completion(clienteCalificacion)

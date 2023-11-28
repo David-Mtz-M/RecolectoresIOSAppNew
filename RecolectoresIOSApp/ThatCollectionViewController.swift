@@ -178,8 +178,25 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         print("recolectorID")
         print(recolectorID!)
         
-        
+        checkIfFavourite()
         ocultarBotones()
+        
+    }
+    
+    private func checkIfFavourite(){
+        // Extract recolector data and send it to ThatCollectionViewController
+        let defaults = UserDefaults.standard
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        let recolector = Recolector(dictionary: recolectorInMemory)
+        
+        let recoleccionClienteID = recoleccion?.idUsuarioCliente
+        
+
+        if recolector.favoritos.contains(recoleccionClienteID!){
+            favouritesOptionImg.image = UIImage(named: "si-favoritos")
+        }else{
+            favouritesOptionImg.image = UIImage(named: "no-favoritos")
+        }
         
     }
     
@@ -196,12 +213,12 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
                 // Your code for the specific view controller
                 aceptarEncargoBtn.isHidden = true
                 rechazarEncargoBtn.isHidden = true
-                print("In the HistorialSB storyboard")
+                //print("In the HistorialSB storyboard")
             } else {
                 aceptarEncargoBtn.isHidden = false
                 rechazarEncargoBtn.isHidden = false
                 // Your code for other view controllers or no storyboard
-                print("Not in the HistorialSB storyboard")
+                //print("Not in the HistorialSB storyboard")
             }
             
         }
@@ -272,23 +289,31 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
         // Guardar ID del cliente de la recoleccion
         let recoleccionClienteID = recoleccion?.idUsuarioCliente
-        print("recoleccionClienteID: " + recoleccionClienteID!)
+        //print("recoleccionClienteID: " + recoleccionClienteID!)
         // Guardar ID del recolector
         let defaults = UserDefaults.standard
         let recolectorID = defaults.object(forKey: "documentID") as? String
+        
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        let recolector = Recolector(dictionary: recolectorInMemory)
+        
+        
         
 
         if self.favouritesOptionImg.image == UIImage(named: "no-favoritos"){
             showToast(message: "Recolección añadida a favoritos", font: .systemFont(ofSize: 13))
             self.favouritesOptionImg.image = UIImage(named: "si-favoritos")
             añadirFavoritos(recolectorID: recolectorID!, clienteID: recoleccionClienteID!, añadir: true)
+            recolector.favoritos.append(recoleccionClienteID!)
             
         }else{
             showToast(message: "Recolección eliminada de favoritos", font: .systemFont(ofSize: 13))
             self.favouritesOptionImg.image = UIImage(named: "no-favoritos")
             añadirFavoritos(recolectorID: recolectorID!, clienteID: recoleccionClienteID!, añadir: false)
+            recolector.favoritos.removeAll { $0 == recoleccionClienteID }
             
         }
+        defaults.set(recolector.dictionary, forKey: "SavedDict")
         
     }
     
@@ -489,8 +514,6 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         
        // recolectorData.set(docId, forKey: "documentID")
         
-        print(recoleccionDocumentID!)
-        
         // Atributos
         let apellidos = recolector?.apellidos
 
@@ -499,12 +522,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let nombre = recolector?.nombre
 
         let telefono = recolector?.telefono
-        
-        print("Recolector apellidos")
-        print(apellidos!)
-        
-        print("Recolector ID")
-        print(recolectorID!)
+
         
      
         // Hacer el write en Firebase

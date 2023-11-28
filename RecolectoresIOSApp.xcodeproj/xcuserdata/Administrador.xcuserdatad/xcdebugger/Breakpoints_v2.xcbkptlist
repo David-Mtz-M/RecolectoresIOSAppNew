@@ -3,4 +3,54 @@
    uuid = "CD173315-5E0C-45B6-AE3C-41184EDC5FC3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0224D0AF-3AED-449A-8CBA-2A90F298CAF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecolectoresIOSApp/ThatCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "checkIfFavourite()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0224D0AF-3AED-449A-8CBA-2A90F298CAF1 - a64eb99a67afe8b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecolectoresIOSApp.ThatCollectionViewController.ocultarBotones() -&gt; ()"
+                  moduleName = "RecolectoresIOSApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Administrador/Documents/RecolectoresApp/RecolectoresIOSApp/RecolectoresIOSApp/ThatCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1310">
+               </Location>
+               <Location
+                  uuid = "0224D0AF-3AED-449A-8CBA-2A90F298CAF1 - fc0b15a0c49a1c47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecolectoresIOSApp.ThatCollectionViewController.checkIfFavourite() -&gt; ()"
+                  moduleName = "RecolectoresIOSApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Administrador/Documents/RecolectoresApp/RecolectoresIOSApp/RecolectoresIOSApp/ThatCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "1410">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

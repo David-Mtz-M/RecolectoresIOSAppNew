@@ -118,24 +118,30 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
 
         
-        let recoleccionesActivas = sortedArray()
+        let sortedRecoleccionesArray = sortedArray()
         
         let iphoneLocationCoords = locationManager.location
         
-        let horaInicio = recoleccionesActivas[indexPath.row].horaRecoleccionInicio
-        let horaFinal = recoleccionesActivas[indexPath.row].horaRecoleccionFinal
+        let horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
+        let horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
         
         cell.backgroundColor = UIColor.clear
-        cell.nombreCliente?.text = recoleccionesActivas[indexPath.row].userInfo["nombreCompleto"] as? String
-        cell.direccion?.text = recoleccionesActivas[indexPath.row].userInfo["direccion"] as? String
+        cell.nombreCliente?.text = sortedRecoleccionesArray[indexPath.row].userInfo["nombreCompleto"] as? String
+        cell.direccion?.text = sortedRecoleccionesArray[indexPath.row].userInfo["direccion"] as? String
         cell.fotoRecoleccion?.image = UIImage(named: "icono-basura")
         cell.horaRecoleccion?.text = "Horario: " + horaInicio + " " + "-" + " " + horaFinal
         
         if let iphoneCoords = iphoneLocationCoords {
-            let distance = recoleccionesActivas[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
+            let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
             cell.distanciaEnMinutos?.text = String(format: "%.2f metros", distance)
         } else {
             cell.distanciaEnMinutos?.text = "N/A"
+        }
+        
+        getClienteCalificacion(recolectorID: sortedRecoleccionesArray[indexPath.row].idUsuarioCliente) { clienteCalificacion in
+            cell.calificacionClienteLabel.text = clienteCalificacion
+            
+
         }
         
         //printData()
@@ -143,6 +149,37 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         printRecoleccionClienteID()
         
         return cell
+    }
+    
+    private func getClienteCalificacion(recolectorID: String, completion: @escaping (String) -> Void) {
+        var clienteCalificacion = "S/C"
+        
+        let db = Firestore.firestore()
+
+        db.collection("usuarios").whereField("clienteID", isEqualTo: recolectorID)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    completion(clienteCalificacion)
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("FuncionaaaaAAAAA")
+                        let clienteCantidadReseñas = document["clienteCantidadReseñas"] as? Double ?? 0.0
+                        let clienteSumaReseñas = document["clienteSumaReseñas"] as? Double ?? 0.0
+                        if clienteSumaReseñas <= 0.0 || clienteCantidadReseñas <= 0.0 {
+                            completion("S/C")
+                            return
+                        }
+                        let calificacionCliente = String(format: "%.1f", clienteSumaReseñas / clienteCantidadReseñas)
+                        print("datos cliente")
+                        print(clienteSumaReseñas)
+                        print(calificacionCliente)
+                        print("\(calificacionCliente)")
+                        clienteCalificacion = calificacionCliente
+                    }
+                    completion(clienteCalificacion)
+                }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
