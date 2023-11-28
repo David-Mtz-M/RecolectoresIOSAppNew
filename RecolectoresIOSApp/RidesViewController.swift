@@ -72,6 +72,19 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    private func printRecoleccionClienteID() {
+        print("Recoleccion Cliente ID")
+        
+        // Iterate through each 'recoleccion' in the 'recoleccionesArray'
+        for recoleccion in recolecciones.recoleccionesArray {
+            let recoleccionClienteID = recoleccion.idUsuarioCliente
+            
+            // Directly print the client ID without checking for nil
+            print("Cliente ID: \(recoleccionClienteID)")
+        }
+    }
+
+    
     
     private func sortedArray() -> [Recoleccion] {
         var sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
@@ -120,19 +133,20 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if let iphoneCoords = iphoneLocationCoords {
             let distance = recoleccionesActivas[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
-            cell.distanciaEnMinutos?.text = String(format: "%.2f meters", distance)
+            cell.distanciaEnMinutos?.text = String(format: "%.2f metros", distance)
         } else {
             cell.distanciaEnMinutos?.text = "N/A"
         }
         
-        printData()
+        //printData()
         updateCounter()
+        printRecoleccionClienteID()
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        120
     }
     
     

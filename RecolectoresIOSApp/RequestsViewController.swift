@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FirebaseAuth
+import FirebaseFirestore
 
 // guard let userID = Auth.auth().currentUser?.uid else { return }
 
@@ -54,8 +55,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.map.delegate = self
         map.showsUserLocation = true
         
-        addCustomPin()
-        
+
         //collectors = Recolectores()
         
         recolecciones = Recolecciones()
@@ -192,14 +192,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         print(iphoneCoords)
     }
     
-    private func addCustomPin(){
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinate.coordinate
-        pin.title = "Pokemon here"
-        pin.subtitle = "Go and catch them all"
-        map.addAnnotation(pin)
-       
-    }
+
     
 
     
@@ -292,9 +285,16 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
 
         if let iphoneCoords = iphoneLocationCoords {
             let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
-            cell.distanciaEnMinutos?.text = String(format: "%.2f meters", distance)
+            cell.distanciaEnMinutos?.text = String(format: "%.2f metros", distance)
         } else {
             cell.distanciaEnMinutos?.text = "N/A"
+        }
+        
+        getClienteCalificacion(recolectorID: sortedRecoleccionesArray[indexPath.row].idUsuarioCliente) { clienteCalificacion in
+            cell.calificacionClienteLabel.text = clienteCalificacion
+            
+            print("cliente calificacion")
+            print(clienteCalificacion)
         }
         
         
@@ -305,6 +305,36 @@ extension RequestsViewController: UITableViewDelegate, UITableViewDataSource{
         //printRecolectores()
         
         return cell
+    }
+    private func getClienteCalificacion(recolectorID: String, completion: @escaping (String) -> Void) {
+        var clienteCalificacion = "S/C"
+        
+        let db = Firestore.firestore()
+
+        db.collection("usuarios").whereField("clienteID", isEqualTo: recolectorID)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    completion(clienteCalificacion)
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("FuncionaaaaAAAAA")
+                        let clienteCantidadReseñas = document["clienteCantidadReseñas"] as? Double ?? 0.0
+                        let clienteSumaReseñas = document["clienteSumaReseñas"] as? Double ?? 0.0
+                        if clienteSumaReseñas <= 0.0 || clienteCantidadReseñas <= 0.0 {
+                            completion("S/C")
+                            return
+                        }
+                        let calificacionCliente = String(format: "%.1f", clienteSumaReseñas / clienteCantidadReseñas)
+                        print("datos cliente")
+                        print(clienteSumaReseñas)
+                        print(calificacionCliente)
+                        print("\(calificacionCliente)")
+                        clienteCalificacion = calificacionCliente
+                    }
+                    completion(clienteCalificacion)
+                }
+        }
     }
     
     

@@ -74,7 +74,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
    
-    // lata chilera
+    // añadir imagen de lata chilera en futura version
     
     
     let detalles = ["Aceite Auto", "Aceite Usado", "Árbol", "Baterias", "Bicicletas", "Botellas", "Cartón", "Electrónicos", "Escombros", "Industriales", "Juguetes", "Libros", "Llantas", "Lata", "Lata Chilera", "Madera", "Medicina", "Metal", "Orgánico", "Pallets", "Papel", "Pilas", "Plásticos", "Ropa", "Tapitas", "Tetrapack", "Toner", "Voluminoso"]
@@ -97,7 +97,7 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         phoneNumberLabel.text = recoleccion?.userInfo["telefono"] as? String
         commentsLabel.text = recoleccion?.comentarios
         
-        let stringDistance = String(format: "%.2f meters", distance!)
+        let stringDistance = String(format: "%.2f metros", distance!)
         distanceLabel.text = stringDistance
 
         nameBackgroundLabel.layer.cornerRadius = 10
@@ -207,10 +207,11 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         print("Reseña actual: \(recolector?.reseñaActual ?? 0)")
         
         // Guardar ID de la recoleccion en cuestion
-        let  recoleccionDocumentID = recoleccion?.documentID
+        let recoleccionClienteID = recoleccion?.idUsuarioCliente
         
-        db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "clienteSumaReseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0))
+        db.collection("usuarios").document(recoleccionClienteID!).updateData([
+            "clienteSumaReseñas": FieldValue.increment(Int64(recolector?.reseñaActual ?? 0)),
+            "clienteID": recoleccionClienteID!
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")
@@ -324,12 +325,26 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         animateIn(desiredView: ratingPopup)
         animateOut(desiredView: finalizarEncargoPopup)
         
+        // Guardar ID del cliente de la recoleccion en cuestion
+        let recoleccionClienteID = recoleccion?.idUsuarioCliente
         // Guardar ID de la recoleccion en cuestion
         let  recoleccionDocumentID = recoleccion?.documentID
         
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "clienteCantidadReseñas": FieldValue.increment(Int64(1)),
             "estado": "Completada"
+        ]){ err in
+            if let err = err {
+              print("Error updating document: \(err)")
+            } else {
+              print("Se actualizó el estado de la recoleccion")
+            print(self.recolector?.reseñaActual ?? 0)
+       
+            }
+        }
+
+        
+        db.collection("usuarios").document(recoleccionClienteID!).updateData([
+            "clienteCantidadReseñas": FieldValue.increment(Int64(1)),
         ]){ err in
             if let err = err {
               print("Error updating document: \(err)")

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import FirebaseFirestore
 import UIKit
 
 
@@ -24,8 +25,12 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let locationManager = CLLocationManager()
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureItems()
         
         let nib = UINib(nibName: "DemoTableViewCell", bundle: nil)
         historialTableView.register(nib, forCellReuseIdentifier: "recoleccionCel")
@@ -35,8 +40,7 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
         
         recolecciones = Recolecciones()
         
-   
-        
+
 
     }
     
@@ -48,6 +52,8 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
             self.historialTableView.reloadData()
         }
     }
+            
+
     
     private func printRecoleccionRecolector(){
         for recolector in recolecciones.recoleccionesArray {
@@ -73,8 +79,8 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
         let recolectorData = UserDefaults.standard
         let recolectorID = recolectorData.string(forKey: "documentID")
         
-        print("ID del recolector")
-        print(recolectorID!)
+        //print("ID del recolector")
+        //print(recolectorID!)
         
         
         for _ in sortedRecoleccionesArray{
@@ -104,6 +110,11 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print("aQUI EMPIEZA")
+        //getClienteCalificacion()
+        
+        
+
         
         let iphoneLocationCoords = locationManager.location
 
@@ -114,6 +125,10 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let horaInicio = sortedRecoleccionesArray[indexPath.row].horaRecoleccionInicio
         let horaFinal = sortedRecoleccionesArray[indexPath.row].horaRecoleccionFinal
+        let clienteID = sortedRecoleccionesArray[indexPath.row].idUsuarioCliente
+
+        
+
         
  
         cell.backgroundColor = UIColor.clear
@@ -124,10 +139,18 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
 
         if let iphoneCoords = iphoneLocationCoords {
             let distance = sortedRecoleccionesArray[indexPath.row].getDistance(iphoneCoords: iphoneCoords)
-            cell.distanciaEnMinutos?.text = String(format: "%.2f meters", distance)
+            cell.distanciaEnMinutos?.text = String(format: "%.2f metros", distance)
         } else {
             cell.distanciaEnMinutos?.text = "N/A"
         }
+        
+        getClienteCalificacion(recolectorID: sortedRecoleccionesArray[indexPath.row].idUsuarioCliente) { clienteCalificacion in
+            cell.calificacionClienteLabel.text = clienteCalificacion
+            
+            print("cliente calificacion")
+            print(clienteCalificacion)
+        }
+
         
         //printRecolecciones()
         //printSortedRecolecciones()
@@ -137,9 +160,45 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
         //printRecoleccionRecolector()
         let count = String(sortedArray().count)
         countHistorial.text = "Has completado " + count + " recolecciones"
+
+        
         
         return cell
     }
+    
+    private func getClienteCalificacion(recolectorID: String, completion: @escaping (String) -> Void) {
+        var clienteCalificacion = "S/C"
+
+        db.collection("usuarios").whereField("clienteID", isEqualTo: recolectorID)
+            .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    completion(clienteCalificacion)
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("FuncionaaaaAAAAA")
+                        let clienteCantidadReseñas = document["clienteCantidadReseñas"] as? Double ?? 0.0
+                        let clienteSumaReseñas = document["clienteSumaReseñas"] as? Double ?? 0.0
+                        if clienteSumaReseñas <= 0.0 || clienteCantidadReseñas <= 0.0 {
+                            completion("S/C")
+                            return
+                        }
+                        let calificacionCliente = String(format: "%.1f", clienteSumaReseñas / clienteCantidadReseñas)
+                        print("datos cliente")
+                        print(clienteSumaReseñas)
+                        print(calificacionCliente)
+                        print("\(calificacionCliente)")
+                        clienteCalificacion = calificacionCliente
+                    }
+                    completion(clienteCalificacion)
+                }
+        }
+    }
+
+
+
+
+
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,6 +227,65 @@ class HistorialViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        120
+    }
+    
+    private func configureItems() {
+        let defaults = UserDefaults.standard
+        let recolectorInMemory = defaults.object(forKey: "SavedDict") as? [String: Any] ?? [String: Any]()
+        let recolector = Recolector(dictionary: recolectorInMemory)
+        let imgUrl = URL(string: recolector.fotoUrl)
+
+        // Set a placeholder image
+        let placeholderImage = UIImage(named: "placeholder") ?? UIImage()
+
+        if let url = imgUrl {
+            // Use the placeholder image initially
+            self.updateNavigationBarItems(with: placeholderImage)
+
+            DispatchQueue.global().async {
+                do {
+                    let imageData = try Data(contentsOf: url, options: .mappedIfSafe)
+                    let bgImage = UIImage(data: imageData)
+
+                    // Update the UI on the main queue
+                    DispatchQueue.main.async {
+                        if let bgImage = bgImage {
+                            // Use bgImage as needed
+                            self.updateNavigationBarItems(with: bgImage)
+                        }
+                    }
+                } catch {
+                    // Handle the error
+                    print("Error downloading image: \(error.localizedDescription)")
+                }
+            }
+        } else {
+            // Handle invalid URL
+            print("Invalid URL")
+        }
+    }
+
+
+    private func updateNavigationBarItems(with image: UIImage) {
+        // Resize the image to 40x40 pixels
+        let resizedImage = image.resizedTo(width: 30, height: 30)
+
+        let profileImg = resizedImage.withRenderingMode(.alwaysOriginal)
+        let returnImg = UIImage(named: "returnIcon")?.withRenderingMode(.alwaysOriginal)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: profileImg, style: .done, target: self, action: #selector(moveToProfile))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: returnImg, style: .done, target: self, action: #selector(moveBackToOptions))
+    }
+
+
+    
+    @objc private func moveBackToOptions() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func moveToProfile() {
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileStoryboard") as! ProfileViewController
+        self.navigationController?.pushViewController(mainViewController, animated: true)
     }
 }
