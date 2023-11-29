@@ -163,7 +163,7 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
                     completion(clienteCalificacion)
                 } else {
                     for document in querySnapshot!.documents {
-                        print("FuncionaaaaAAAAA")
+
                         let clienteCantidadReseñas = document["clienteCantidadReseñas"] as? Double ?? 0.0
                         let clienteSumaReseñas = document["clienteSumaReseñas"] as? Double ?? 0.0
                         if clienteSumaReseñas <= 0.0 || clienteCantidadReseñas <= 0.0 {
@@ -171,9 +171,6 @@ class RidesViewController: UIViewController, UITableViewDataSource, UITableViewD
                             return
                         }
                         let calificacionCliente = String(format: "%.1f", clienteSumaReseñas / clienteCantidadReseñas)
-                        print("datos cliente")
-                        print(clienteSumaReseñas)
-                        print(calificacionCliente)
                         print("\(calificacionCliente)")
                         clienteCalificacion = calificacionCliente
                     }

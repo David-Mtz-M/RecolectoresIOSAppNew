@@ -512,27 +512,33 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         let data = UserDefaults.standard
         let recolectorID = data.string(forKey: "documentID")
         
+        let defaults = UserDefaults.standard
+         
+        let recolectorData = defaults.dictionary(forKey: "SavedDict")
+        
+        let recolector = Recolector(dictionary: recolectorData!)
+        
        // recolectorData.set(docId, forKey: "documentID")
         
         // Atributos
-        let apellidos = recolector?.apellidos
+        let apellidos = recolector.apellidos
 
-        let fotoUrl = recolector?.fotoUrl
+        let fotoUrl = recolector.fotoUrl
         //let recolectorID = recolector?.documentID
-        let nombre = recolector?.nombre
+        let nombre = recolector.nombre
 
-        let telefono = recolector?.telefono
+        let telefono = recolector.telefono
 
         
      
         // Hacer el write en Firebase
 
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "recolector.apellidos": apellidos!,
-            "recolector.fotoUrl":  fotoUrl! ,
+            "recolector.apellidos": apellidos,
+            "recolector.fotoUrl":  fotoUrl ,
             "recolector.id": recolectorID!  ,
-            "recolector.nombre":  nombre! ,
-            "recolector.telefono": telefono! ,
+            "recolector.nombre":  nombre ,
+            "recolector.telefono": telefono ,
             "estado": "En Proceso"
         ]){ err in
             if let err = err {

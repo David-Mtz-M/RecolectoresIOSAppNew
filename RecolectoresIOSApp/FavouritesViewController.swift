@@ -49,7 +49,7 @@ class FavouritesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     private func sortedArray() -> [Recoleccion] {
-        var sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
+        let sortedRecoleccionesArray = recolecciones.recoleccionesArray.sorted(by: { $0.getDistance(iphoneCoords: locationManager.location!) <
             $1.getDistance(iphoneCoords: locationManager.location!)})
         
         // Extract recolector data and send it to ThatCollectionViewController

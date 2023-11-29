@@ -139,7 +139,7 @@ class RequestsViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     
     private func printRecolecciones(){
-        let sortedRecolecciones = sortedArray()
+        //let sortedRecolecciones = sortedArray()
         
         for recoleccion in recolecciones.recoleccionesArray {
             print("Recoleccion normal")
