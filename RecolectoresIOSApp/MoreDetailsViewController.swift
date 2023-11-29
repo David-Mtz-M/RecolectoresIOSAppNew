@@ -22,10 +22,10 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
     
 
     var audioMapping : [String: String] = [
-        "Aceite de Auto": "acieteauto-2",
+        "Aceite Auto": "acieteauto-2",
         "Aceite Usado": "aceiteusado-2",
         "Árbol": "arbol-2",
-        "Baterías": "baterias-2",
+        "Baterias": "baterias-2",
         "Bicicletas": "bici-2",
         "Botellas": "botellas-2",
         "Cartón": "carton-2",
@@ -36,7 +36,7 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         "Libros": "libros-2",
         "Llantas": "llantas-2",
         "Madera": "madera-2",
-        "Medicinas": "medicina-2",
+        "Medicina": "medicina-2",
         "Metal": "metal-2",
         "Orgánico": "organico-2",
         "Pallets": "pallets",
@@ -45,7 +45,7 @@ class MoreDetailsViewController: UIViewController, AVAudioPlayerDelegate {
         "Plásticos": "plasticos-2",
         "Ropa": "audio_material_ropa-2",
         "Tapitas": "tapas-3",
-        "Tetra Pack": "tetrapack",
+        "Tetrapack": "tetrapack",
         "Toner": "toner-2",
         "Voluminoso": "voluminoso-2"]
 
