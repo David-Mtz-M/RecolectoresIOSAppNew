@@ -19,10 +19,10 @@ class LogOutViewController: UIViewController {
     
     // Se realiza un pop-up para avisar del cierre de sesión
     @IBAction func popUpTagged(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "¿Seguro?", message: "Esta acción es irreversible", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "¿Seguro que deseas cerrar sesión?", message: "Esta acción es irreversible", preferredStyle: .alert)
         
         // Botón que hace que el usuario cierre sesión
-        let acceptAction = UIAlertAction(title: "Salir", style: .default) { [weak self] _ in
+        let acceptAction = UIAlertAction(title: "Cerrar sesión", style: .default) { [weak self] _ in
             guard let self = self else { return }
             
             print("Botón Aceptar Presionado")

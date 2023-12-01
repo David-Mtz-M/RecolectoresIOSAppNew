@@ -484,8 +484,32 @@ class ThatCollectionViewController: UIViewController, UITableViewDelegate, UITab
         // Guardar ID de la recoleccion en cuestion
         let  recoleccionDocumentID = recoleccion?.documentID
         
+        let defaults = UserDefaults.standard
+         
+        let recolectorData = defaults.dictionary(forKey: "SavedDict")
+        
+        let recolector = Recolector(dictionary: recolectorData!)
+        
+       // recolectorData.set(docId, forKey: "documentID")
+        
+        // Atributos
+        let apellidos = recolector.apellidos
+
+        let fotoUrl = recolector.fotoUrl
+        //let recolectorID = recolector?.documentID
+        let nombre = recolector.nombre
+
+        let telefono = recolector.telefono
+
+        let recolectorID = defaults.string(forKey: "documentID")
+        
         db.collection("recolecciones").document(recoleccionDocumentID!).updateData([
-            "estado": "Cancelada"
+            "estado": "Iniciada",
+            "recolector.apellidos": "",
+            "recolector.fotoUrl":  "" ,
+            "recolector.id": ""  ,
+            "recolector.nombre":  "" ,
+            "recolector.telefono": ""
             
         ]){ err in
             if let err = err {
