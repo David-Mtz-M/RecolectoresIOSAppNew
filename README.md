@@ -11,3 +11,8 @@ The app facilitates the search, acceptance, and management of recycling collecti
 - **Trip Management**: Accept or reject trips with detailed pickup information.
 - **Profile Management**: Update collector profile information.
 - **Material Guidance**: Educate collectors on the correct recycling processes for various materials.
+
+- ## Photos
+
+- ![login](https://github.com/user-attachments/assets/180e3387-3a8c-4b0f-a2d2-615e20895299)
+
